@@ -1,7 +1,10 @@
-## 1GAMJanuary -  Avoidance Racer
+## 1GAM January -  Haiku Racer
 =========
 
-Our entry for January of the 1 Game a Month "Competition"
+
+A curious game,<br>
+Racing against nobody,<br>
+For meaningless points.<br>
 
 ####Team Members: 
 [Kyle Halladay](http://kylehalladay.com) | [Jóhannes Gunnar Þorsteinsson](http://johannesg.com)
