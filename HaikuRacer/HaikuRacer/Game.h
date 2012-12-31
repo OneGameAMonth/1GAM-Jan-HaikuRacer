@@ -18,7 +18,7 @@ public:
 	void runGame();
     
     private:
-	GameStateManager *mAppStateManager;
+	GameStateManager *gameStateManager;
 };
 
 

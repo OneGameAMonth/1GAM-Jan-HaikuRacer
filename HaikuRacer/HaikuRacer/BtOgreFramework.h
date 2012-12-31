@@ -52,6 +52,13 @@ public:
 	OIS::Keyboard*				m_pKeyboard;
 	OIS::Mouse*                 m_pMouse;
     
+      /* btAxisSweep3                        *mBroadphase;
+	btDefaultCollisionConfiguration     *mCollisionConfig;
+	btCollisionDispatcher               *mDispatcher;
+	btSequentialImpulseConstraintSolver *mSolver;
+    BtOgre::DebugDrawer                 *dbgdraw;*/
+    
+    
     OgreBites::SdkTrayManager*	        m_pTrayMgr;
     
 protected:

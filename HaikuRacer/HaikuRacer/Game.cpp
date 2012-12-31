@@ -9,11 +9,23 @@
 #include "Game.h"
 
 void Game::runGame(){
-
+    new BtOgreFramework();
+	if(!BtOgreFramework::getSingletonPtr()->initOgre("AdvancedOgreFramework", 0, 0))
+		return;
+    
+	BtOgreFramework::getSingletonPtr()->m_pLog->logMessage("Demo initialized!");
+    
+	gameStateManager = new GameStateManager();
+    
+    
+	gameStateManager->start(gameStateManager->findByName("MenuState"));
 }
 
 Game::Game(){
-
+    gameStateManager = 0;
 }
 
-Game::~Game(){}
+Game::~Game(){
+    delete gameStateManager;
+    delete BtOgreFramework::getSingletonPtr();
+}
