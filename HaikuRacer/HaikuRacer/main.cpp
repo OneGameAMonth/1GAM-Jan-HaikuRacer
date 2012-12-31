@@ -6,13 +6,20 @@
 //  Copyright (c) 2012 Team Chilly. All rights reserved.
 //
 
-#include <iostream>
 
-int main(int argc, const char * argv[])
+#include "Game.h"
+
+int main(int argc, char **argv)
 {
-
-    // insert code here...
-    std::cout << "Hello, World!\n";
+	Game app;
+	try
+	{
+		app.runGame();
+	}
+	catch(std::exception& e)
+    {
+        fprintf(stderr, "An exception has occurred: %s\n", e.what());
+    }
+    
     return 0;
 }
-
