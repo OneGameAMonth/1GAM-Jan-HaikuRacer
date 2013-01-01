@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1ACABD5169153D000AB3A92"
-               BuildableName = "HaikuRacer"
+               BlueprintIdentifier = "A1ACAC5A1693621700AB3A92"
+               BuildableName = "HaikuRacer.app"
                BlueprintName = "HaikuRacer"
                ReferencedContainer = "container:HaikuRacer.xcodeproj">
             </BuildableReference>
@@ -32,16 +32,16 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1ACABD5169153D000AB3A92"
-            BuildableName = "HaikuRacer"
+            BlueprintIdentifier = "A1ACAC5A1693621700AB3A92"
+            BuildableName = "HaikuRacer.app"
             BlueprintName = "HaikuRacer"
             ReferencedContainer = "container:HaikuRacer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
    <LaunchAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
@@ -51,8 +51,8 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1ACABD5169153D000AB3A92"
-            BuildableName = "HaikuRacer"
+            BlueprintIdentifier = "A1ACAC5A1693621700AB3A92"
+            BuildableName = "HaikuRacer.app"
             BlueprintName = "HaikuRacer"
             ReferencedContainer = "container:HaikuRacer.xcodeproj">
          </BuildableReference>
@@ -69,8 +69,8 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1ACABD5169153D000AB3A92"
-            BuildableName = "HaikuRacer"
+            BlueprintIdentifier = "A1ACAC5A1693621700AB3A92"
+            BuildableName = "HaikuRacer.app"
             BlueprintName = "HaikuRacer"
             ReferencedContainer = "container:HaikuRacer.xcodeproj">
          </BuildableReference>
