@@ -110,20 +110,20 @@ static id mAppDelegate;
 
 - (void)renderOneFrame:(id)sender
 {
-    if(!OgreFramework::getSingletonPtr()->isOgreToBeShutDown() &&
+    if(!BtOgreFramework::getSingletonPtr()->isOgreToBeShutDown() &&
        Ogre::Root::getSingletonPtr() && Ogre::Root::getSingleton().isInitialised())
     {
-		if(OgreFramework::getSingletonPtr()->m_pRenderWnd->isActive())
+		if(BtOgreFramework::getSingletonPtr()->m_pRenderWnd->isActive())
 		{
-			mStartTime = OgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU();
+			mStartTime = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU();
             
-			OgreFramework::getSingletonPtr()->m_pKeyboard->capture();
-			OgreFramework::getSingletonPtr()->m_pMouse->capture();
+			BtOgreFramework::getSingletonPtr()->m_pKeyboard->capture();
+			BtOgreFramework::getSingletonPtr()->m_pMouse->capture();
             
-			OgreFramework::getSingletonPtr()->updateOgre(mLastFrameTime);
-			OgreFramework::getSingletonPtr()->m_pRoot->renderOneFrame();
+			BtOgreFramework::getSingletonPtr()->updateOgre(mLastFrameTime);
+			BtOgreFramework::getSingletonPtr()->m_pRoot->renderOneFrame();
             
-			mLastFrameTime = OgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU() - mStartTime;
+			mLastFrameTime = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU() - mStartTime;
 		}
     }
     else

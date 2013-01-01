@@ -5,7 +5,8 @@
 
 //|||||||||||||||||||||||||||||||||||||||||||||||
 
-#include "OgreFramework.h"
+#include "BtOgreFramework.h"
+#include "RaceVehicle.h"
 
 //|||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -99,6 +100,9 @@ private:
 	Ogre::Entity*				m_pCubeEntity;
     
 	bool					m_bShutdown;
+    
+    
+    
 #ifdef USE_RTSHADER_SYSTEM
     Ogre::RTShader::ShaderGenerator*			mShaderGenerator;			// The Shader generator instance.
     ShaderGeneratorTechniqueResolverListener*	mMaterialMgrListener;		// Shader generator material manager listener.	
@@ -106,8 +110,6 @@ private:
 
 };
 
-//|||||||||||||||||||||||||||||||||||||||||||||||
 
 #endif 
 
-//|||||||||||||||||||||||||||||||||||||||||||||||

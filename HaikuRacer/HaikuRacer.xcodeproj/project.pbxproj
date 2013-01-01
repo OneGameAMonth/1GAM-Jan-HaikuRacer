@@ -13,12 +13,18 @@
 		A1FB77CC1693697D003F1DB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1FB77CA1693697D003F1DB4 /* InfoPlist.strings */; };
 		A1FB77CF1693697D003F1DB4 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1FB77CE1693697D003F1DB4 /* main.mm */; };
 		A1FB77D31693697D003F1DB4 /* OgreDemoApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB77D21693697D003F1DB4 /* OgreDemoApp.cpp */; };
-		A1FB77D61693697D003F1DB4 /* OgreFramework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB77D51693697D003F1DB4 /* OgreFramework.cpp */; };
+		A1FB77D61693697D003F1DB4 /* BtOgreFramework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB77D51693697D003F1DB4 /* BtOgreFramework.cpp */; };
 		A1FB77EA1693697D003F1DB4 /* ogre.cfg in Resources */ = {isa = PBXBuildFile; fileRef = A1FB77E91693697D003F1DB4 /* ogre.cfg */; };
 		A1FB77EC1693697D003F1DB4 /* plugins.cfg in Resources */ = {isa = PBXBuildFile; fileRef = A1FB77EB1693697D003F1DB4 /* plugins.cfg */; };
 		A1FB77EE1693697D003F1DB4 /* resources.cfg in Resources */ = {isa = PBXBuildFile; fileRef = A1FB77ED1693697D003F1DB4 /* resources.cfg */; };
 		A1FB77F9169369CF003F1DB4 /* Ogre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB77F8169369CF003F1DB4 /* Ogre.framework */; };
 		A1FB77FC169369D2003F1DB4 /* Cg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB77FB169369D2003F1DB4 /* Cg.framework */; };
+		A1FB780B16937866003F1DB4 /* sphere.mesh in Resources */ = {isa = PBXBuildFile; fileRef = A1FB780A16937866003F1DB4 /* sphere.mesh */; };
+		A1FB781216937D73003F1DB4 /* BtOgre.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB781116937D73003F1DB4 /* BtOgre.cpp */; };
+		A1FB781416937F20003F1DB4 /* libBulletCollision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB781316937F20003F1DB4 /* libBulletCollision.a */; };
+		A1FB781616937F28003F1DB4 /* libBulletDynamics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB781516937F28003F1DB4 /* libBulletDynamics.a */; };
+		A1FB781816937F2F003F1DB4 /* libLinearMath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB781716937F2F003F1DB4 /* libLinearMath.a */; };
+		A1FB782716939627003F1DB4 /* RaceVehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB782516939627003F1DB4 /* RaceVehicle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,9 +32,6 @@
 		A1FB77BB1693697D003F1DB4 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		A1FB77BD1693697D003F1DB4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A1FB77BF1693697D003F1DB4 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
-		A1FB77C11693697D003F1DB4 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = Library/Frameworks/Ogre.framework; sourceTree = DEVELOPER_DIR; };
-		A1FB77C31693697D003F1DB4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
-		A1FB77C51693697D003F1DB4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		A1FB77C91693697D003F1DB4 /* HaikuRacer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HaikuRacer-Info.plist"; sourceTree = "<group>"; };
 		A1FB77CB1693697D003F1DB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A1FB77CD1693697D003F1DB4 /* HaikuRacer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HaikuRacer-Prefix.pch"; sourceTree = "<group>"; };
@@ -36,8 +39,8 @@
 		A1FB77D11693697D003F1DB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A1FB77D21693697D003F1DB4 /* OgreDemoApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OgreDemoApp.cpp; sourceTree = "<group>"; };
 		A1FB77D41693697D003F1DB4 /* OgreDemoApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OgreDemoApp.h; sourceTree = "<group>"; };
-		A1FB77D51693697D003F1DB4 /* OgreFramework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OgreFramework.cpp; sourceTree = "<group>"; };
-		A1FB77D71693697D003F1DB4 /* OgreFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OgreFramework.h; sourceTree = "<group>"; };
+		A1FB77D51693697D003F1DB4 /* BtOgreFramework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BtOgreFramework.cpp; sourceTree = "<group>"; };
+		A1FB77D71693697D003F1DB4 /* BtOgreFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BtOgreFramework.h; sourceTree = "<group>"; };
 		A1FB77DC1693697D003F1DB4 /* Examples.material */ = {isa = PBXFileReference; lastKnownFileType = text; path = Examples.material; sourceTree = "<group>"; };
 		A1FB77DD1693697D003F1DB4 /* Ogre.material */ = {isa = PBXFileReference; lastKnownFileType = text; path = Ogre.material; sourceTree = "<group>"; };
 		A1FB77DF1693697D003F1DB4 /* GreenSkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GreenSkin.jpg; sourceTree = "<group>"; };
@@ -53,6 +56,13 @@
 		A1FB77ED1693697D003F1DB4 /* resources.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = resources.cfg; sourceTree = "<group>"; };
 		A1FB77F8169369CF003F1DB4 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ogre.framework; sourceTree = "<group>"; };
 		A1FB77FB169369D2003F1DB4 /* Cg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Cg.framework; sourceTree = "<group>"; };
+		A1FB780A16937866003F1DB4 /* sphere.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = sphere.mesh; sourceTree = "<group>"; };
+		A1FB781116937D73003F1DB4 /* BtOgre.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BtOgre.cpp; sourceTree = "<group>"; };
+		A1FB781316937F20003F1DB4 /* libBulletCollision.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBulletCollision.a; sourceTree = "<group>"; };
+		A1FB781516937F28003F1DB4 /* libBulletDynamics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBulletDynamics.a; sourceTree = "<group>"; };
+		A1FB781716937F2F003F1DB4 /* libLinearMath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLinearMath.a; sourceTree = "<group>"; };
+		A1FB782516939627003F1DB4 /* RaceVehicle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RaceVehicle.cpp; sourceTree = "<group>"; };
+		A1FB782616939627003F1DB4 /* RaceVehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceVehicle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +75,9 @@
 				A1FB77BE1693697D003F1DB4 /* Cocoa.framework in Frameworks */,
 				A1FB77F9169369CF003F1DB4 /* Ogre.framework in Frameworks */,
 				A1FB77C01693697D003F1DB4 /* IOKit.framework in Frameworks */,
+				A1FB781416937F20003F1DB4 /* libBulletCollision.a in Frameworks */,
+				A1FB781616937F28003F1DB4 /* libBulletDynamics.a in Frameworks */,
+				A1FB781816937F2F003F1DB4 /* libLinearMath.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,12 +106,12 @@
 		A1FB77BA1693697D003F1DB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1FB781716937F2F003F1DB4 /* libLinearMath.a */,
+				A1FB781516937F28003F1DB4 /* libBulletDynamics.a */,
+				A1FB781316937F20003F1DB4 /* libBulletCollision.a */,
 				A1FB77BB1693697D003F1DB4 /* Carbon.framework */,
 				A1FB77BD1693697D003F1DB4 /* Cocoa.framework */,
 				A1FB77BF1693697D003F1DB4 /* IOKit.framework */,
-				A1FB77C11693697D003F1DB4 /* Ogre.framework */,
-				A1FB77C31693697D003F1DB4 /* OpenGL.framework */,
-				A1FB77C51693697D003F1DB4 /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -106,7 +119,12 @@
 		A1FB77C71693697D003F1DB4 /* HaikuRacer */ = {
 			isa = PBXGroup;
 			children = (
+				A1FB77D21693697D003F1DB4 /* OgreDemoApp.cpp */,
+				A1FB77D41693697D003F1DB4 /* OgreDemoApp.h */,
+				A1FB77D11693697D003F1DB4 /* AppDelegate.h */,
 				A1FB77CE1693697D003F1DB4 /* main.mm */,
+				A1FB782516939627003F1DB4 /* RaceVehicle.cpp */,
+				A1FB782616939627003F1DB4 /* RaceVehicle.h */,
 				A1FB77D01693697D003F1DB4 /* Basic Ogre Framework */,
 				A1FB77D81693697D003F1DB4 /* Resources */,
 				A1FB77C81693697D003F1DB4 /* Supporting Files */,
@@ -127,11 +145,9 @@
 		A1FB77D01693697D003F1DB4 /* Basic Ogre Framework */ = {
 			isa = PBXGroup;
 			children = (
-				A1FB77D11693697D003F1DB4 /* AppDelegate.h */,
-				A1FB77D21693697D003F1DB4 /* OgreDemoApp.cpp */,
-				A1FB77D41693697D003F1DB4 /* OgreDemoApp.h */,
-				A1FB77D51693697D003F1DB4 /* OgreFramework.cpp */,
-				A1FB77D71693697D003F1DB4 /* OgreFramework.h */,
+				A1FB781116937D73003F1DB4 /* BtOgre.cpp */,
+				A1FB77D51693697D003F1DB4 /* BtOgreFramework.cpp */,
+				A1FB77D71693697D003F1DB4 /* BtOgreFramework.h */,
 			);
 			name = "Basic Ogre Framework";
 			sourceTree = "<group>";
@@ -188,6 +204,7 @@
 		A1FB77E21693697D003F1DB4 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				A1FB780A16937866003F1DB4 /* sphere.mesh */,
 				A1FB77E31693697D003F1DB4 /* ogrehead.mesh */,
 			);
 			path = models;
@@ -259,6 +276,7 @@
 				A1FB77EA1693697D003F1DB4 /* ogre.cfg in Resources */,
 				A1FB77EC1693697D003F1DB4 /* plugins.cfg in Resources */,
 				A1FB77EE1693697D003F1DB4 /* resources.cfg in Resources */,
+				A1FB780B16937866003F1DB4 /* sphere.mesh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +305,9 @@
 			files = (
 				A1FB77CF1693697D003F1DB4 /* main.mm in Sources */,
 				A1FB77D31693697D003F1DB4 /* OgreDemoApp.cpp in Sources */,
-				A1FB77D61693697D003F1DB4 /* OgreFramework.cpp in Sources */,
+				A1FB77D61693697D003F1DB4 /* BtOgreFramework.cpp in Sources */,
+				A1FB781216937D73003F1DB4 /* BtOgre.cpp in Sources */,
+				A1FB782716939627003F1DB4 /* RaceVehicle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +403,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HaikuRacer/HaikuRacer-Prefix.pch";
 				INFOPLIST_FILE = "HaikuRacer/HaikuRacer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -401,6 +425,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HaikuRacer/HaikuRacer-Prefix.pch";
 				INFOPLIST_FILE = "HaikuRacer/HaikuRacer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

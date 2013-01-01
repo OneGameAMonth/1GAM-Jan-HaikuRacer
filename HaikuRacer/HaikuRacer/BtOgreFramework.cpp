@@ -1,14 +1,14 @@
-#include "OgreFramework.h"
+#include "BtOgreFramework.h"
 #include "macUtils.h"
 
 using namespace Ogre; 
 
 namespace Ogre
 {
-    template<> OgreFramework* Ogre::Singleton<OgreFramework>::msSingleton = 0;
+    template<> BtOgreFramework* Ogre::Singleton<BtOgreFramework>::msSingleton = 0;
 };
 
-OgreFramework::OgreFramework()
+BtOgreFramework::BtOgreFramework()
 {
 	m_MoveSpeed			= 0.1f;
 	m_RotateSpeed       = 0.3f;
@@ -41,9 +41,9 @@ OgreFramework::OgreFramework()
 
 //|||||||||||||||||||||||||||||||||||||||||||||||
 #if defined(OGRE_IS_IOS)
-bool OgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyListener, OIS::MultiTouchListener *pMouseListener)
+bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyListener, OIS::MultiTouchListener *pMouseListener)
 #else
-bool OgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyListener, OIS::MouseListener *pMouseListener)
+bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyListener, OIS::MouseListener *pMouseListener)
 #endif
 {
     new Ogre::LogManager();
@@ -71,7 +71,7 @@ bool OgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyListen
 	m_pSceneMgr->setAmbientLight(Ogre::ColourValue(0.7f, 0.7f, 0.7f));
 	
 	m_pCamera = m_pSceneMgr->createCamera("Camera");
-	m_pCamera->setPosition(Vector3(0, 60, 60));
+	m_pCamera->setPosition(Vector3(0, 10, 10));
 	m_pCamera->lookAt(Vector3(0, 0, 0));
 	m_pCamera->setNearClipDistance(1);
     
@@ -149,10 +149,22 @@ bool OgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyListen
     
 	m_pRenderWnd->setActive(true);
     
+    
+    mBroadphase = new btAxisSweep3(btVector3(-10000,-10000,-10000), btVector3(10000,10000,10000), 1024);
+    mCollisionConfig = new btDefaultCollisionConfiguration();
+    mDispatcher = new btCollisionDispatcher(mCollisionConfig);
+    mSolver = new btSequentialImpulseConstraintSolver();
+    
+    m_pPhysicsWorld = new btDiscreteDynamicsWorld(mDispatcher, mBroadphase, mSolver, mCollisionConfig);
+    m_pPhysicsWorld->setGravity(btVector3(0,-9.8,0));
+    
+    dbgdraw = new BtOgre::DebugDrawer(m_pSceneMgr->getRootSceneNode(), m_pPhysicsWorld);
+    dbgdraw->setDebugMode(1);
+    
 	return true;
 }
 
-OgreFramework::~OgreFramework()
+BtOgreFramework::~BtOgreFramework()
 {
     if(m_pInputMgr) OIS::InputManager::destroyInputSystem(m_pInputMgr);
     if(m_pTrayMgr)  delete m_pTrayMgr;
@@ -162,7 +174,7 @@ OgreFramework::~OgreFramework()
     if(m_pRoot)     delete m_pRoot;
 }
 
-bool OgreFramework::keyPressed(const OIS::KeyEvent &keyEventRef)
+bool BtOgreFramework::keyPressed(const OIS::KeyEvent &keyEventRef)
 {
 #if !defined(OGRE_IS_IOS)
 	
@@ -217,7 +229,7 @@ bool OgreFramework::keyPressed(const OIS::KeyEvent &keyEventRef)
 	return true;
 }
 
-bool OgreFramework::keyReleased(const OIS::KeyEvent &keyEventRef)
+bool BtOgreFramework::keyReleased(const OIS::KeyEvent &keyEventRef)
 {
 	return true;
 }
@@ -225,7 +237,7 @@ bool OgreFramework::keyReleased(const OIS::KeyEvent &keyEventRef)
 //|||||||||||||||||||||||||||||||||||||||||||||||
 
 #if defined(OGRE_IS_IOS)
-bool OgreFramework::touchMoved(const OIS::MultiTouchEvent &evt)
+bool BtOgreFramework::touchMoved(const OIS::MultiTouchEvent &evt)
 {
     OIS::MultiTouchState state = evt.state;
     int origTransX = 0, origTransY = 0;
@@ -260,7 +272,7 @@ bool OgreFramework::touchMoved(const OIS::MultiTouchEvent &evt)
 
 //|||||||||||||||||||||||||||||||||||||||||||||||
 
-bool OgreFramework::touchPressed(const OIS:: MultiTouchEvent &evt)
+bool BtOgreFramework::touchPressed(const OIS:: MultiTouchEvent &evt)
 {
 #pragma unused(evt)
 	return true;
@@ -268,19 +280,19 @@ bool OgreFramework::touchPressed(const OIS:: MultiTouchEvent &evt)
 
 //|||||||||||||||||||||||||||||||||||||||||||||||
 
-bool OgreFramework::touchReleased(const OIS:: MultiTouchEvent &evt)
+bool BtOgreFramework::touchReleased(const OIS:: MultiTouchEvent &evt)
 {
 #pragma unused(evt)
 	return true;
 }
 
-bool OgreFramework::touchCancelled(const OIS:: MultiTouchEvent &evt)
+bool BtOgreFramework::touchCancelled(const OIS:: MultiTouchEvent &evt)
 {
 #pragma unused(evt)
 	return true;
 }
 #else
-bool OgreFramework::mouseMoved(const OIS::MouseEvent &evt)
+bool BtOgreFramework::mouseMoved(const OIS::MouseEvent &evt)
 {
 	m_pCamera->yaw(Degree(evt.state.X.rel * -0.1f));
 	m_pCamera->pitch(Degree(evt.state.Y.rel * -0.1f));
@@ -288,18 +300,18 @@ bool OgreFramework::mouseMoved(const OIS::MouseEvent &evt)
 	return true;
 }
 
-bool OgreFramework::mousePressed(const OIS::MouseEvent &evt, OIS::MouseButtonID id)
+bool BtOgreFramework::mousePressed(const OIS::MouseEvent &evt, OIS::MouseButtonID id)
 {
 	return true;
 }
 
-bool OgreFramework::mouseReleased(const OIS::MouseEvent &evt, OIS::MouseButtonID id)
+bool BtOgreFramework::mouseReleased(const OIS::MouseEvent &evt, OIS::MouseButtonID id)
 {
 	return true;
 }
 #endif
 
-void OgreFramework::updateOgre(double timeSinceLastFrame)
+void BtOgreFramework::updateOgre(double timeSinceLastFrame)
 {
 	m_MoveScale = m_MoveSpeed   * (float)timeSinceLastFrame;
 	m_RotScale  = m_RotateSpeed * (float)timeSinceLastFrame;
@@ -307,7 +319,9 @@ void OgreFramework::updateOgre(double timeSinceLastFrame)
 #if OGRE_VERSION >= 0x10800
     m_pSceneMgr->setSkyBoxEnabled(true);
 #endif
-
+    m_pPhysicsWorld->stepSimulation(timeSinceLastFrame);
+    m_pPhysicsWorld->debugDrawWorld();
+    dbgdraw->step();
 	m_TranslateVector = Vector3::ZERO;
     
 	getInput();
@@ -317,7 +331,7 @@ void OgreFramework::updateOgre(double timeSinceLastFrame)
     m_pTrayMgr->frameRenderingQueued(m_FrameEvent);
 }
 
-void OgreFramework::moveCamera()
+void BtOgreFramework::moveCamera()
 {
 #if !defined(OGRE_IS_IOS)
 	if(m_pKeyboard->isKeyDown(OIS::KC_LSHIFT)) 
@@ -327,7 +341,7 @@ void OgreFramework::moveCamera()
 		m_pCamera->moveRelative(m_TranslateVector / 10);
 }
 
-void OgreFramework::getInput()
+void BtOgreFramework::getInput()
 {
 #if !defined(OGRE_IS_IOS)
 	if(m_pKeyboard->isKeyDown(OIS::KC_A))

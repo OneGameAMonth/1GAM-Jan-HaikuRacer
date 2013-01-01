@@ -22,6 +22,10 @@
 #include <OISKeyboard.h>
 #include <OISMouse.h>
 
+#include "BtOgrePG.h"
+#include "BtOgreGP.h"
+#include "BtOgreExtras.h"
+
 #ifdef OGRE_STATIC_LIB
 #  define OGRE_STATIC_GL
 #  if OGRE_PLATFORM == OGRE_PLATFORM_WIN32
@@ -70,14 +74,14 @@
 //|||||||||||||||||||||||||||||||||||||||||||||||
 
 #ifdef OGRE_IS_IOS
-class OgreFramework : public Ogre::Singleton<OgreFramework>, OIS::KeyListener, OIS::MultiTouchListener, OgreBites::SdkTrayListener
+class BtOgreFramework : public Ogre::Singleton<BtOgreFramework>, OIS::KeyListener, OIS::MultiTouchListener, OgreBites::SdkTrayListener
 #else
-class OgreFramework : public Ogre::Singleton<OgreFramework>, OIS::KeyListener, OIS::MouseListener, OgreBites::SdkTrayListener
+class BtOgreFramework : public Ogre::Singleton<BtOgreFramework>, OIS::KeyListener, OIS::MouseListener, OgreBites::SdkTrayListener
 #endif
 {
 public:
-	OgreFramework();
-	~OgreFramework();
+	BtOgreFramework();
+	~BtOgreFramework();
     
 #ifdef OGRE_IS_IOS
     bool initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyListener = 0, OIS::MultiTouchListener *pMouseListener = 0);
@@ -112,6 +116,14 @@ public:
 	Ogre::Log*                  m_pLog;
 	Ogre::Timer*				m_pTimer;
 	
+    btDynamicsWorld                     *m_pPhysicsWorld;
+    btAxisSweep3                        *mBroadphase;
+	btDefaultCollisionConfiguration     *mCollisionConfig;
+	btCollisionDispatcher               *mDispatcher;
+	btSequentialImpulseConstraintSolver *mSolver;
+    BtOgre::DebugDrawer *dbgdraw;
+    
+    
 	OIS::InputManager*			m_pInputMgr;
 	OIS::Keyboard*				m_pKeyboard;
 #ifdef OGRE_IS_IOS
@@ -125,8 +137,8 @@ protected:
    Ogre::String                 m_ResourcePath;
     
 private:
-	OgreFramework(const OgreFramework&);
-	OgreFramework& operator= (const OgreFramework&);
+	BtOgreFramework(const BtOgreFramework&);
+	BtOgreFramework& operator= (const BtOgreFramework&);
     
 	OgreBites::SdkTrayManager*  m_pTrayMgr;
     Ogre::FrameEvent            m_FrameEvent;

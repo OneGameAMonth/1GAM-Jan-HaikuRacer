@@ -11,12 +11,12 @@ DemoApp::DemoApp()
 DemoApp::~DemoApp()
 {
 #ifdef USE_RTSHADER_SYSTEM
-    mShaderGenerator->removeSceneManager(OgreFramework::getSingletonPtr()->m_pSceneMgr);
+    mShaderGenerator->removeSceneManager(BtOgreFramework::getSingletonPtr()->m_pSceneMgr);
     
     finalizeRTShaderSystem();
 #endif
     
-    delete OgreFramework::getSingletonPtr();
+    delete BtOgreFramework::getSingletonPtr();
 }
 
 //|||||||||||||||||||||||||||||||||||||||||||||||
@@ -105,16 +105,16 @@ void DemoApp::finalizeRTShaderSystem()
 
 void DemoApp::startDemo()
 {
-	new OgreFramework();
-	if(!OgreFramework::getSingletonPtr()->initOgre("DemoApp v1.0", this, 0))
+	new BtOgreFramework();
+	if(!BtOgreFramework::getSingletonPtr()->initOgre("DemoApp v1.0", this, 0))
 		return;
     
 	m_bShutdown = false;
     
-	OgreFramework::getSingletonPtr()->m_pLog->logMessage("Demo initialized!");
+	BtOgreFramework::getSingletonPtr()->m_pLog->logMessage("Demo initialized!");
 	
 #ifdef USE_RTSHADER_SYSTEM
-    initializeRTShaderSystem(OgreFramework::getSingletonPtr()->m_pSceneMgr);
+    initializeRTShaderSystem(BtOgreFramework::getSingletonPtr()->m_pSceneMgr);
     Ogre::MaterialPtr baseWhite = Ogre::MaterialManager::getSingleton().getByName("BaseWhite", Ogre::ResourceGroupManager::INTERNAL_RESOURCE_GROUP_NAME);				
     baseWhite->setLightingEnabled(false);
     mShaderGenerator->createShaderBasedTechnique(
@@ -152,47 +152,49 @@ void DemoApp::startDemo()
 
 void DemoApp::setupDemoScene()
 {
-	OgreFramework::getSingletonPtr()->m_pSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox");
+    RaceVehicle *vehicle = new RaceVehicle();
     
-	OgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,75,75);
+	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox");
     
-	m_pCubeEntity = OgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity("Cube", "ogrehead.mesh");
-	m_pCubeNode = OgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode("CubeNode");
-	m_pCubeNode->attachObject(m_pCubeEntity);
+	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,75,75);
+    /*
+	m_pCubeEntity = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity("Cube", "ogrehead.mesh");
+	m_pCubeNode = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode("CubeNode");
+	m_pCubeNode->attachObject(m_pCubeEntity);*/
 }
 
 //|||||||||||||||||||||||||||||||||||||||||||||||
 
 void DemoApp::runDemo()
 {
-	OgreFramework::getSingletonPtr()->m_pLog->logMessage("Start main loop...");
+	BtOgreFramework::getSingletonPtr()->m_pLog->logMessage("Start main loop...");
 	
 	double timeSinceLastFrame = 0;
 	double startTime = 0;
     
-    OgreFramework::getSingletonPtr()->m_pRenderWnd->resetStatistics();
+    BtOgreFramework::getSingletonPtr()->m_pRenderWnd->resetStatistics();
     
 #if (!defined(OGRE_IS_IOS)) && !((OGRE_PLATFORM == OGRE_PLATFORM_APPLE) && __LP64__)
-	while(!m_bShutdown && !OgreFramework::getSingletonPtr()->isOgreToBeShutDown()) 
+	while(!m_bShutdown && !BtOgreFramework::getSingletonPtr()->isOgreToBeShutDown()) 
 	{
-		if(OgreFramework::getSingletonPtr()->m_pRenderWnd->isClosed())m_bShutdown = true;
+		if(BtOgreFramework::getSingletonPtr()->m_pRenderWnd->isClosed())m_bShutdown = true;
         
 #if OGRE_PLATFORM == OGRE_PLATFORM_WIN32 || OGRE_PLATFORM == OGRE_PLATFORM_LINUX || OGRE_PLATFORM == OGRE_PLATFORM_APPLE
 		Ogre::WindowEventUtilities::messagePump();
 #endif	
-		if(OgreFramework::getSingletonPtr()->m_pRenderWnd->isActive())
+		if(BtOgreFramework::getSingletonPtr()->m_pRenderWnd->isActive())
 		{
-			startTime = OgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU();
+			startTime = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU();
             
 #if !OGRE_IS_IOS
-			OgreFramework::getSingletonPtr()->m_pKeyboard->capture();
+			BtOgreFramework::getSingletonPtr()->m_pKeyboard->capture();
 #endif
-			OgreFramework::getSingletonPtr()->m_pMouse->capture();
+			BtOgreFramework::getSingletonPtr()->m_pMouse->capture();
             
-			OgreFramework::getSingletonPtr()->updateOgre(timeSinceLastFrame);
-			OgreFramework::getSingletonPtr()->m_pRoot->renderOneFrame();
+			BtOgreFramework::getSingletonPtr()->updateOgre(timeSinceLastFrame);
+			BtOgreFramework::getSingletonPtr()->m_pRoot->renderOneFrame();
             
-			timeSinceLastFrame = OgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU() - startTime;
+			timeSinceLastFrame = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU() - startTime;
 		}
 		else
 		{
@@ -206,8 +208,8 @@ void DemoApp::runDemo()
 #endif
     
 #if !defined(OGRE_IS_IOS)
-	OgreFramework::getSingletonPtr()->m_pLog->logMessage("Main loop quit");
-	OgreFramework::getSingletonPtr()->m_pLog->logMessage("Shutdown OGRE...");
+	BtOgreFramework::getSingletonPtr()->m_pLog->logMessage("Main loop quit");
+	BtOgreFramework::getSingletonPtr()->m_pLog->logMessage("Shutdown OGRE...");
 #endif
 }
 
@@ -216,9 +218,9 @@ void DemoApp::runDemo()
 bool DemoApp::keyPressed(const OIS::KeyEvent &keyEventRef)
 {
 #if !defined(OGRE_IS_IOS)
-	OgreFramework::getSingletonPtr()->keyPressed(keyEventRef);
+	BtOgreFramework::getSingletonPtr()->keyPressed(keyEventRef);
 	
-	if(OgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_F))
+	if(BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_F))
 	{
         //do something
 	}
@@ -231,7 +233,7 @@ bool DemoApp::keyPressed(const OIS::KeyEvent &keyEventRef)
 bool DemoApp::keyReleased(const OIS::KeyEvent &keyEventRef)
 {
 #if !defined(OGRE_IS_IOS)
-	OgreFramework::getSingletonPtr()->keyReleased(keyEventRef);
+	BtOgreFramework::getSingletonPtr()->keyReleased(keyEventRef);
 #endif
 
 	return true;
