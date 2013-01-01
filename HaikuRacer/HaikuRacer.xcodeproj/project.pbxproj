@@ -7,207 +7,199 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A1ACAC601693621700AB3A92 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ACAC5F1693621700AB3A92 /* Carbon.framework */; };
-		A1ACAC621693621700AB3A92 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ACAC611693621700AB3A92 /* Cocoa.framework */; };
-		A1ACAC641693621700AB3A92 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ACAC631693621700AB3A92 /* IOKit.framework */; };
-		A1ACAC701693621700AB3A92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1ACAC6E1693621700AB3A92 /* InfoPlist.strings */; };
-		A1ACAC731693621700AB3A92 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1ACAC721693621700AB3A92 /* main.mm */; };
-		A1ACAC771693621700AB3A92 /* OgreDemoApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1ACAC761693621700AB3A92 /* OgreDemoApp.cpp */; };
-		A1ACAC7A1693621700AB3A92 /* OgreFramework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1ACAC791693621700AB3A92 /* OgreFramework.cpp */; };
-		A1ACAC8E1693621700AB3A92 /* ogre.cfg in Resources */ = {isa = PBXBuildFile; fileRef = A1ACAC8D1693621700AB3A92 /* ogre.cfg */; };
-		A1ACAC901693621700AB3A92 /* plugins.cfg in Resources */ = {isa = PBXBuildFile; fileRef = A1ACAC8F1693621700AB3A92 /* plugins.cfg */; };
-		A1ACAC921693621700AB3A92 /* resources.cfg in Resources */ = {isa = PBXBuildFile; fileRef = A1ACAC911693621700AB3A92 /* resources.cfg */; };
-		A1ACAC99169362F400AB3A92 /* Ogre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ACAC98169362F400AB3A92 /* Ogre.framework */; };
-		A1ACAC9B169362FB00AB3A92 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ACAC9A169362FB00AB3A92 /* OpenGL.framework */; };
-		A1ACAC9D1693630000AB3A92 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ACAC9C169362FF00AB3A92 /* QuartzCore.framework */; };
-		A1ACACA11693653E00AB3A92 /* Cg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ACACA01693653E00AB3A92 /* Cg.framework */; };
+		A1FB77BC1693697D003F1DB4 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB77BB1693697D003F1DB4 /* Carbon.framework */; };
+		A1FB77BE1693697D003F1DB4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB77BD1693697D003F1DB4 /* Cocoa.framework */; };
+		A1FB77C01693697D003F1DB4 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB77BF1693697D003F1DB4 /* IOKit.framework */; };
+		A1FB77CC1693697D003F1DB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1FB77CA1693697D003F1DB4 /* InfoPlist.strings */; };
+		A1FB77CF1693697D003F1DB4 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1FB77CE1693697D003F1DB4 /* main.mm */; };
+		A1FB77D31693697D003F1DB4 /* OgreDemoApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB77D21693697D003F1DB4 /* OgreDemoApp.cpp */; };
+		A1FB77D61693697D003F1DB4 /* OgreFramework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB77D51693697D003F1DB4 /* OgreFramework.cpp */; };
+		A1FB77EA1693697D003F1DB4 /* ogre.cfg in Resources */ = {isa = PBXBuildFile; fileRef = A1FB77E91693697D003F1DB4 /* ogre.cfg */; };
+		A1FB77EC1693697D003F1DB4 /* plugins.cfg in Resources */ = {isa = PBXBuildFile; fileRef = A1FB77EB1693697D003F1DB4 /* plugins.cfg */; };
+		A1FB77EE1693697D003F1DB4 /* resources.cfg in Resources */ = {isa = PBXBuildFile; fileRef = A1FB77ED1693697D003F1DB4 /* resources.cfg */; };
+		A1FB77F9169369CF003F1DB4 /* Ogre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB77F8169369CF003F1DB4 /* Ogre.framework */; };
+		A1FB77FC169369D2003F1DB4 /* Cg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB77FB169369D2003F1DB4 /* Cg.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A1ACAC5B1693621700AB3A92 /* HaikuRacer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaikuRacer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1ACAC5F1693621700AB3A92 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		A1ACAC611693621700AB3A92 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		A1ACAC631693621700AB3A92 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
-		A1ACAC651693621700AB3A92 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = Library/Frameworks/Ogre.framework; sourceTree = DEVELOPER_DIR; };
-		A1ACAC671693621700AB3A92 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
-		A1ACAC691693621700AB3A92 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		A1ACAC6D1693621700AB3A92 /* HaikuRacer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HaikuRacer-Info.plist"; sourceTree = "<group>"; };
-		A1ACAC6F1693621700AB3A92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A1ACAC711693621700AB3A92 /* HaikuRacer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HaikuRacer-Prefix.pch"; sourceTree = "<group>"; };
-		A1ACAC721693621700AB3A92 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		A1ACAC751693621700AB3A92 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A1ACAC761693621700AB3A92 /* OgreDemoApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OgreDemoApp.cpp; sourceTree = "<group>"; };
-		A1ACAC781693621700AB3A92 /* OgreDemoApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OgreDemoApp.h; sourceTree = "<group>"; };
-		A1ACAC791693621700AB3A92 /* OgreFramework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OgreFramework.cpp; sourceTree = "<group>"; };
-		A1ACAC7B1693621700AB3A92 /* OgreFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OgreFramework.h; sourceTree = "<group>"; };
-		A1ACAC801693621700AB3A92 /* Examples.material */ = {isa = PBXFileReference; lastKnownFileType = text; path = Examples.material; sourceTree = "<group>"; };
-		A1ACAC811693621700AB3A92 /* Ogre.material */ = {isa = PBXFileReference; lastKnownFileType = text; path = Ogre.material; sourceTree = "<group>"; };
-		A1ACAC831693621700AB3A92 /* GreenSkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GreenSkin.jpg; sourceTree = "<group>"; };
-		A1ACAC841693621700AB3A92 /* spheremap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spheremap.png; sourceTree = "<group>"; };
-		A1ACAC851693621700AB3A92 /* tusk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tusk.jpg; sourceTree = "<group>"; };
-		A1ACAC871693621700AB3A92 /* ogrehead.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = ogrehead.mesh; sourceTree = "<group>"; };
-		A1ACAC891693621700AB3A92 /* cubemap.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = cubemap.zip; sourceTree = "<group>"; };
-		A1ACAC8A1693621700AB3A92 /* cubemapsJS.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = cubemapsJS.zip; sourceTree = "<group>"; };
-		A1ACAC8B1693621700AB3A92 /* SdkTrays.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SdkTrays.zip; sourceTree = "<group>"; };
-		A1ACAC8C1693621700AB3A92 /* skybox.zip */ = {isa = PBXFileReference; lastKnownFileType = folder; name = skybox.zip; path = ..; sourceTree = "<group>"; };
-		A1ACAC8D1693621700AB3A92 /* ogre.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = ogre.cfg; sourceTree = "<group>"; };
-		A1ACAC8F1693621700AB3A92 /* plugins.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = plugins.cfg; sourceTree = "<group>"; };
-		A1ACAC911693621700AB3A92 /* resources.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = resources.cfg; sourceTree = "<group>"; };
-		A1ACAC98169362F400AB3A92 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = ../../../../../../../Library/Frameworks/Ogre.framework; sourceTree = "<group>"; };
-		A1ACAC9A169362FB00AB3A92 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		A1ACAC9C169362FF00AB3A92 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		A1ACACA01693653E00AB3A92 /* Cg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Cg.framework; sourceTree = "<group>"; };
+		A1FB77B71693697D003F1DB4 /* HaikuRacer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaikuRacer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1FB77BB1693697D003F1DB4 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		A1FB77BD1693697D003F1DB4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A1FB77BF1693697D003F1DB4 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		A1FB77C11693697D003F1DB4 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = Library/Frameworks/Ogre.framework; sourceTree = DEVELOPER_DIR; };
+		A1FB77C31693697D003F1DB4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
+		A1FB77C51693697D003F1DB4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		A1FB77C91693697D003F1DB4 /* HaikuRacer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HaikuRacer-Info.plist"; sourceTree = "<group>"; };
+		A1FB77CB1693697D003F1DB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A1FB77CD1693697D003F1DB4 /* HaikuRacer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HaikuRacer-Prefix.pch"; sourceTree = "<group>"; };
+		A1FB77CE1693697D003F1DB4 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		A1FB77D11693697D003F1DB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A1FB77D21693697D003F1DB4 /* OgreDemoApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OgreDemoApp.cpp; sourceTree = "<group>"; };
+		A1FB77D41693697D003F1DB4 /* OgreDemoApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OgreDemoApp.h; sourceTree = "<group>"; };
+		A1FB77D51693697D003F1DB4 /* OgreFramework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OgreFramework.cpp; sourceTree = "<group>"; };
+		A1FB77D71693697D003F1DB4 /* OgreFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OgreFramework.h; sourceTree = "<group>"; };
+		A1FB77DC1693697D003F1DB4 /* Examples.material */ = {isa = PBXFileReference; lastKnownFileType = text; path = Examples.material; sourceTree = "<group>"; };
+		A1FB77DD1693697D003F1DB4 /* Ogre.material */ = {isa = PBXFileReference; lastKnownFileType = text; path = Ogre.material; sourceTree = "<group>"; };
+		A1FB77DF1693697D003F1DB4 /* GreenSkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GreenSkin.jpg; sourceTree = "<group>"; };
+		A1FB77E01693697D003F1DB4 /* spheremap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spheremap.png; sourceTree = "<group>"; };
+		A1FB77E11693697D003F1DB4 /* tusk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tusk.jpg; sourceTree = "<group>"; };
+		A1FB77E31693697D003F1DB4 /* ogrehead.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = ogrehead.mesh; sourceTree = "<group>"; };
+		A1FB77E51693697D003F1DB4 /* cubemap.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = cubemap.zip; sourceTree = "<group>"; };
+		A1FB77E61693697D003F1DB4 /* cubemapsJS.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = cubemapsJS.zip; sourceTree = "<group>"; };
+		A1FB77E71693697D003F1DB4 /* SdkTrays.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SdkTrays.zip; sourceTree = "<group>"; };
+		A1FB77E81693697D003F1DB4 /* skybox.zip */ = {isa = PBXFileReference; lastKnownFileType = folder; name = skybox.zip; path = ..; sourceTree = "<group>"; };
+		A1FB77E91693697D003F1DB4 /* ogre.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = ogre.cfg; sourceTree = "<group>"; };
+		A1FB77EB1693697D003F1DB4 /* plugins.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = plugins.cfg; sourceTree = "<group>"; };
+		A1FB77ED1693697D003F1DB4 /* resources.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = resources.cfg; sourceTree = "<group>"; };
+		A1FB77F8169369CF003F1DB4 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ogre.framework; sourceTree = "<group>"; };
+		A1FB77FB169369D2003F1DB4 /* Cg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Cg.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A1ACAC571693621700AB3A92 /* Frameworks */ = {
+		A1FB77B31693697D003F1DB4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1ACAC9D1693630000AB3A92 /* QuartzCore.framework in Frameworks */,
-				A1ACAC9B169362FB00AB3A92 /* OpenGL.framework in Frameworks */,
-				A1ACAC601693621700AB3A92 /* Carbon.framework in Frameworks */,
-				A1ACACA11693653E00AB3A92 /* Cg.framework in Frameworks */,
-				A1ACAC621693621700AB3A92 /* Cocoa.framework in Frameworks */,
-				A1ACAC641693621700AB3A92 /* IOKit.framework in Frameworks */,
-				A1ACAC99169362F400AB3A92 /* Ogre.framework in Frameworks */,
+				A1FB77BC1693697D003F1DB4 /* Carbon.framework in Frameworks */,
+				A1FB77FC169369D2003F1DB4 /* Cg.framework in Frameworks */,
+				A1FB77BE1693697D003F1DB4 /* Cocoa.framework in Frameworks */,
+				A1FB77F9169369CF003F1DB4 /* Ogre.framework in Frameworks */,
+				A1FB77C01693697D003F1DB4 /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A1ACAC4F1693621700AB3A92 = {
+		A1FB77AB1693697D003F1DB4 = {
 			isa = PBXGroup;
 			children = (
-				A1ACACA01693653E00AB3A92 /* Cg.framework */,
-				A1ACAC9C169362FF00AB3A92 /* QuartzCore.framework */,
-				A1ACAC9A169362FB00AB3A92 /* OpenGL.framework */,
-				A1ACAC98169362F400AB3A92 /* Ogre.framework */,
-				A1ACAC6B1693621700AB3A92 /* HaikuRacer */,
-				A1ACAC5E1693621700AB3A92 /* Frameworks */,
-				A1ACAC5C1693621700AB3A92 /* Products */,
+				A1FB77FB169369D2003F1DB4 /* Cg.framework */,
+				A1FB77F8169369CF003F1DB4 /* Ogre.framework */,
+				A1FB77C71693697D003F1DB4 /* HaikuRacer */,
+				A1FB77BA1693697D003F1DB4 /* Frameworks */,
+				A1FB77B81693697D003F1DB4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A1ACAC5C1693621700AB3A92 /* Products */ = {
+		A1FB77B81693697D003F1DB4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A1ACAC5B1693621700AB3A92 /* HaikuRacer.app */,
+				A1FB77B71693697D003F1DB4 /* HaikuRacer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A1ACAC5E1693621700AB3A92 /* Frameworks */ = {
+		A1FB77BA1693697D003F1DB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A1ACAC5F1693621700AB3A92 /* Carbon.framework */,
-				A1ACAC611693621700AB3A92 /* Cocoa.framework */,
-				A1ACAC631693621700AB3A92 /* IOKit.framework */,
-				A1ACAC651693621700AB3A92 /* Ogre.framework */,
-				A1ACAC671693621700AB3A92 /* OpenGL.framework */,
-				A1ACAC691693621700AB3A92 /* QuartzCore.framework */,
+				A1FB77BB1693697D003F1DB4 /* Carbon.framework */,
+				A1FB77BD1693697D003F1DB4 /* Cocoa.framework */,
+				A1FB77BF1693697D003F1DB4 /* IOKit.framework */,
+				A1FB77C11693697D003F1DB4 /* Ogre.framework */,
+				A1FB77C31693697D003F1DB4 /* OpenGL.framework */,
+				A1FB77C51693697D003F1DB4 /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A1ACAC6B1693621700AB3A92 /* HaikuRacer */ = {
+		A1FB77C71693697D003F1DB4 /* HaikuRacer */ = {
 			isa = PBXGroup;
 			children = (
-				A1ACAC721693621700AB3A92 /* main.mm */,
-				A1ACAC741693621700AB3A92 /* Basic Ogre Framework */,
-				A1ACAC7C1693621700AB3A92 /* Resources */,
-				A1ACAC6C1693621700AB3A92 /* Supporting Files */,
+				A1FB77CE1693697D003F1DB4 /* main.mm */,
+				A1FB77D01693697D003F1DB4 /* Basic Ogre Framework */,
+				A1FB77D81693697D003F1DB4 /* Resources */,
+				A1FB77C81693697D003F1DB4 /* Supporting Files */,
 			);
 			path = HaikuRacer;
 			sourceTree = "<group>";
 		};
-		A1ACAC6C1693621700AB3A92 /* Supporting Files */ = {
+		A1FB77C81693697D003F1DB4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A1ACAC6D1693621700AB3A92 /* HaikuRacer-Info.plist */,
-				A1ACAC6E1693621700AB3A92 /* InfoPlist.strings */,
-				A1ACAC711693621700AB3A92 /* HaikuRacer-Prefix.pch */,
+				A1FB77C91693697D003F1DB4 /* HaikuRacer-Info.plist */,
+				A1FB77CA1693697D003F1DB4 /* InfoPlist.strings */,
+				A1FB77CD1693697D003F1DB4 /* HaikuRacer-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A1ACAC741693621700AB3A92 /* Basic Ogre Framework */ = {
+		A1FB77D01693697D003F1DB4 /* Basic Ogre Framework */ = {
 			isa = PBXGroup;
 			children = (
-				A1ACAC751693621700AB3A92 /* AppDelegate.h */,
-				A1ACAC761693621700AB3A92 /* OgreDemoApp.cpp */,
-				A1ACAC781693621700AB3A92 /* OgreDemoApp.h */,
-				A1ACAC791693621700AB3A92 /* OgreFramework.cpp */,
-				A1ACAC7B1693621700AB3A92 /* OgreFramework.h */,
+				A1FB77D11693697D003F1DB4 /* AppDelegate.h */,
+				A1FB77D21693697D003F1DB4 /* OgreDemoApp.cpp */,
+				A1FB77D41693697D003F1DB4 /* OgreDemoApp.h */,
+				A1FB77D51693697D003F1DB4 /* OgreFramework.cpp */,
+				A1FB77D71693697D003F1DB4 /* OgreFramework.h */,
 			);
 			name = "Basic Ogre Framework";
 			sourceTree = "<group>";
 		};
-		A1ACAC7C1693621700AB3A92 /* Resources */ = {
+		A1FB77D81693697D003F1DB4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A1ACAC8D1693621700AB3A92 /* ogre.cfg */,
-				A1ACAC8F1693621700AB3A92 /* plugins.cfg */,
-				A1ACAC911693621700AB3A92 /* resources.cfg */,
-				A1ACAC7D1693621700AB3A92 /* media */,
+				A1FB77E91693697D003F1DB4 /* ogre.cfg */,
+				A1FB77EB1693697D003F1DB4 /* plugins.cfg */,
+				A1FB77ED1693697D003F1DB4 /* resources.cfg */,
+				A1FB77D91693697D003F1DB4 /* media */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		A1ACAC7D1693621700AB3A92 /* media */ = {
+		A1FB77D91693697D003F1DB4 /* media */ = {
 			isa = PBXGroup;
 			children = (
-				A1ACAC7E1693621700AB3A92 /* materials */,
-				A1ACAC861693621700AB3A92 /* models */,
-				A1ACAC881693621700AB3A92 /* packs */,
+				A1FB77DA1693697D003F1DB4 /* materials */,
+				A1FB77E21693697D003F1DB4 /* models */,
+				A1FB77E41693697D003F1DB4 /* packs */,
 			);
 			path = media;
 			sourceTree = "<group>";
 		};
-		A1ACAC7E1693621700AB3A92 /* materials */ = {
+		A1FB77DA1693697D003F1DB4 /* materials */ = {
 			isa = PBXGroup;
 			children = (
-				A1ACAC7F1693621700AB3A92 /* scripts */,
-				A1ACAC821693621700AB3A92 /* textures */,
+				A1FB77DB1693697D003F1DB4 /* scripts */,
+				A1FB77DE1693697D003F1DB4 /* textures */,
 			);
 			path = materials;
 			sourceTree = "<group>";
 		};
-		A1ACAC7F1693621700AB3A92 /* scripts */ = {
+		A1FB77DB1693697D003F1DB4 /* scripts */ = {
 			isa = PBXGroup;
 			children = (
-				A1ACAC801693621700AB3A92 /* Examples.material */,
-				A1ACAC811693621700AB3A92 /* Ogre.material */,
+				A1FB77DC1693697D003F1DB4 /* Examples.material */,
+				A1FB77DD1693697D003F1DB4 /* Ogre.material */,
 			);
 			path = scripts;
 			sourceTree = "<group>";
 		};
-		A1ACAC821693621700AB3A92 /* textures */ = {
+		A1FB77DE1693697D003F1DB4 /* textures */ = {
 			isa = PBXGroup;
 			children = (
-				A1ACAC831693621700AB3A92 /* GreenSkin.jpg */,
-				A1ACAC841693621700AB3A92 /* spheremap.png */,
-				A1ACAC851693621700AB3A92 /* tusk.jpg */,
+				A1FB77DF1693697D003F1DB4 /* GreenSkin.jpg */,
+				A1FB77E01693697D003F1DB4 /* spheremap.png */,
+				A1FB77E11693697D003F1DB4 /* tusk.jpg */,
 			);
 			path = textures;
 			sourceTree = "<group>";
 		};
-		A1ACAC861693621700AB3A92 /* models */ = {
+		A1FB77E21693697D003F1DB4 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				A1ACAC871693621700AB3A92 /* ogrehead.mesh */,
+				A1FB77E31693697D003F1DB4 /* ogrehead.mesh */,
 			);
 			path = models;
 			sourceTree = "<group>";
 		};
-		A1ACAC881693621700AB3A92 /* packs */ = {
+		A1FB77E41693697D003F1DB4 /* packs */ = {
 			isa = PBXGroup;
 			children = (
-				A1ACAC891693621700AB3A92 /* cubemap.zip */,
-				A1ACAC8A1693621700AB3A92 /* cubemapsJS.zip */,
-				A1ACAC8B1693621700AB3A92 /* SdkTrays.zip */,
-				A1ACAC8C1693621700AB3A92 /* skybox.zip */,
+				A1FB77E51693697D003F1DB4 /* cubemap.zip */,
+				A1FB77E61693697D003F1DB4 /* cubemapsJS.zip */,
+				A1FB77E71693697D003F1DB4 /* SdkTrays.zip */,
+				A1FB77E81693697D003F1DB4 /* skybox.zip */,
 			);
 			path = packs;
 			sourceTree = "<group>";
@@ -215,14 +207,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A1ACAC5A1693621700AB3A92 /* HaikuRacer */ = {
+		A1FB77B61693697D003F1DB4 /* HaikuRacer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1ACAC951693621700AB3A92 /* Build configuration list for PBXNativeTarget "HaikuRacer" */;
+			buildConfigurationList = A1FB77F11693697D003F1DB4 /* Build configuration list for PBXNativeTarget "HaikuRacer" */;
 			buildPhases = (
-				A1ACAC561693621700AB3A92 /* Sources */,
-				A1ACAC571693621700AB3A92 /* Frameworks */,
-				A1ACAC581693621700AB3A92 /* Resources */,
-				A1ACAC591693621700AB3A92 /* ShellScript */,
+				A1FB77B21693697D003F1DB4 /* Sources */,
+				A1FB77B31693697D003F1DB4 /* Frameworks */,
+				A1FB77B41693697D003F1DB4 /* Resources */,
+				A1FB77B51693697D003F1DB4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -230,50 +222,50 @@
 			);
 			name = HaikuRacer;
 			productName = HaikuRacer;
-			productReference = A1ACAC5B1693621700AB3A92 /* HaikuRacer.app */;
+			productReference = A1FB77B71693697D003F1DB4 /* HaikuRacer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A1ACAC511693621700AB3A92 /* Project object */ = {
+		A1FB77AD1693697D003F1DB4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0450;
 			};
-			buildConfigurationList = A1ACAC541693621700AB3A92 /* Build configuration list for PBXProject "HaikuRacer" */;
+			buildConfigurationList = A1FB77B01693697D003F1DB4 /* Build configuration list for PBXProject "HaikuRacer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = A1ACAC4F1693621700AB3A92;
-			productRefGroup = A1ACAC5C1693621700AB3A92 /* Products */;
+			mainGroup = A1FB77AB1693697D003F1DB4;
+			productRefGroup = A1FB77B81693697D003F1DB4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1ACAC5A1693621700AB3A92 /* HaikuRacer */,
+				A1FB77B61693697D003F1DB4 /* HaikuRacer */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A1ACAC581693621700AB3A92 /* Resources */ = {
+		A1FB77B41693697D003F1DB4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1ACAC701693621700AB3A92 /* InfoPlist.strings in Resources */,
-				A1ACAC8E1693621700AB3A92 /* ogre.cfg in Resources */,
-				A1ACAC901693621700AB3A92 /* plugins.cfg in Resources */,
-				A1ACAC921693621700AB3A92 /* resources.cfg in Resources */,
+				A1FB77CC1693697D003F1DB4 /* InfoPlist.strings in Resources */,
+				A1FB77EA1693697D003F1DB4 /* ogre.cfg in Resources */,
+				A1FB77EC1693697D003F1DB4 /* plugins.cfg in Resources */,
+				A1FB77EE1693697D003F1DB4 /* resources.cfg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A1ACAC591693621700AB3A92 /* ShellScript */ = {
+		A1FB77B51693697D003F1DB4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -289,23 +281,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A1ACAC561693621700AB3A92 /* Sources */ = {
+		A1FB77B21693697D003F1DB4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1ACAC731693621700AB3A92 /* main.mm in Sources */,
-				A1ACAC771693621700AB3A92 /* OgreDemoApp.cpp in Sources */,
-				A1ACAC7A1693621700AB3A92 /* OgreFramework.cpp in Sources */,
+				A1FB77CF1693697D003F1DB4 /* main.mm in Sources */,
+				A1FB77D31693697D003F1DB4 /* OgreDemoApp.cpp in Sources */,
+				A1FB77D61693697D003F1DB4 /* OgreFramework.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A1ACAC6E1693621700AB3A92 /* InfoPlist.strings */ = {
+		A1FB77CA1693697D003F1DB4 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A1ACAC6F1693621700AB3A92 /* en */,
+				A1FB77CB1693697D003F1DB4 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -313,74 +305,75 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		A1ACAC931693621700AB3A92 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/ogre_src_v1-8-1/1.81/lib/release\"",
-					"\"/ogre_src_v1-8-1/1.81/Dependencies/lib\"",
-				);
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					"\"/ogre_src_v1-8-1/1.81/include/OGRE\"",
-					"\"/ogre_src_v1-8-1/1.81/include/OGRE/OSX\"",
-					"\"/ogre_src_v1-8-1/Dependencies/include/OIS\"",
-					"\"/ogre_src_v1-8-1/Dependencies/include\"",
-					"\"/ogre_src_v1-8-1/boost\"",
-					"\"/ogre_src_v1-8-1/OgreMain/include\"/**",
-					"\"/ogre_src_v1-8-1/Samples/Common/include\"",
-					"\"/btogre/include\"",
-					"\"/bullet-2.81/src\"",
-					"\"/ogre_src_v1-8-1/1.81/include\"",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"\"/ogre_src_v1-8-1/1.81/lib\"",
-					"\"/bullet-2.81/2.81/src\"",
-					"\"/ogre_src_v1-8-1/Dependencies/lib/Release\"",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				OTHER_LDFLAGS = "-lOIS";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		A1ACAC941693621700AB3A92 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/ogre_src_v1-8-1/1.81/lib/release\"",
-					"\"/ogre_src_v1-8-1/1.81/Dependencies/lib\"",
-				);
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					"\"/ogre_src_v1-8-1/1.81/include/OGRE\"",
-					"\"/ogre_src_v1-8-1/1.81/include/OGRE/OSX\"",
-					"\"/ogre_src_v1-8-1/Dependencies/include/OIS\"",
-					"\"/ogre_src_v1-8-1/Dependencies/include\"",
-					"\"/ogre_src_v1-8-1/boost\"",
-					"\"/ogre_src_v1-8-1/OgreMain/include\"/**",
-					"\"/ogre_src_v1-8-1/Samples/Common/include\"",
-					"\"/btogre/include\"",
-					"\"/bullet-2.81/src\"",
-					"\"/ogre_src_v1-8-1/1.81/include\"",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"\"/ogre_src_v1-8-1/1.81/lib\"",
-					"\"/bullet-2.81/2.81/src\"",
-					"\"/ogre_src_v1-8-1/Dependencies/lib/Release\"",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				OTHER_LDFLAGS = "-lOIS";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		A1ACAC961693621700AB3A92 /* Debug */ = {
+		A1FB77EF1693697D003F1DB4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/ogre_src_v1-8-1/1.81/lib/release\"",
+					"\"/ogre_src_v1-8-1/1.81/Dependencies\"",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"\"/ogre_src_v1-8-1/1.81/include/OGRE\"",
+					"\"/btogre/include\"",
+					"\"/bullet-2.81/src\"",
+					"\"/ogre_src_v1-8-1/Samples/Common/include\"",
+					"\"/ogre_src_v1-8-1/1.81/include\"",
+					"\"/ogre_src_v1-8-1/boost\"",
+					"\"/ogre_src_v1-8-1/OgreMain/include\"/**",
+					"\"/ogre_src_v1-8-1/Dependencies/include\"",
+					"\"/ogre_src_v1-8-1/Dependencies/include/OIS\"",
+					"\"/ogre_src_v1-8-1/1.81/include/OGRE/OSX\"",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"/ogre_src_v1-8-1/1.81/lib\"",
+					"\"/bullet-2.81/2.81/src\"",
+					"\"/ogre_src_v1-8-1/Dependencies/lib/Release\"",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				OTHER_LDFLAGS = "-lOIS";
+				SDKROOT = macosx10.8;
+				VALID_ARCHS = x86_64;
+			};
+			name = Debug;
+		};
+		A1FB77F01693697D003F1DB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/ogre_src_v1-8-1/1.81/lib/release\"",
+					"\"/ogre_src_v1-8-1/1.81/Dependencies\"",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"\"/ogre_src_v1-8-1/1.81/include/OGRE\"",
+					"\"/btogre/include\"",
+					"\"/bullet-2.81/src\"",
+					"\"/ogre_src_v1-8-1/Samples/Common/include\"",
+					"\"/ogre_src_v1-8-1/1.81/include\"",
+					"\"/ogre_src_v1-8-1/boost\"",
+					"\"/ogre_src_v1-8-1/OgreMain/include\"/**",
+					"\"/ogre_src_v1-8-1/Dependencies/include\"",
+					"\"/ogre_src_v1-8-1/Dependencies/include/OIS\"",
+					"\"/ogre_src_v1-8-1/1.81/include/OGRE/OSX\"",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"/ogre_src_v1-8-1/1.81/lib\"",
+					"\"/bullet-2.81/2.81/src\"",
+					"\"/ogre_src_v1-8-1/Dependencies/lib/Release\"",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				OTHER_LDFLAGS = "-lOIS";
+				SDKROOT = macosx10.8;
+				VALID_ARCHS = x86_64;
+			};
+			name = Release;
+		};
+		A1FB77F21693697D003F1DB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -391,15 +384,13 @@
 				GCC_PREFIX_HEADER = "HaikuRacer/HaikuRacer-Prefix.pch";
 				INFOPLIST_FILE = "HaikuRacer/HaikuRacer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		A1ACAC971693621700AB3A92 /* Release */ = {
+		A1FB77F31693697D003F1DB4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -411,7 +402,6 @@
 				GCC_PREFIX_HEADER = "HaikuRacer/HaikuRacer-Prefix.pch";
 				INFOPLIST_FILE = "HaikuRacer/HaikuRacer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -419,24 +409,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A1ACAC541693621700AB3A92 /* Build configuration list for PBXProject "HaikuRacer" */ = {
+		A1FB77B01693697D003F1DB4 /* Build configuration list for PBXProject "HaikuRacer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1ACAC931693621700AB3A92 /* Debug */,
-				A1ACAC941693621700AB3A92 /* Release */,
+				A1FB77EF1693697D003F1DB4 /* Debug */,
+				A1FB77F01693697D003F1DB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1ACAC951693621700AB3A92 /* Build configuration list for PBXNativeTarget "HaikuRacer" */ = {
+		A1FB77F11693697D003F1DB4 /* Build configuration list for PBXNativeTarget "HaikuRacer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1ACAC961693621700AB3A92 /* Debug */,
-				A1ACAC971693621700AB3A92 /* Release */,
+				A1FB77F21693697D003F1DB4 /* Debug */,
+				A1FB77F31693697D003F1DB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A1ACAC511693621700AB3A92 /* Project object */;
+	rootObject = A1FB77AD1693697D003F1DB4 /* Project object */;
 }
