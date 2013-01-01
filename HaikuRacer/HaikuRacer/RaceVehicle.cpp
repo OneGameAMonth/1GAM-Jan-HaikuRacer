@@ -19,7 +19,7 @@ RaceVehicle::RaceVehicle(){
     headNode->attachObject(headEntity);
     
     BtOgre::StaticMeshToShapeConverter converter(headEntity);
-    btCollisionShape *mHeadShape = converter.createBox();
+    btCollisionShape *mHeadShape = converter.createSphere();
 
 
     btScalar mass = 5;
@@ -30,8 +30,8 @@ RaceVehicle::RaceVehicle(){
     
     //Create the Body.
     btRigidBody *mHeadRigid = new btRigidBody(mass, headState, mHeadShape, inertia);
+    
     BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->addRigidBody(mHeadRigid);
-    mHeadRigid->setGravity(btVector3(0,0,0));
 
 }
 

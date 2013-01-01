@@ -157,10 +157,31 @@ void DemoApp::setupDemoScene()
 	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox");
     
 	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,75,75);
-    /*
-	m_pCubeEntity = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity("Cube", "ogrehead.mesh");
-	m_pCubeNode = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode("CubeNode");
-	m_pCubeNode->attachObject(m_pCubeEntity);*/
+
+    Entity *ground = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity("testGround", Ogre::SceneManager::PT_PLANE);
+    ground->setMaterialName("Ogre/Skin");
+    SceneNode *groundNode = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode();
+    groundNode->attachObject(ground);
+    groundNode->setScale(0.05, 0.1, 0.1);
+    groundNode->rotate(Vector3(1,0,0),Radian(Degree(-90)));
+    groundNode->setPosition(0, -10, 5);
+    
+    BtOgre::StaticMeshToShapeConverter converter(ground);
+    btCollisionShape *groundShape = converter.createConvex();
+    
+    
+    btScalar mass = 0;
+    btVector3 inertia;
+    groundShape->calculateLocalInertia(mass, inertia);
+    
+    BtOgre::RigidBodyState *headState = new BtOgre::RigidBodyState(groundNode);
+    
+    //Create the Body.
+    btRigidBody *groundRigid = new btRigidBody(mass, headState, groundShape, btVector3(0,0,0));
+    BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->addRigidBody(groundRigid);
+    groundRigid->setGravity(btVector3(0,0,0));
+
+    
 }
 
 //|||||||||||||||||||||||||||||||||||||||||||||||
