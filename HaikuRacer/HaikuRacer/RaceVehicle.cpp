@@ -11,7 +11,7 @@
 
 RaceVehicle::RaceVehicle(){
     
-    node = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode();
+    node = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode();
 
     Entity *headEntity = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity("sphere.mesh");
     headEntity->setVisible(true);
@@ -29,10 +29,9 @@ RaceVehicle::RaceVehicle(){
     BtOgre::RigidBodyState *headState = new BtOgre::RigidBodyState(headNode);
     
     //Create the Body.
-    btRigidBody *mHeadRigid = new btRigidBody(mass, headState, mHeadShape, inertia);
+    rigidBody = new btRigidBody(mass, headState, mHeadShape, inertia);
     
-    BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->addRigidBody(mHeadRigid);
-
+    BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->addRigidBody(rigidBody);
 }
 
 

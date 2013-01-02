@@ -101,7 +101,7 @@ private:
     
 	bool					m_bShutdown;
     
-    
+    RaceVehicle *vehicle;
     
 #ifdef USE_RTSHADER_SYSTEM
     Ogre::RTShader::ShaderGenerator*			mShaderGenerator;			// The Shader generator instance.

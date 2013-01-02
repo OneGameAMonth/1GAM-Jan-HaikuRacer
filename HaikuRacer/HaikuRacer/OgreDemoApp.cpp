@@ -152,23 +152,37 @@ void DemoApp::startDemo()
 
 void DemoApp::setupDemoScene()
 {
-    RaceVehicle *vehicle = new RaceVehicle();
-    
+    vehicle = new RaceVehicle();
+    vehicle->node->translate(0, 0.8, 0);
 	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox");
     
 	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,75,75);
 
     Entity *ground = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity("testGround", Ogre::SceneManager::PT_PLANE);
-    ground->setMaterialName("Ogre/Skin");
+    ground->setMaterialName("Environment/TrackTile");
     SceneNode *groundNode = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode();
     groundNode->attachObject(ground);
     groundNode->setScale(0.05, 0.1, 0.1);
     groundNode->rotate(Vector3(1,0,0),Radian(Degree(-90)));
-    groundNode->setPosition(0, -10, 5);
+    groundNode->setPosition(0, 0, 5);
     
     BtOgre::StaticMeshToShapeConverter converter(ground);
     btCollisionShape *groundShape = converter.createConvex();
     
+    Entity *leftWall = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity(Ogre::SceneManager::PT_CUBE);
+    SceneNode *lWallNode = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode();
+    leftWall->setMaterialName("Environment/TrackTile");
+    lWallNode->setScale(0.01, 0.02, 0.2);
+    lWallNode->attachObject(leftWall);
+    lWallNode->setPosition(5.5, 1, 5);
+    
+    Entity *rightWall = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity(Ogre::SceneManager::PT_CUBE);
+    SceneNode *rWallNode = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode();
+    rightWall->setMaterialName("Environment/TrackTile");
+
+    rWallNode->setScale(0.01, 0.02, 0.2);
+    rWallNode->attachObject(rightWall);
+    rWallNode->setPosition(-5.5, 1, 5);
     
     btScalar mass = 0;
     btVector3 inertia;
@@ -241,10 +255,12 @@ bool DemoApp::keyPressed(const OIS::KeyEvent &keyEventRef)
 #if !defined(OGRE_IS_IOS)
 	BtOgreFramework::getSingletonPtr()->keyPressed(keyEventRef);
 	
-	if(BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_F))
+	if(BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_W))
 	{
-        //do something
-	}
+       
+      //  vehicle->rigidBody->applyCentralForce(btVector3(0, 0, 100));
+        vehicle->rigidBody->setLinearVelocity(btVector3(0, 0, 10));
+    }
 #endif
 	return true;
 }
@@ -255,6 +271,13 @@ bool DemoApp::keyReleased(const OIS::KeyEvent &keyEventRef)
 {
 #if !defined(OGRE_IS_IOS)
 	BtOgreFramework::getSingletonPtr()->keyReleased(keyEventRef);
+    
+    if(!BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_W))
+	{
+        
+        //  vehicle->rigidBody->applyCentralForce(btVector3(0, 0, 100));
+        vehicle->rigidBody->setLinearVelocity(btVector3(0, 0, 0));
+    }
 #endif
 
 	return true;

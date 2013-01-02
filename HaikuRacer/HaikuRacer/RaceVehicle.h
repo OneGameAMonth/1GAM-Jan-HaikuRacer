@@ -23,7 +23,7 @@ private:
     
 public:
     SceneNode *node;
-    
+    btRigidBody *rigidBody;
     RaceVehicle();
     ~RaceVehicle(){}
     void attachToSceneNode(SceneNode *attachTo);

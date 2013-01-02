@@ -25,6 +25,8 @@
 		A1FB781616937F28003F1DB4 /* libBulletDynamics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB781516937F28003F1DB4 /* libBulletDynamics.a */; };
 		A1FB781816937F2F003F1DB4 /* libLinearMath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB781716937F2F003F1DB4 /* libLinearMath.a */; };
 		A1FB782716939627003F1DB4 /* RaceVehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB782516939627003F1DB4 /* RaceVehicle.cpp */; };
+		A1FB78291693BDAD003F1DB4 /* Environment.material in Resources */ = {isa = PBXBuildFile; fileRef = A1FB78281693BDAD003F1DB4 /* Environment.material */; };
+		A1FB782B1693BDE7003F1DB4 /* trackTile_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = A1FB782A1693BDE7003F1DB4 /* trackTile_flat.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		A1FB781716937F2F003F1DB4 /* libLinearMath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLinearMath.a; sourceTree = "<group>"; };
 		A1FB782516939627003F1DB4 /* RaceVehicle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RaceVehicle.cpp; sourceTree = "<group>"; };
 		A1FB782616939627003F1DB4 /* RaceVehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceVehicle.h; sourceTree = "<group>"; };
+		A1FB78281693BDAD003F1DB4 /* Environment.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Environment.material; sourceTree = "<group>"; };
+		A1FB782A1693BDE7003F1DB4 /* trackTile_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackTile_flat.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				A1FB77DC1693697D003F1DB4 /* Examples.material */,
+				A1FB78281693BDAD003F1DB4 /* Environment.material */,
 				A1FB77DD1693697D003F1DB4 /* Ogre.material */,
 			);
 			path = scripts;
@@ -194,6 +199,7 @@
 		A1FB77DE1693697D003F1DB4 /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				A1FB782A1693BDE7003F1DB4 /* trackTile_flat.png */,
 				A1FB77DF1693697D003F1DB4 /* GreenSkin.jpg */,
 				A1FB77E01693697D003F1DB4 /* spheremap.png */,
 				A1FB77E11693697D003F1DB4 /* tusk.jpg */,
@@ -277,6 +283,8 @@
 				A1FB77EC1693697D003F1DB4 /* plugins.cfg in Resources */,
 				A1FB77EE1693697D003F1DB4 /* resources.cfg in Resources */,
 				A1FB780B16937866003F1DB4 /* sphere.mesh in Resources */,
+				A1FB78291693BDAD003F1DB4 /* Environment.material in Resources */,
+				A1FB782B1693BDE7003F1DB4 /* trackTile_flat.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
