@@ -30,8 +30,6 @@ BtOgreFramework::BtOgreFramework()
     
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE
     m_ResourcePath = macBundlePath() + "/Contents/Resources/";
-#elif defined(OGRE_IS_IOS)
-    m_ResourcePath = macBundlePath() + "/";
 #else
     m_ResourcePath = "";
 #endif
@@ -176,7 +174,6 @@ BtOgreFramework::~BtOgreFramework()
 
 bool BtOgreFramework::keyPressed(const OIS::KeyEvent &keyEventRef)
 {
-#if !defined(OGRE_IS_IOS)
 	
 	if(m_pKeyboard->isKeyDown(OIS::KC_ESCAPE))
 	{
@@ -224,9 +221,7 @@ bool BtOgreFramework::keyPressed(const OIS::KeyEvent &keyEventRef)
             m_pTrayMgr->showFrameStats(OgreBites::TL_BOTTOMLEFT);
         }
 	}
-    
-#endif
-	return true;
+    return true;
 }
 
 bool BtOgreFramework::keyReleased(const OIS::KeyEvent &keyEventRef)

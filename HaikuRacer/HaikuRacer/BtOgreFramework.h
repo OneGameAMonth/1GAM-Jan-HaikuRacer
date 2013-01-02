@@ -71,23 +71,14 @@
 
 #include <SdkTrays.h>
 
-//|||||||||||||||||||||||||||||||||||||||||||||||
-
-#ifdef OGRE_IS_IOS
-class BtOgreFramework : public Ogre::Singleton<BtOgreFramework>, OIS::KeyListener, OIS::MultiTouchListener, OgreBites::SdkTrayListener
-#else
 class BtOgreFramework : public Ogre::Singleton<BtOgreFramework>, OIS::KeyListener, OIS::MouseListener, OgreBites::SdkTrayListener
-#endif
 {
 public:
 	BtOgreFramework();
 	~BtOgreFramework();
     
-#ifdef OGRE_IS_IOS
-    bool initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyListener = 0, OIS::MultiTouchListener *pMouseListener = 0);
-#else
 	bool initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyListener = 0, OIS::MouseListener *pMouseListener = 0);
-#endif
+
 	void updateOgre(double timeSinceLastFrame);
 	void moveCamera();
 	void getInput();
@@ -97,16 +88,9 @@ public:
 	bool keyPressed(const OIS::KeyEvent &keyEventRef);
 	bool keyReleased(const OIS::KeyEvent &keyEventRef);
     
-#ifdef OGRE_IS_IOS
-	bool touchMoved(const OIS::MultiTouchEvent &evt);
-	bool touchPressed(const OIS::MultiTouchEvent &evt); 
-	bool touchReleased(const OIS::MultiTouchEvent &evt);
-	bool touchCancelled(const OIS::MultiTouchEvent &evt);
-#else
 	bool mouseMoved(const OIS::MouseEvent &evt);
 	bool mousePressed(const OIS::MouseEvent &evt, OIS::MouseButtonID id); 
 	bool mouseReleased(const OIS::MouseEvent &evt, OIS::MouseButtonID id);
-#endif
 	
 	Ogre::Root*                 m_pRoot;
 	Ogre::SceneManager*			m_pSceneMgr;
@@ -126,11 +110,8 @@ public:
     
 	OIS::InputManager*			m_pInputMgr;
 	OIS::Keyboard*				m_pKeyboard;
-#ifdef OGRE_IS_IOS
-	OIS::MultiTouch*			m_pMouse;
-#else
+
 	OIS::Mouse*					m_pMouse;
-#endif
 
 protected:
    // Added for Mac compatibility
@@ -156,8 +137,6 @@ private:
 #endif
 };
 
-//|||||||||||||||||||||||||||||||||||||||||||||||
 
 #endif 
 
-//|||||||||||||||||||||||||||||||||||||||||||||||

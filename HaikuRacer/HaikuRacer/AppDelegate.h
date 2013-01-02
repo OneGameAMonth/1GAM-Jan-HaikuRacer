@@ -7,8 +7,6 @@
 #error This header is for use with Mac OS X only
 #endif
 
-#ifdef __OBJC__
-
 #import <Cocoa/Cocoa.h>
 
 // All this does is suppress some messages in the run log.  NSApplication does not
@@ -28,7 +26,7 @@
 #endif
 {
     NSTimer *mTimer;
-    DemoApp demo;
+    HaikuRacerGame game;
     
     NSDate *mDate;
     double mLastFrameTime;
@@ -81,7 +79,7 @@ static id mAppDelegate;
     mTimer = nil;
     
     try {
-        demo.startDemo();
+        game.startGame();
         
         Ogre::Root::getSingleton().getRenderSystem()->_initRenderTargets();
         
@@ -148,4 +146,3 @@ static id mAppDelegate;
 
 #endif
 
-#endif

@@ -8,24 +8,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HaikuRacer/main.mm"
-         timestampString = "378769608.716815"
+         timestampString = "378792374.807506"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "27"
-         endingLineNumber = "27"
+         startingLineNumber = "24"
+         endingLineNumber = "24"
          landmarkName = "main(int argc, char **argv)"
          landmarkType = "7">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "HaikuRacer/OgreDemoApp.h"
-         timestampString = "378771243.645764"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "21"
-         endingLineNumber = "21">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

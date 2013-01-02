@@ -12,7 +12,7 @@
 		A1FB77C01693697D003F1DB4 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB77BF1693697D003F1DB4 /* IOKit.framework */; };
 		A1FB77CC1693697D003F1DB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1FB77CA1693697D003F1DB4 /* InfoPlist.strings */; };
 		A1FB77CF1693697D003F1DB4 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1FB77CE1693697D003F1DB4 /* main.mm */; };
-		A1FB77D31693697D003F1DB4 /* OgreDemoApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB77D21693697D003F1DB4 /* OgreDemoApp.cpp */; };
+		A1FB77D31693697D003F1DB4 /* HaikuRacerGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB77D21693697D003F1DB4 /* HaikuRacerGame.cpp */; };
 		A1FB77D61693697D003F1DB4 /* BtOgreFramework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB77D51693697D003F1DB4 /* BtOgreFramework.cpp */; };
 		A1FB77EA1693697D003F1DB4 /* ogre.cfg in Resources */ = {isa = PBXBuildFile; fileRef = A1FB77E91693697D003F1DB4 /* ogre.cfg */; };
 		A1FB77EC1693697D003F1DB4 /* plugins.cfg in Resources */ = {isa = PBXBuildFile; fileRef = A1FB77EB1693697D003F1DB4 /* plugins.cfg */; };
@@ -39,8 +39,8 @@
 		A1FB77CD1693697D003F1DB4 /* HaikuRacer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HaikuRacer-Prefix.pch"; sourceTree = "<group>"; };
 		A1FB77CE1693697D003F1DB4 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		A1FB77D11693697D003F1DB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A1FB77D21693697D003F1DB4 /* OgreDemoApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OgreDemoApp.cpp; sourceTree = "<group>"; };
-		A1FB77D41693697D003F1DB4 /* OgreDemoApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OgreDemoApp.h; sourceTree = "<group>"; };
+		A1FB77D21693697D003F1DB4 /* HaikuRacerGame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HaikuRacerGame.cpp; sourceTree = "<group>"; };
+		A1FB77D41693697D003F1DB4 /* HaikuRacerGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HaikuRacerGame.h; sourceTree = "<group>"; };
 		A1FB77D51693697D003F1DB4 /* BtOgreFramework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BtOgreFramework.cpp; sourceTree = "<group>"; };
 		A1FB77D71693697D003F1DB4 /* BtOgreFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BtOgreFramework.h; sourceTree = "<group>"; };
 		A1FB77DC1693697D003F1DB4 /* Examples.material */ = {isa = PBXFileReference; lastKnownFileType = text; path = Examples.material; sourceTree = "<group>"; };
@@ -91,8 +91,6 @@
 		A1FB77AB1693697D003F1DB4 = {
 			isa = PBXGroup;
 			children = (
-				A1FB77FB169369D2003F1DB4 /* Cg.framework */,
-				A1FB77F8169369CF003F1DB4 /* Ogre.framework */,
 				A1FB77C71693697D003F1DB4 /* HaikuRacer */,
 				A1FB77BA1693697D003F1DB4 /* Frameworks */,
 				A1FB77B81693697D003F1DB4 /* Products */,
@@ -110,6 +108,8 @@
 		A1FB77BA1693697D003F1DB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1FB77FB169369D2003F1DB4 /* Cg.framework */,
+				A1FB77F8169369CF003F1DB4 /* Ogre.framework */,
 				A1FB781716937F2F003F1DB4 /* libLinearMath.a */,
 				A1FB781516937F28003F1DB4 /* libBulletDynamics.a */,
 				A1FB781316937F20003F1DB4 /* libBulletCollision.a */,
@@ -123,12 +123,11 @@
 		A1FB77C71693697D003F1DB4 /* HaikuRacer */ = {
 			isa = PBXGroup;
 			children = (
-				A1FB77D21693697D003F1DB4 /* OgreDemoApp.cpp */,
-				A1FB77D41693697D003F1DB4 /* OgreDemoApp.h */,
+				A1FB782C1693E8C6003F1DB4 /* Game Objects */,
+				A1FB77D21693697D003F1DB4 /* HaikuRacerGame.cpp */,
+				A1FB77D41693697D003F1DB4 /* HaikuRacerGame.h */,
 				A1FB77D11693697D003F1DB4 /* AppDelegate.h */,
 				A1FB77CE1693697D003F1DB4 /* main.mm */,
-				A1FB782516939627003F1DB4 /* RaceVehicle.cpp */,
-				A1FB782616939627003F1DB4 /* RaceVehicle.h */,
 				A1FB77D01693697D003F1DB4 /* Basic Ogre Framework */,
 				A1FB77D81693697D003F1DB4 /* Resources */,
 				A1FB77C81693697D003F1DB4 /* Supporting Files */,
@@ -227,6 +226,15 @@
 			path = packs;
 			sourceTree = "<group>";
 		};
+		A1FB782C1693E8C6003F1DB4 /* Game Objects */ = {
+			isa = PBXGroup;
+			children = (
+				A1FB782516939627003F1DB4 /* RaceVehicle.cpp */,
+				A1FB782616939627003F1DB4 /* RaceVehicle.h */,
+			);
+			name = "Game Objects";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -312,7 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1FB77CF1693697D003F1DB4 /* main.mm in Sources */,
-				A1FB77D31693697D003F1DB4 /* OgreDemoApp.cpp in Sources */,
+				A1FB77D31693697D003F1DB4 /* HaikuRacerGame.cpp in Sources */,
 				A1FB77D61693697D003F1DB4 /* BtOgreFramework.cpp in Sources */,
 				A1FB781216937D73003F1DB4 /* BtOgre.cpp in Sources */,
 				A1FB782716939627003F1DB4 /* RaceVehicle.cpp in Sources */,
