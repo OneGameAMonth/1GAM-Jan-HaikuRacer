@@ -26,6 +26,8 @@
 #include "BtOgreGP.h"
 #include "BtOgreExtras.h"
 
+
+
 #ifdef OGRE_STATIC_LIB
 #  define OGRE_STATIC_GL
 #  if OGRE_PLATFORM == OGRE_PLATFORM_WIN32

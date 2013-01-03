@@ -61,8 +61,16 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
     m_StaticPluginLoader.load();
 #endif
     
-	if(!m_pRoot->showConfigDialog())
-		return false;
+	//if(!m_pRoot->showConfigDialog())
+	//	return false;
+    
+    RenderSystem *rs = m_pRoot->getRenderSystemByName("OpenGL Rendering Subsystem");
+    // or use "OpenGL Rendering Subsystem"
+    m_pRoot->setRenderSystem(rs);
+    rs->setConfigOption("Full Screen", "No");
+    rs->setConfigOption("Video Mode", "1024 x 768 @ 32-bit colour");
+    rs->setConfigOption("FSAA", "2");
+
 	m_pRenderWnd = m_pRoot->initialise(true, wndTitle);
     
 	m_pSceneMgr = m_pRoot->createSceneManager(ST_GENERIC, "SceneManager");
@@ -88,22 +96,16 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
     
 	m_pInputMgr = OIS::InputManager::createInputSystem(paramList);
     
-#if !defined(OGRE_IS_IOS)
     m_pKeyboard = static_cast<OIS::Keyboard*>(m_pInputMgr->createInputObject(OIS::OISKeyboard, true));
 	m_pMouse = static_cast<OIS::Mouse*>(m_pInputMgr->createInputObject(OIS::OISMouse, true));
     
 	m_pMouse->getMouseState().height = m_pRenderWnd->getHeight();
 	m_pMouse->getMouseState().width	 = m_pRenderWnd->getWidth();
-#else
-	m_pMouse = static_cast<OIS::MultiTouch*>(m_pInputMgr->createInputObject(OIS::OISMultiTouch, true));
-#endif
     
-#if !defined(OGRE_IS_IOS)
 	if(pKeyListener == 0)
 		m_pKeyboard->setEventCallback(this);
 	else
 		m_pKeyboard->setEventCallback(pKeyListener);
-#endif
     
 	if(pMouseListener == 0)
 		m_pMouse->setEventCallback(this);
@@ -229,64 +231,6 @@ bool BtOgreFramework::keyReleased(const OIS::KeyEvent &keyEventRef)
 	return true;
 }
 
-//|||||||||||||||||||||||||||||||||||||||||||||||
-
-#if defined(OGRE_IS_IOS)
-bool BtOgreFramework::touchMoved(const OIS::MultiTouchEvent &evt)
-{
-    OIS::MultiTouchState state = evt.state;
-    int origTransX = 0, origTransY = 0;
-#if !OGRE_NO_VIEWPORT_ORIENTATIONMODE
-    switch(m_pCamera->getViewport()->getOrientationMode())
-    {
-        case Ogre::OR_LANDSCAPELEFT:
-            origTransX = state.X.rel;
-            origTransY = state.Y.rel;
-            state.X.rel = -origTransY;
-            state.Y.rel = origTransX;
-            break;
-            
-        case Ogre::OR_LANDSCAPERIGHT:
-            origTransX = state.X.rel;
-            origTransY = state.Y.rel;
-            state.X.rel = origTransY;
-            state.Y.rel = origTransX;
-            break;
-            
-            // Portrait doesn't need any change
-        case Ogre::OR_PORTRAIT:
-        default:
-            break;
-    }
-#endif
-	m_pCamera->yaw(Degree(state.X.rel * -0.1));
-	m_pCamera->pitch(Degree(state.Y.rel * -0.1));
-	
-	return true;
-}
-
-//|||||||||||||||||||||||||||||||||||||||||||||||
-
-bool BtOgreFramework::touchPressed(const OIS:: MultiTouchEvent &evt)
-{
-#pragma unused(evt)
-	return true;
-}
-
-//|||||||||||||||||||||||||||||||||||||||||||||||
-
-bool BtOgreFramework::touchReleased(const OIS:: MultiTouchEvent &evt)
-{
-#pragma unused(evt)
-	return true;
-}
-
-bool BtOgreFramework::touchCancelled(const OIS:: MultiTouchEvent &evt)
-{
-#pragma unused(evt)
-	return true;
-}
-#else
 bool BtOgreFramework::mouseMoved(const OIS::MouseEvent &evt)
 {
 	m_pCamera->yaw(Degree(evt.state.X.rel * -0.1f));
@@ -304,7 +248,6 @@ bool BtOgreFramework::mouseReleased(const OIS::MouseEvent &evt, OIS::MouseButton
 {
 	return true;
 }
-#endif
 
 void BtOgreFramework::updateOgre(double timeSinceLastFrame)
 {
@@ -339,7 +282,7 @@ void BtOgreFramework::moveCamera()
 void BtOgreFramework::getInput()
 {
 #if !defined(OGRE_IS_IOS)
-	if(m_pKeyboard->isKeyDown(OIS::KC_A))
+/*	if(m_pKeyboard->isKeyDown(OIS::KC_A))
 		m_TranslateVector.x = -m_MoveScale;
 	
 	if(m_pKeyboard->isKeyDown(OIS::KC_D))
@@ -349,6 +292,6 @@ void BtOgreFramework::getInput()
 		m_TranslateVector.z = -m_MoveScale;
 	
 	if(m_pKeyboard->isKeyDown(OIS::KC_S))
-		m_TranslateVector.z = m_MoveScale;
+		m_TranslateVector.z = m_MoveScale;*/
 #endif
 }

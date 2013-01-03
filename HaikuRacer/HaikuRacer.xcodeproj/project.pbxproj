@@ -17,16 +17,18 @@
 		A1FB77EA1693697D003F1DB4 /* ogre.cfg in Resources */ = {isa = PBXBuildFile; fileRef = A1FB77E91693697D003F1DB4 /* ogre.cfg */; };
 		A1FB77EC1693697D003F1DB4 /* plugins.cfg in Resources */ = {isa = PBXBuildFile; fileRef = A1FB77EB1693697D003F1DB4 /* plugins.cfg */; };
 		A1FB77EE1693697D003F1DB4 /* resources.cfg in Resources */ = {isa = PBXBuildFile; fileRef = A1FB77ED1693697D003F1DB4 /* resources.cfg */; };
-		A1FB77F9169369CF003F1DB4 /* Ogre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB77F8169369CF003F1DB4 /* Ogre.framework */; };
-		A1FB77FC169369D2003F1DB4 /* Cg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB77FB169369D2003F1DB4 /* Cg.framework */; };
 		A1FB780B16937866003F1DB4 /* sphere.mesh in Resources */ = {isa = PBXBuildFile; fileRef = A1FB780A16937866003F1DB4 /* sphere.mesh */; };
 		A1FB781216937D73003F1DB4 /* BtOgre.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB781116937D73003F1DB4 /* BtOgre.cpp */; };
-		A1FB781416937F20003F1DB4 /* libBulletCollision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB781316937F20003F1DB4 /* libBulletCollision.a */; };
-		A1FB781616937F28003F1DB4 /* libBulletDynamics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB781516937F28003F1DB4 /* libBulletDynamics.a */; };
-		A1FB781816937F2F003F1DB4 /* libLinearMath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB781716937F2F003F1DB4 /* libLinearMath.a */; };
 		A1FB782716939627003F1DB4 /* RaceVehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB782516939627003F1DB4 /* RaceVehicle.cpp */; };
 		A1FB78291693BDAD003F1DB4 /* Environment.material in Resources */ = {isa = PBXBuildFile; fileRef = A1FB78281693BDAD003F1DB4 /* Environment.material */; };
 		A1FB782B1693BDE7003F1DB4 /* trackTile_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = A1FB782A1693BDE7003F1DB4 /* trackTile_flat.png */; };
+		A1FB782E169532B8003F1DB4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB782D169532B7003F1DB4 /* OpenAL.framework */; };
+		A1FB78421695418B003F1DB4 /* BasicAudioSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB78401695418B003F1DB4 /* BasicAudioSystem.cpp */; };
+		A1FB7860169548F2003F1DB4 /* Ogre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB785F169548F2003F1DB4 /* Ogre.framework */; };
+		A1FB786216954904003F1DB4 /* Cg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB786116954904003F1DB4 /* Cg.framework */; };
+		A1FB78661695493A003F1DB4 /* libBulletCollision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB78631695493A003F1DB4 /* libBulletCollision.a */; };
+		A1FB78671695493A003F1DB4 /* libBulletDynamics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB78641695493A003F1DB4 /* libBulletDynamics.a */; };
+		A1FB78681695493A003F1DB4 /* libLinearMath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB78651695493A003F1DB4 /* libLinearMath.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,17 +58,20 @@
 		A1FB77E91693697D003F1DB4 /* ogre.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = ogre.cfg; sourceTree = "<group>"; };
 		A1FB77EB1693697D003F1DB4 /* plugins.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = plugins.cfg; sourceTree = "<group>"; };
 		A1FB77ED1693697D003F1DB4 /* resources.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = resources.cfg; sourceTree = "<group>"; };
-		A1FB77F8169369CF003F1DB4 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Ogre.framework; sourceTree = "<group>"; };
-		A1FB77FB169369D2003F1DB4 /* Cg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Cg.framework; sourceTree = "<group>"; };
 		A1FB780A16937866003F1DB4 /* sphere.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = sphere.mesh; sourceTree = "<group>"; };
 		A1FB781116937D73003F1DB4 /* BtOgre.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BtOgre.cpp; sourceTree = "<group>"; };
-		A1FB781316937F20003F1DB4 /* libBulletCollision.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBulletCollision.a; sourceTree = "<group>"; };
-		A1FB781516937F28003F1DB4 /* libBulletDynamics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBulletDynamics.a; sourceTree = "<group>"; };
-		A1FB781716937F2F003F1DB4 /* libLinearMath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLinearMath.a; sourceTree = "<group>"; };
 		A1FB782516939627003F1DB4 /* RaceVehicle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RaceVehicle.cpp; sourceTree = "<group>"; };
 		A1FB782616939627003F1DB4 /* RaceVehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceVehicle.h; sourceTree = "<group>"; };
 		A1FB78281693BDAD003F1DB4 /* Environment.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Environment.material; sourceTree = "<group>"; };
 		A1FB782A1693BDE7003F1DB4 /* trackTile_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackTile_flat.png; sourceTree = "<group>"; };
+		A1FB782D169532B7003F1DB4 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		A1FB78401695418B003F1DB4 /* BasicAudioSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicAudioSystem.cpp; sourceTree = "<group>"; };
+		A1FB78411695418B003F1DB4 /* BasicAudioSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicAudioSystem.h; sourceTree = "<group>"; };
+		A1FB785F169548F2003F1DB4 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = Frameworks/Ogre.framework; sourceTree = "<group>"; };
+		A1FB786116954904003F1DB4 /* Cg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cg.framework; path = Frameworks/Cg.framework; sourceTree = "<group>"; };
+		A1FB78631695493A003F1DB4 /* libBulletCollision.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBulletCollision.a; path = Libs/libBulletCollision.a; sourceTree = "<group>"; };
+		A1FB78641695493A003F1DB4 /* libBulletDynamics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBulletDynamics.a; path = Libs/libBulletDynamics.a; sourceTree = "<group>"; };
+		A1FB78651695493A003F1DB4 /* libLinearMath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLinearMath.a; path = Libs/libLinearMath.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,14 +79,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1FB782E169532B8003F1DB4 /* OpenAL.framework in Frameworks */,
 				A1FB77BC1693697D003F1DB4 /* Carbon.framework in Frameworks */,
-				A1FB77FC169369D2003F1DB4 /* Cg.framework in Frameworks */,
 				A1FB77BE1693697D003F1DB4 /* Cocoa.framework in Frameworks */,
-				A1FB77F9169369CF003F1DB4 /* Ogre.framework in Frameworks */,
 				A1FB77C01693697D003F1DB4 /* IOKit.framework in Frameworks */,
-				A1FB781416937F20003F1DB4 /* libBulletCollision.a in Frameworks */,
-				A1FB781616937F28003F1DB4 /* libBulletDynamics.a in Frameworks */,
-				A1FB781816937F2F003F1DB4 /* libLinearMath.a in Frameworks */,
+				A1FB7860169548F2003F1DB4 /* Ogre.framework in Frameworks */,
+				A1FB786216954904003F1DB4 /* Cg.framework in Frameworks */,
+				A1FB78661695493A003F1DB4 /* libBulletCollision.a in Frameworks */,
+				A1FB78671695493A003F1DB4 /* libBulletDynamics.a in Frameworks */,
+				A1FB78681695493A003F1DB4 /* libLinearMath.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +97,7 @@
 		A1FB77AB1693697D003F1DB4 = {
 			isa = PBXGroup;
 			children = (
+				A1FB782D169532B7003F1DB4 /* OpenAL.framework */,
 				A1FB77C71693697D003F1DB4 /* HaikuRacer */,
 				A1FB77BA1693697D003F1DB4 /* Frameworks */,
 				A1FB77B81693697D003F1DB4 /* Products */,
@@ -108,11 +115,11 @@
 		A1FB77BA1693697D003F1DB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A1FB77FB169369D2003F1DB4 /* Cg.framework */,
-				A1FB77F8169369CF003F1DB4 /* Ogre.framework */,
-				A1FB781716937F2F003F1DB4 /* libLinearMath.a */,
-				A1FB781516937F28003F1DB4 /* libBulletDynamics.a */,
-				A1FB781316937F20003F1DB4 /* libBulletCollision.a */,
+				A1FB78631695493A003F1DB4 /* libBulletCollision.a */,
+				A1FB78641695493A003F1DB4 /* libBulletDynamics.a */,
+				A1FB78651695493A003F1DB4 /* libLinearMath.a */,
+				A1FB786116954904003F1DB4 /* Cg.framework */,
+				A1FB785F169548F2003F1DB4 /* Ogre.framework */,
 				A1FB77BB1693697D003F1DB4 /* Carbon.framework */,
 				A1FB77BD1693697D003F1DB4 /* Cocoa.framework */,
 				A1FB77BF1693697D003F1DB4 /* IOKit.framework */,
@@ -151,6 +158,8 @@
 				A1FB781116937D73003F1DB4 /* BtOgre.cpp */,
 				A1FB77D51693697D003F1DB4 /* BtOgreFramework.cpp */,
 				A1FB77D71693697D003F1DB4 /* BtOgreFramework.h */,
+				A1FB78401695418B003F1DB4 /* BasicAudioSystem.cpp */,
+				A1FB78411695418B003F1DB4 /* BasicAudioSystem.h */,
 			);
 			name = "Basic Ogre Framework";
 			sourceTree = "<group>";
@@ -324,6 +333,7 @@
 				A1FB77D61693697D003F1DB4 /* BtOgreFramework.cpp in Sources */,
 				A1FB781216937D73003F1DB4 /* BtOgre.cpp in Sources */,
 				A1FB782716939627003F1DB4 /* RaceVehicle.cpp in Sources */,
+				A1FB78421695418B003F1DB4 /* BasicAudioSystem.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +425,7 @@
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HaikuRacer/HaikuRacer-Prefix.pch";
@@ -422,6 +433,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Libs\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -437,6 +449,7 @@
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HaikuRacer/HaikuRacer-Prefix.pch";
@@ -444,6 +457,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Libs\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

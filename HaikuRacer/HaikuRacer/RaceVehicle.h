@@ -18,7 +18,7 @@ using namespace Ogre;
 
 class RaceVehicle{
     
-private:
+public:
     SceneNode *headNode;
     
 public:

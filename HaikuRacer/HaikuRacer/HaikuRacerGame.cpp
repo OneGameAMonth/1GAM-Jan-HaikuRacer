@@ -14,11 +14,11 @@ HaikuRacerGame::~HaikuRacerGame()
 void HaikuRacerGame::startGame()
 {
 	new BtOgreFramework();
+    
 	if(!BtOgreFramework::getSingletonPtr()->initOgre("DemoApp v1.0", this, 0))
 		return;
     
 	m_bShutdown = false;
-    
 	BtOgreFramework::getSingletonPtr()->m_pLog->logMessage("Demo initialized!");
 	
 	setupGameScene();
@@ -33,6 +33,7 @@ void HaikuRacerGame::setupGameScene()
 {
     vehicle = new RaceVehicle();
     vehicle->node->translate(0, 0.8, 0);
+    
 	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox");
     
 	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,75,75);
@@ -86,7 +87,7 @@ void HaikuRacerGame::runGame()
 	double startTime = 0;
     
     BtOgreFramework::getSingletonPtr()->m_pRenderWnd->resetStatistics();
-    
+    /*
 #if (!defined(OGRE_IS_IOS)) && !((OGRE_PLATFORM == OGRE_PLATFORM_APPLE) && __LP64__)
 	while(!m_bShutdown && !BtOgreFramework::getSingletonPtr()->isOgreToBeShutDown()) 
 	{
@@ -114,9 +115,9 @@ void HaikuRacerGame::runGame()
 #else
             sleep(1);
 #endif
-		}
+    
 	}
-#endif
+#endif*/
     
 	BtOgreFramework::getSingletonPtr()->m_pLog->logMessage("Main loop quit");
 	BtOgreFramework::getSingletonPtr()->m_pLog->logMessage("Shutdown OGRE...");
@@ -127,8 +128,9 @@ bool HaikuRacerGame::keyPressed(const OIS::KeyEvent &keyEventRef)
 {
 	BtOgreFramework::getSingletonPtr()->keyPressed(keyEventRef);
 	
-	if(BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_W))
-	{
+	if(BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_Q))
+	{        
+        vehicle->rigidBody->activate();
         vehicle->rigidBody->setLinearVelocity(btVector3(0, 0, 10));
     }
 	return true;
@@ -139,7 +141,7 @@ bool HaikuRacerGame::keyReleased(const OIS::KeyEvent &keyEventRef)
 {
 	BtOgreFramework::getSingletonPtr()->keyReleased(keyEventRef);
     
-    if(!BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_W))
+    if(!BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_Q))
 	{
         vehicle->rigidBody->setLinearVelocity(btVector3(0, 0, 0));
     }
