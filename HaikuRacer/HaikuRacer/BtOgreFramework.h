@@ -25,7 +25,7 @@
 #include "BtOgrePG.h"
 #include "BtOgreGP.h"
 #include "BtOgreExtras.h"
-
+#include "BasicAudioSystem.h"
 
 
 #ifdef OGRE_STATIC_LIB

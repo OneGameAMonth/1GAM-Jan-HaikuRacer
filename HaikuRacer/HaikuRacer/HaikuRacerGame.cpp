@@ -1,5 +1,5 @@
 #include "HaikuRacerGame.h"
-
+#include "AudioResourceManager.h"
 HaikuRacerGame::HaikuRacerGame()
 {
 	m_pCubeNode		= 0;
@@ -14,7 +14,7 @@ HaikuRacerGame::~HaikuRacerGame()
 void HaikuRacerGame::startGame()
 {
 	new BtOgreFramework();
-    
+    AudioResourceManager::getInstance().initialize();
 	if(!BtOgreFramework::getSingletonPtr()->initOgre("DemoApp v1.0", this, 0))
 		return;
     
@@ -23,7 +23,7 @@ void HaikuRacerGame::startGame()
 	
 	setupGameScene();
 #if !((OGRE_PLATFORM == OGRE_PLATFORM_APPLE) && __LP64__)
-	runDemo();
+	runGame();
 #endif
 }
 
@@ -87,38 +87,7 @@ void HaikuRacerGame::runGame()
 	double startTime = 0;
     
     BtOgreFramework::getSingletonPtr()->m_pRenderWnd->resetStatistics();
-    /*
-#if (!defined(OGRE_IS_IOS)) && !((OGRE_PLATFORM == OGRE_PLATFORM_APPLE) && __LP64__)
-	while(!m_bShutdown && !BtOgreFramework::getSingletonPtr()->isOgreToBeShutDown()) 
-	{
-		if(BtOgreFramework::getSingletonPtr()->m_pRenderWnd->isClosed())m_bShutdown = true;
-        
-#if OGRE_PLATFORM == OGRE_PLATFORM_WIN32 || OGRE_PLATFORM == OGRE_PLATFORM_LINUX || OGRE_PLATFORM == OGRE_PLATFORM_APPLE
-		Ogre::WindowEventUtilities::messagePump();
-#endif	
-		if(BtOgreFramework::getSingletonPtr()->m_pRenderWnd->isActive())
-		{
-			startTime = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU();
-            
-			BtOgreFramework::getSingletonPtr()->m_pKeyboard->capture();
-			BtOgreFramework::getSingletonPtr()->m_pMouse->capture();
-            
-			BtOgreFramework::getSingletonPtr()->updateOgre(timeSinceLastFrame);
-			BtOgreFramework::getSingletonPtr()->m_pRoot->renderOneFrame();
-            
-			timeSinceLastFrame = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU() - startTime;
-		}
-		else
-		{
-#if OGRE_PLATFORM == OGRE_PLATFORM_WIN32
-            Sleep(1000);
-#else
-            sleep(1);
-#endif
-    
-	}
-#endif*/
-    
+
 	BtOgreFramework::getSingletonPtr()->m_pLog->logMessage("Main loop quit");
 	BtOgreFramework::getSingletonPtr()->m_pLog->logMessage("Shutdown OGRE...");
 }
@@ -129,7 +98,10 @@ bool HaikuRacerGame::keyPressed(const OIS::KeyEvent &keyEventRef)
 	BtOgreFramework::getSingletonPtr()->keyPressed(keyEventRef);
 	
 	if(BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_Q))
-	{        
+	{
+        AudioEvent u = AudioResourceManager::getInstance().getUnitForEvent("ambient");
+        BasicAudioSystem::getInstance().playSound(u);
+
         vehicle->rigidBody->activate();
         vehicle->rigidBody->setLinearVelocity(btVector3(0, 0, 10));
     }

@@ -1,0 +1,12 @@
+<audio>
+	<event>
+		<name>ambient</name>
+		<eventUnit>
+			<filename>test.wav</filename>
+			<gain>1.0</gain>
+			<panning>1.0</panning>
+			<looping>1.0</looping>
+			<pitch>1.0</pitch>
+		</eventUnit>
+	</event>
+</audio>
