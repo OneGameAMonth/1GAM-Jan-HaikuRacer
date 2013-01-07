@@ -15,6 +15,10 @@ void HaikuRacerGame::startGame()
 {
 	new BtOgreFramework();
     AudioResourceManager::getInstance().initialize();
+    
+    AudioResource u = AudioResourceManager::getInstance().getResourceForEvent("ambient");
+    BasicAudioSystem::getInstance().playSound(u);
+
 	if(!BtOgreFramework::getSingletonPtr()->initOgre("DemoApp v1.0", this, 0))
 		return;
     
@@ -99,8 +103,6 @@ bool HaikuRacerGame::keyPressed(const OIS::KeyEvent &keyEventRef)
 	
 	if(BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_Q))
 	{
-        AudioEvent u = AudioResourceManager::getInstance().getUnitForEvent("ambient");
-        BasicAudioSystem::getInstance().playSound(u);
 
         vehicle->rigidBody->activate();
         vehicle->rigidBody->setLinearVelocity(btVector3(0, 0, 10));
@@ -119,6 +121,10 @@ bool HaikuRacerGame::keyReleased(const OIS::KeyEvent &keyEventRef)
     }
 
 	return true;
+}
+
+void HaikuRacerGame::updateGame(){
+    
 }
 
 //|||||||||||||||||||||||||||||||||||||||||||||||

@@ -158,7 +158,7 @@ BasicAudioSystem::BasicAudioSystem()
 
 static int curBuffer = 0;
 
-void BasicAudioSystem::playSound(AudioEvent unit){
+void BasicAudioSystem::playSound(AudioResource unit){
     char*     alBuffer;             //data for the buffer
     ALenum alFormatBuffer;    //buffer format
     ALsizei   alFreqBuffer;       //frequency
@@ -188,23 +188,23 @@ void BasicAudioSystem::playSound(AudioEvent unit){
         return 1;
     }
     
-    alGenSources(1, source);
+    alGenSources(1, &unit.sourceHandle);
     if ((error = alGetError()) != AL_NO_ERROR)
     {
         return 1;
     }
     // Attach buffer 0 to source
-    alSourcei(source[0], AL_BUFFER, buffer[curBuffer++]);
+    alSourcei(unit.sourceHandle, AL_BUFFER, buffer[curBuffer++]);
     if ((error = alGetError()) != AL_NO_ERROR)
     {
     }
     
     
-    alSourcei(source[0], AL_LOOPING,  (unit.looping)?AL_TRUE:AL_FALSE);
-    alSourcef(source[0], AL_PITCH, unit.pitch);
-    alSourcef(source[0], AL_GAIN, unit.gain);
+    alSourcei(unit.sourceHandle, AL_LOOPING,  (unit.looping)?AL_TRUE:AL_FALSE);
+    alSourcef(unit.sourceHandle, AL_PITCH, unit.pitch);
+    alSourcef(unit.sourceHandle, AL_GAIN, unit.gain);
     
-    alSourcePlay(source[0]);
+    alSourcePlay(unit.sourceHandle);
     
     if ( curBuffer > NUM_BUFFERS){
         // alDeleteBuffers(NUM_BUFFERS, buffer);
@@ -213,58 +213,3 @@ void BasicAudioSystem::playSound(AudioEvent unit){
     // Exit
 
 }
-
-void BasicAudioSystem::playSound(std::string fileName, bool looping)
-{
-    
-    char*     alBuffer;             //data for the buffer
-    ALenum alFormatBuffer;    //buffer format
-    ALsizei   alFreqBuffer;       //frequency
-    long       alBufferLen;        //bit depth
-    ALboolean    alLoop;         //loop
-    unsigned int alSource;      //source
-    unsigned int alSampleSet;
-    
-    Float64 duration;
-
-    
-    // Load test.wav
-    Ogre::String path = Ogre::macBundlePath() + "/Contents/Resources/media/audio/test.wav";
-    LoadWAVFile(path.data(), &format, &data, &size, &freq, &duration);
-    ALenum error;
-    if ((error = alGetError()) != AL_NO_ERROR)
-    {
-        alDeleteBuffers(NUM_BUFFERS, buffer);
-        return 1;
-    }
-    
-    // Copy test.wav data into AL Buffer 0
-    alBufferData(buffer[curBuffer], format, data, size, freq);
-    if ((error = alGetError()) != AL_NO_ERROR)
-    {
-        alDeleteBuffers(NUM_BUFFERS, buffer);
-        return 1;
-    }
-    
-    alGenSources(1, source);
-    if ((error = alGetError()) != AL_NO_ERROR)
-    {
-        return 1;
-    }
-    // Attach buffer 0 to source
-    alSourcei(source[0], AL_BUFFER, buffer[curBuffer++]);
-    if ((error = alGetError()) != AL_NO_ERROR)
-    {
-    }
-    alSourcei(source[0], AL_LOOPING, AL_TRUE);
-
-    alSourcePlay(source[0]);
-    
-    if ( curBuffer > NUM_BUFFERS){
-       // alDeleteBuffers(NUM_BUFFERS, buffer);
-        curBuffer = 0;
-    }
-    // Exit
-
-}
-

@@ -141,6 +141,17 @@
 			path = config;
 			sourceTree = "<group>";
 		};
+		A1E6BA11169A7E9900BE2E14 /* 2D Sound System */ = {
+			isa = PBXGroup;
+			children = (
+				A1FB78401695418B003F1DB4 /* BasicAudioSystem.cpp */,
+				A1FB78411695418B003F1DB4 /* BasicAudioSystem.h */,
+				A1E6BA05169A0BA600BE2E14 /* AudioResourceManager.cpp */,
+				A1E6BA06169A0BA600BE2E14 /* AudioResourceManager.h */,
+			);
+			name = "2D Sound System";
+			sourceTree = "<group>";
+		};
 		A1FB77AB1693697D003F1DB4 = {
 			isa = PBXGroup;
 			children = (
@@ -206,13 +217,10 @@
 		A1FB77D01693697D003F1DB4 /* Basic Ogre Framework */ = {
 			isa = PBXGroup;
 			children = (
+				A1E6BA11169A7E9900BE2E14 /* 2D Sound System */,
 				A1FB781116937D73003F1DB4 /* BtOgre.cpp */,
 				A1FB77D51693697D003F1DB4 /* BtOgreFramework.cpp */,
 				A1FB77D71693697D003F1DB4 /* BtOgreFramework.h */,
-				A1FB78401695418B003F1DB4 /* BasicAudioSystem.cpp */,
-				A1FB78411695418B003F1DB4 /* BasicAudioSystem.h */,
-				A1E6BA05169A0BA600BE2E14 /* AudioResourceManager.cpp */,
-				A1E6BA06169A0BA600BE2E14 /* AudioResourceManager.h */,
 			);
 			name = "Basic Ogre Framework";
 			sourceTree = "<group>";
@@ -376,7 +384,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This shell script simply copies resources into their respective locations\n\nditto \"/ogre_src_v1-8-1/1.81/lib/release/Ogre.framework\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Frameworks/Ogre.framework\"\n\nditto \"/ogre_src_v1-8-1/1.81/lib/release/RenderSystem_GL.dylib\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Plugins/\"\nditto \"/ogre_src_v1-8-1/1.81/lib/release/Plugin_CgProgramManager.dylib\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Plugins/\"\n\nditto \"$PROJECT_DIR/$PROJECT_NAME/media\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Resources/media/\"\n\nditto \"$PROJECT_DIR/$PROJECT_NAME/\"*.cfg \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Resources/\"\n";
+			shellScript = "# This shell script simply copies resources into their respective locations\n\nditto \"/ogre_src_v1-8-1/1.81/lib/release/Ogre.framework\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Frameworks/Ogre.framework\"\n\nsudo ditto \"$PROJECT_DIR/Frameworks\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Frameworks\"\n\nditto \"/ogre_src_v1-8-1/1.81/lib/release/RenderSystem_GL.dylib\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Plugins/\"\nditto \"/ogre_src_v1-8-1/1.81/lib/release/Plugin_CgProgramManager.dylib\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Plugins/\"\n\nditto \"$PROJECT_DIR/$PROJECT_NAME/media\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Resources/media/\"\n\nditto \"$PROJECT_DIR/$PROJECT_NAME/\"*.cfg \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Resources/\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

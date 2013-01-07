@@ -45,10 +45,8 @@ public:
         return instance;
     }
     
-    void playSound(AudioEvent unit);
-    void playSound(std::string fileName, bool looping);
-    void playSound(std::string fileName, bool looping, float gain);
-    void playSound(std::string fileName, bool looping, float gain, float panning, float pitch);
+    void playSound(AudioResource unit);
+    
 private:
     BasicAudioSystem();
 };

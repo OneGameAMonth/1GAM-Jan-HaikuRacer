@@ -121,6 +121,8 @@ static id mAppDelegate;
 			BtOgreFramework::getSingletonPtr()->updateOgre(mLastFrameTime);
 			BtOgreFramework::getSingletonPtr()->m_pRoot->renderOneFrame();
             
+            game.updateGame();
+            
 			mLastFrameTime = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU() - mStartTime;
 		}
     }

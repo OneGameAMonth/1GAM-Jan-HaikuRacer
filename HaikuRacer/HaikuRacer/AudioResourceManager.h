@@ -13,6 +13,8 @@
 #include <string.h>
 #include <map>
 #include <vector>
+#include <OpenAL/al.h>
+#include <OpenAL/alc.h>
 #include "rapidxml.hpp"
 typedef struct{
     std::string filename;
@@ -20,13 +22,15 @@ typedef struct{
     float panning;
     float gain;
     bool looping;
+    unsigned int sourceHandle;
     
-}AudioEvent;
+}AudioResource;
 
 class AudioResourceManager
 {
 private:
-    std::map<std::string, std::vector<AudioEvent> > eventUnits;
+    std::map<std::string, std::vector<AudioResource> > resources;
+    
     AudioResourceManager(){}
 public:
     static AudioResourceManager& getInstance()
@@ -37,7 +41,7 @@ public:
     }
     
     void initialize();
-    AudioEvent getUnitForEvent(std::string eventName);
+    AudioResource getResourceForEvent(std::string eventName);
 };
 
 #endif 

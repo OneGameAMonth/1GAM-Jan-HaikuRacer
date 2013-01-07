@@ -11,6 +11,7 @@ public:
 	~HaikuRacerGame();
     
 	void startGame();
+    void updateGame();
 	
 	bool keyPressed(const OIS::KeyEvent &keyEventRef);
 	bool keyReleased(const OIS::KeyEvent &keyEventRef);
