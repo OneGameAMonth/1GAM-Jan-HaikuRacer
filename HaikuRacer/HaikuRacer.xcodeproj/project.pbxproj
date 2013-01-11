@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A19965A2169D24B800390AF2 /* RaceTrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A19965A0169D24B800390AF2 /* RaceTrack.cpp */; };
+		A19965A6169D2DE200390AF2 /* TrackSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A19965A4169D2DE200390AF2 /* TrackSegment.cpp */; };
 		A1E6B9FC1699F18E00BE2E14 /* test.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1E6B9FB1699F18E00BE2E14 /* test.wav */; };
 		A1E6BA07169A0BA600BE2E14 /* AudioResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1E6BA05169A0BA600BE2E14 /* AudioResourceManager.cpp */; };
 		A1E6BA0A169A0E4900BE2E14 /* audio_events.xml in Resources */ = {isa = PBXBuildFile; fileRef = A1E6BA09169A0E4900BE2E14 /* audio_events.xml */; };
@@ -38,6 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A19965A0169D24B800390AF2 /* RaceTrack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RaceTrack.cpp; sourceTree = "<group>"; };
+		A19965A1169D24B800390AF2 /* RaceTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceTrack.h; sourceTree = "<group>"; };
+		A19965A4169D2DE200390AF2 /* TrackSegment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrackSegment.cpp; sourceTree = "<group>"; };
+		A19965A5169D2DE200390AF2 /* TrackSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackSegment.h; sourceTree = "<group>"; };
 		A1E6B9FB1699F18E00BE2E14 /* test.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = test.wav; path = "../../../../../../../../Documents/Development/Projects/Mac OS X/1GAM-Jan/1GAM-Jan-HaikuRacer/HaikuRacer/HaikuRacer/media/audio/test.wav"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E6B9FE169A0A1700BE2E14 /* rapidxml_iterators.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rapidxml_iterators.hpp; sourceTree = "<group>"; };
 		A1E6B9FF169A0A1700BE2E14 /* rapidxml_print.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rapidxml_print.hpp; sourceTree = "<group>"; };
@@ -303,6 +309,10 @@
 			children = (
 				A1FB782516939627003F1DB4 /* RaceVehicle.cpp */,
 				A1FB782616939627003F1DB4 /* RaceVehicle.h */,
+				A19965A0169D24B800390AF2 /* RaceTrack.cpp */,
+				A19965A1169D24B800390AF2 /* RaceTrack.h */,
+				A19965A4169D2DE200390AF2 /* TrackSegment.cpp */,
+				A19965A5169D2DE200390AF2 /* TrackSegment.h */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -400,6 +410,8 @@
 				A1FB782716939627003F1DB4 /* RaceVehicle.cpp in Sources */,
 				A1FB78421695418B003F1DB4 /* BasicAudioSystem.cpp in Sources */,
 				A1E6BA07169A0BA600BE2E14 /* AudioResourceManager.cpp in Sources */,
+				A19965A2169D24B800390AF2 /* RaceTrack.cpp in Sources */,
+				A19965A6169D2DE200390AF2 /* TrackSegment.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

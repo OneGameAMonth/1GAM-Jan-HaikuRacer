@@ -3,7 +3,7 @@
 
 #include "BtOgreFramework.h"
 #include "RaceVehicle.h"
-
+#include "RaceTrack.h"
 class HaikuRacerGame : public OIS::KeyListener
 {
 public:
@@ -26,6 +26,7 @@ private:
 	bool					m_bShutdown;
     
     RaceVehicle *vehicle;
+    RaceTrack *track;
 };
 
 

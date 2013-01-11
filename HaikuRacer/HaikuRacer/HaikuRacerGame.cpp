@@ -38,10 +38,13 @@ void HaikuRacerGame::setupGameScene()
     vehicle = new RaceVehicle();
     vehicle->node->translate(0, 0.8, 0);
     
+    track = new RaceTrack();
+
+    
 	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox");
     
-	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,75,75);
-
+	//BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,75,75);
+/*
     Entity *ground = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity("testGround", Ogre::SceneManager::PT_CUBE);
     ground->setMaterialName("Environment/TrackTile");
     SceneNode *groundNode = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode();
@@ -58,6 +61,13 @@ void HaikuRacerGame::setupGameScene()
     lWallNode->setScale(0.01, 0.02, 0.2);
     lWallNode->attachObject(leftWall);
     lWallNode->setPosition(5.5, 1, 5);
+    lWallNode->rotate(Vector3(0,1,0),Radian(-1.0f));
+    BtOgre::StaticMeshToShapeConverter converter2(leftWall);
+    btCollisionShape *wallShape = converter2.createBox();
+
+    btScalar wallmass = 0;
+    btVector3 wallinertia;
+    wallShape->calculateLocalInertia(wallmass, wallinertia);
     
     Entity *rightWall = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity(Ogre::SceneManager::PT_CUBE);
     SceneNode *rWallNode = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode();
@@ -72,11 +82,17 @@ void HaikuRacerGame::setupGameScene()
     groundShape->calculateLocalInertia(mass, inertia);
     
     BtOgre::RigidBodyState *headState = new BtOgre::RigidBodyState(groundNode);
-    
+    BtOgre::RigidBodyState *wallState = new BtOgre::RigidBodyState(lWallNode);
+
     //Create the Body.
     btRigidBody *groundRigid = new btRigidBody(mass, headState, groundShape, btVector3(0,0,0));
+    btRigidBody *lWallRigid = new btRigidBody(wallmass, wallState, wallShape, btVector3(0,0,0));
+
     BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->addRigidBody(groundRigid);
+    BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->addRigidBody(lWallRigid);
+
     groundRigid->setGravity(btVector3(0,0,0));
+ */
 
     
 }

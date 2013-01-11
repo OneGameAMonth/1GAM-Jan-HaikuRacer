@@ -12,7 +12,8 @@
 RaceVehicle::RaceVehicle(){
     
     node = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode();
-
+    node = node->createChildSceneNode();
+    
     Entity *headEntity = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity("sphere.mesh");
     headEntity->setVisible(true);
     headNode = node->createChildSceneNode();
