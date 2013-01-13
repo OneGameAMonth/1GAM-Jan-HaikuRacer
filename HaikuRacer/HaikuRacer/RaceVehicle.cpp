@@ -18,7 +18,7 @@ RaceVehicle::RaceVehicle(){
     headEntity->setVisible(true);
     headNode = node->createChildSceneNode();
     headNode->attachObject(headEntity);
-    
+    headEntity->setMaterialName("Ogre/Eyes");
     BtOgre::StaticMeshToShapeConverter converter(headEntity);
     btCollisionShape *mHeadShape = converter.createSphere();
 
@@ -27,7 +27,7 @@ RaceVehicle::RaceVehicle(){
     btVector3 inertia;
     mHeadShape->calculateLocalInertia(mass, inertia);
 
-    BtOgre::RigidBodyState *headState = new BtOgre::RigidBodyState(headNode);
+    BtOgre::RigidBodyState *headState = new BtOgre::RigidBodyState(node);
     
     //Create the Body.
     rigidBody = new btRigidBody(mass, headState, mHeadShape, inertia);
@@ -36,10 +36,20 @@ RaceVehicle::RaceVehicle(){
 }
 
 
+void RaceVehicle::translate(Vector3 t){
+    node->translate(t);
+    rigidBody->translate(btVector3(t.x,t.y,t.z));
+}
+
 void RaceVehicle::attachToSceneNode(Ogre::SceneNode *attachTo){
     attachTo->addChild(node);
 }
 
 void RaceVehicle::attachSceneNode(Ogre::SceneNode *attaching){
     node->addChild(attaching);
+}
+
+Vector3 RaceVehicle::getForwardVector(){
+    
+    return node->getOrientation().zAxis();
 }

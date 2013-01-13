@@ -82,12 +82,12 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
 	m_pCamera->setNearClipDistance(1);
     
 	m_pViewport = m_pRenderWnd->addViewport(m_pCamera);
-	m_pViewport->setBackgroundColour(ColourValue(0.8f, 0.7f, 0.6f, 1.0f));
+	//m_pViewport->setBackgroundColour(ColourValue(0.9,0.9,0.9,1.0));//ColourValue(0.8f, 0.7f, 0.6f, 1.0f));
     
 	m_pCamera->setAspectRatio(Real(m_pViewport->getActualWidth()) / Real(m_pViewport->getActualHeight()));
 	
 	m_pViewport->setCamera(m_pCamera);
-    
+    m_pViewport->setBackgroundColour(ColourValue(0.278, 0.0, 0.14,1.0));
 	unsigned long hWnd = 0;
     OIS::ParamList paramList;
     m_pRenderWnd->getCustomAttribute("WINDOW", &hWnd);
@@ -282,7 +282,7 @@ void BtOgreFramework::moveCamera()
 void BtOgreFramework::getInput()
 {
 #if !defined(OGRE_IS_IOS)
-/*	if(m_pKeyboard->isKeyDown(OIS::KC_A))
+	if(m_pKeyboard->isKeyDown(OIS::KC_A))
 		m_TranslateVector.x = -m_MoveScale;
 	
 	if(m_pKeyboard->isKeyDown(OIS::KC_D))
@@ -292,6 +292,6 @@ void BtOgreFramework::getInput()
 		m_TranslateVector.z = -m_MoveScale;
 	
 	if(m_pKeyboard->isKeyDown(OIS::KC_S))
-		m_TranslateVector.z = m_MoveScale;*/
+		m_TranslateVector.z = m_MoveScale;
 #endif
 }

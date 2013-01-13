@@ -20,7 +20,7 @@ class RaceVehicle{
     
 public:
     SceneNode *headNode;
-    
+    Vector3 *forward;
 public:
     SceneNode *node;
     btRigidBody *rigidBody;
@@ -28,8 +28,12 @@ public:
     ~RaceVehicle(){}
     void attachToSceneNode(SceneNode *attachTo);
     void attachSceneNode(SceneNode *attaching);
-    
+    void translate(Ogre::Vector3 t);
+Vector3 getForwardVector();
+
 };
+
+
 
 #endif /* defined(__OgreTest2__BasicTree__) */
 

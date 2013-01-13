@@ -15,7 +15,7 @@ void HaikuRacerGame::startGame()
 {
 	new BtOgreFramework();
     AudioResourceManager::getInstance().initialize();
-    
+
     AudioResource u = AudioResourceManager::getInstance().getResourceForEvent("ambient");
     BasicAudioSystem::getInstance().playSound(u);
 
@@ -36,14 +36,14 @@ void HaikuRacerGame::startGame()
 void HaikuRacerGame::setupGameScene()
 {
     vehicle = new RaceVehicle();
-    vehicle->node->translate(0, 0.8, 0);
-    
+    vehicle->translate(Vector3(0,10,0));
+    vehicle->rigidBody->activate();
     track = new RaceTrack();
 
     
-	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox");
+	//BtOgreFramework::getSingletonPtr()->m_pSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox");
     
-	//BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,75,75);
+	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,75,75);
 /*
     Entity *ground = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity("testGround", Ogre::SceneManager::PT_CUBE);
     ground->setMaterialName("Environment/TrackTile");
@@ -92,8 +92,8 @@ void HaikuRacerGame::setupGameScene()
     BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->addRigidBody(lWallRigid);
 
     groundRigid->setGravity(btVector3(0,0,0));
- */
-
+ 
+*/
     
 }
 
@@ -121,8 +121,9 @@ bool HaikuRacerGame::keyPressed(const OIS::KeyEvent &keyEventRef)
 	{
 
         vehicle->rigidBody->activate();
-        vehicle->rigidBody->setLinearVelocity(btVector3(0, 0, 10));
+        vehicle->rigidBody->setLinearVelocity(btVector3(0, 0, -10));
     }
+    
 	return true;
 }
 
@@ -133,14 +134,35 @@ bool HaikuRacerGame::keyReleased(const OIS::KeyEvent &keyEventRef)
     
     if(!BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_Q))
 	{
-        vehicle->rigidBody->setLinearVelocity(btVector3(0, 0, 0));
+      //  vehicle->rigidBody->setLinearVelocity(btVector3(0, 0, 0));
     }
 
 	return true;
 }
 
 void HaikuRacerGame::updateGame(){
+    vehicle->rigidBody->activate();
+    btVector3 vehicleVelocity = vehicle->rigidBody->getLinearVelocity();
+    Vector3 ogVelocity = Vector3(vehicleVelocity.x(), vehicleVelocity.y(), vehicleVelocity.z());
+    ogVelocity = ogVelocity.normalisedCopy();
+    if (vehicleVelocity.length() > 50) vehicle->rigidBody->setLinearVelocity(vehicleVelocity.normalized()*50);
+    BtOgreFramework::getSingletonPtr()->m_pCamera->setPosition(vehicle->node->getPosition()+Vector3(0,100,0));
+   // BtOgreFramework::getSingletonPtr()->m_pCamera->lookAt(vehicle->node->getPosition());
+    Vector3 trackVel = Vector3(ogVelocity.x, 0, ogVelocity.z);
     
+   // BtOgreFramework::getSingletonPtr()->m_pCamera->lookAt(vehicle->node->getPosition());
+    
+    if (BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_D)){
+        vehicle->rigidBody->activate();
+        vehicle->rigidBody->applyCentralForce(btVector3(-200,0,0));
+    }
+    
+    if (BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_A)){
+        vehicle->rigidBody->activate();
+        
+        vehicle->rigidBody->applyCentralForce(btVector3(200,0,0));
+    }
+
 }
 
 //|||||||||||||||||||||||||||||||||||||||||||||||

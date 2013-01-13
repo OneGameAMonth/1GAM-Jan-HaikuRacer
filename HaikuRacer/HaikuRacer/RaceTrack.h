@@ -16,7 +16,7 @@
 #include <string>
 #include "TrackSegment.h"
 
-#define NUM_SEGMENTS 10
+#define NUM_SEGMENTS 400
 using namespace Ogre;
 
 class RaceTrack{

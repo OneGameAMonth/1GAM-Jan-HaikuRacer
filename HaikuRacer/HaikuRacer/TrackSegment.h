@@ -25,7 +25,8 @@ public:
     SceneNode *node;
     SceneNode *floorNode;
     btRigidBody *rigidBody;
-    
+    float theta;
+    float xTheta;
     TrackSegment *previousSegment;
 
     TrackSegment(TrackSegment *previous);
