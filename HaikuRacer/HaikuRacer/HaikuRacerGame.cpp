@@ -44,57 +44,6 @@ void HaikuRacerGame::setupGameScene()
 	//BtOgreFramework::getSingletonPtr()->m_pSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox");
     
 	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,75,75);
-/*
-    Entity *ground = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity("testGround", Ogre::SceneManager::PT_CUBE);
-    ground->setMaterialName("Environment/TrackTile");
-    SceneNode *groundNode = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode();
-    groundNode->attachObject(ground);
-    groundNode->setScale(0.1, 0.001, 0.2);
-    groundNode->setPosition(0, -0.1, 5);
-    
-    BtOgre::StaticMeshToShapeConverter converter(ground);
-    btCollisionShape *groundShape = converter.createBox();
-    
-    Entity *leftWall = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity(Ogre::SceneManager::PT_CUBE);
-    SceneNode *lWallNode = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode();
-    leftWall->setMaterialName("Environment/TrackTile");
-    lWallNode->setScale(0.01, 0.02, 0.2);
-    lWallNode->attachObject(leftWall);
-    lWallNode->setPosition(5.5, 1, 5);
-    lWallNode->rotate(Vector3(0,1,0),Radian(-1.0f));
-    BtOgre::StaticMeshToShapeConverter converter2(leftWall);
-    btCollisionShape *wallShape = converter2.createBox();
-
-    btScalar wallmass = 0;
-    btVector3 wallinertia;
-    wallShape->calculateLocalInertia(wallmass, wallinertia);
-    
-    Entity *rightWall = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity(Ogre::SceneManager::PT_CUBE);
-    SceneNode *rWallNode = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode();
-    rightWall->setMaterialName("Environment/TrackTile");
-
-    rWallNode->setScale(0.01, 0.02, 0.2);
-    rWallNode->attachObject(rightWall);
-    rWallNode->setPosition(-5.5, 1, 5);
-    
-    btScalar mass = 0;
-    btVector3 inertia;
-    groundShape->calculateLocalInertia(mass, inertia);
-    
-    BtOgre::RigidBodyState *headState = new BtOgre::RigidBodyState(groundNode);
-    BtOgre::RigidBodyState *wallState = new BtOgre::RigidBodyState(lWallNode);
-
-    //Create the Body.
-    btRigidBody *groundRigid = new btRigidBody(mass, headState, groundShape, btVector3(0,0,0));
-    btRigidBody *lWallRigid = new btRigidBody(wallmass, wallState, wallShape, btVector3(0,0,0));
-
-    BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->addRigidBody(groundRigid);
-    BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->addRigidBody(lWallRigid);
-
-    groundRigid->setGravity(btVector3(0,0,0));
- 
-*/
-    
 }
 
 //|||||||||||||||||||||||||||||||||||||||||||||||
@@ -140,13 +89,46 @@ bool HaikuRacerGame::keyReleased(const OIS::KeyEvent &keyEventRef)
 	return true;
 }
 
+
+struct CollisionOccurred : public btCollisionWorld::ContactResultCallback
+{
+    btCollisionObject *user;
+    std::vector<TrackSegment> t;
+    
+    CollisionOccurred(btCollisionObject *vehicle, std::vector<TrackSegment> track){
+        user = vehicle;
+        t = track;
+    }
+    
+	virtual	btScalar	addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap,int partId0,int index0,const btCollisionObjectWrapper* colObj1Wrap,int partId1,int index1)
+	{
+        
+        const btCollisionObject *a = colObj0Wrap->getCollisionObject();
+        const btCollisionObject *b = colObj1Wrap->getCollisionObject();
+        
+        if (a == user){
+            for (int i = 0; i < t.size(); i++){
+                TrackSegment seg = t[i];
+                if ( b == seg.rigidBody) seg.startGlow();
+            }
+        }
+        else if (b == user){
+            for (int i = 0; i < t.size(); i++){
+                TrackSegment seg = t[i];
+                if ( a == seg.rigidBody) seg.startGlow();
+            }
+        }
+        
+        return 0;
+	}
+};
+
 void HaikuRacerGame::updateGame(){
     vehicle->rigidBody->activate();
     btVector3 vehicleVelocity = vehicle->rigidBody->getLinearVelocity();
     Vector3 ogVelocity = Vector3(vehicleVelocity.x(), vehicleVelocity.y(), vehicleVelocity.z());
     ogVelocity = ogVelocity.normalisedCopy();
-    if (vehicleVelocity.length() > 50) vehicle->rigidBody->setLinearVelocity(vehicleVelocity.normalized()*50);
-    BtOgreFramework::getSingletonPtr()->m_pCamera->setPosition(vehicle->node->getPosition()+Vector3(0,100,0));
+    BtOgreFramework::getSingletonPtr()->m_pCamera->setPosition(vehicle->node->getPosition()+Vector3(0,30,0));
    // BtOgreFramework::getSingletonPtr()->m_pCamera->lookAt(vehicle->node->getPosition());
     Vector3 trackVel = Vector3(ogVelocity.x, 0, ogVelocity.z);
     
@@ -154,15 +136,18 @@ void HaikuRacerGame::updateGame(){
     
     if (BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_D)){
         vehicle->rigidBody->activate();
-        vehicle->rigidBody->applyCentralForce(btVector3(-200,0,0));
+        vehicle->rigidBody->applyCentralForce(btVector3(-150,0,0));
     }
     
     if (BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_A)){
         vehicle->rigidBody->activate();
-        
-        vehicle->rigidBody->applyCentralForce(btVector3(200,0,0));
+       // vehicle->rigidBody->applyCentralImpulse(btVector3(10, 0, 0));
+        vehicle->rigidBody->applyCentralForce(btVector3(150,0,0));
     }
-
+    if (vehicleVelocity.length() > 10) vehicle->rigidBody->setLinearVelocity(vehicleVelocity.normalized()*10);
+    CollisionOccurred handler(vehicle->rigidBody, track->track);
+    BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->contactTest(vehicle->rigidBody, handler);
+    
 }
 
-//|||||||||||||||||||||||||||||||||||||||||||||||
+

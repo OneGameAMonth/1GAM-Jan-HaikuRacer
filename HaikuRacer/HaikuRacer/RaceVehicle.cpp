@@ -23,15 +23,18 @@ RaceVehicle::RaceVehicle(){
     btCollisionShape *mHeadShape = converter.createSphere();
 
 
-    btScalar mass = 5;
+    btScalar mass = 20;
     btVector3 inertia;
     mHeadShape->calculateLocalInertia(mass, inertia);
 
     BtOgre::RigidBodyState *headState = new BtOgre::RigidBodyState(node);
     
+    
+    
     //Create the Body.
     rigidBody = new btRigidBody(mass, headState, mHeadShape, inertia);
-    
+    rigidBody->setGravity(btVector3(0,-10000,0));
+    rigidBody->setRestitution(1000);
     BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->addRigidBody(rigidBody);
 }
 

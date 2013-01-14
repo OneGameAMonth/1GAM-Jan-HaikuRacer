@@ -16,7 +16,7 @@
 #include <string>
 
 using namespace Ogre;
-
+extern ContactProcessedCallback gContactProcessedCallback;
 class TrackSegment{
 public:
     float length;
@@ -24,6 +24,7 @@ public:
     
     SceneNode *node;
     SceneNode *floorNode;
+    Entity *ent;
     btRigidBody *rigidBody;
     float theta;
     float xTheta;
@@ -31,7 +32,8 @@ public:
 
     TrackSegment(TrackSegment *previous);
     ~TrackSegment(){}
-    
+    void startGlow();
+    bool contactCallback( btManifoldPoint& cp, void* body0,void* body1);
 };
 
 #endif /* defined(__HaikuRacer__TrackSegment__) */

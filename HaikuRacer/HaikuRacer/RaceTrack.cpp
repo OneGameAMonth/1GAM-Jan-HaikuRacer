@@ -16,7 +16,6 @@ RaceTrack::RaceTrack(){
     {
         TrackSegment *seg = new TrackSegment((i>0)?track[i-1]:NULL);
         track.push_back(seg);
-     //   node->addChild(seg->floorNode);
     }
 }
 
