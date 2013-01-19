@@ -15,9 +15,11 @@ static bool HandleContacts(btManifoldPoint& point, btCollisionObject* body0, btC
 
 TrackSegment::TrackSegment(TrackSegment *previous){
     
+    glowing = false;
+    
     node = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode();
    
-
+    
     Entity *floorEntity = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity(Ogre::SceneManager::PT_CUBE);
     floorEntity->setVisible(true);
     floorNode = node->createChildSceneNode();
@@ -89,5 +91,5 @@ TrackSegment::TrackSegment(TrackSegment *previous){
 }
 
 void TrackSegment::startGlow(){
-    ent->setMaterialName("Ogre/Skin");
+    ent->setMaterialName("ground/on");
 }

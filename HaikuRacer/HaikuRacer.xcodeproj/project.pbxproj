@@ -398,7 +398,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This shell script simply copies resources into their respective locations\n\nditto \"/ogre_src_v1-8-1/1.81/lib/release/Ogre.framework\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Frameworks/Ogre.framework\"\n\nsudo ditto \"$PROJECT_DIR/Frameworks\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Frameworks\"\n\nditto \"/ogre_src_v1-8-1/1.81/lib/release/RenderSystem_GL.dylib\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Plugins/\"\nditto \"/ogre_src_v1-8-1/1.81/lib/release/Plugin_CgProgramManager.dylib\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Plugins/\"\n\nditto \"$PROJECT_DIR/$PROJECT_NAME/media\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Resources/media/\"\n\nditto \"$PROJECT_DIR/$PROJECT_NAME/\"*.cfg \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Resources/\"\n";
+			shellScript = "# This shell script simply copies resources into their respective locations\n\nditto \"/ogre_src_v1-8-1/1.81/lib/release/Ogre.framework\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Frameworks/Ogre.framework\"\n\nditto \"$PROJECT_DIR/Frameworks\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Frameworks\"\n\nditto \"/ogre_src_v1-8-1/1.81/lib/release/RenderSystem_GL.dylib\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Plugins/\"\nditto \"/ogre_src_v1-8-1/1.81/lib/release/Plugin_CgProgramManager.dylib\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Plugins/\"\n\nditto \"$PROJECT_DIR/$PROJECT_NAME/media\" \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Resources/media/\"\n\nditto \"$PROJECT_DIR/$PROJECT_NAME/\"*.cfg \"$BUILT_PRODUCTS_DIR/HaikuRacer.app/Contents/Resources/\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

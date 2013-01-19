@@ -4,6 +4,8 @@
 #include "BtOgreFramework.h"
 #include "RaceVehicle.h"
 #include "RaceTrack.h"
+#include <vector>
+#include <deque>
 class HaikuRacerGame : public OIS::KeyListener
 {
 public:
@@ -24,8 +26,9 @@ private:
 	Ogre::Entity*				m_pCubeEntity;
     
 	bool					m_bShutdown;
-    
+    std::deque<Vector3> lookVectors;
     RaceVehicle *vehicle;
+    TrackSegment *currentPanel;
     RaceTrack *track;
 };
 

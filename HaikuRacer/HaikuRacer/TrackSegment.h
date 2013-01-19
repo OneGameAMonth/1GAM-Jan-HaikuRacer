@@ -32,6 +32,7 @@ public:
 
     TrackSegment(TrackSegment *previous);
     ~TrackSegment(){}
+    bool glowing;
     void startGlow();
     bool contactCallback( btManifoldPoint& cp, void* body0,void* body1);
 };

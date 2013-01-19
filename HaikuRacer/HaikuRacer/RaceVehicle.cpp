@@ -14,16 +14,17 @@ RaceVehicle::RaceVehicle(){
     node = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode();
     node = node->createChildSceneNode();
     
-    Entity *headEntity = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity("sphere.mesh");
+    Entity *headEntity = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createEntity(Ogre::SceneManager::PT_SPHERE);
     headEntity->setVisible(true);
     headNode = node->createChildSceneNode();
+    headNode->scale(0.02, 0.02, 0.02);
     headNode->attachObject(headEntity);
     headEntity->setMaterialName("Ogre/Eyes");
     BtOgre::StaticMeshToShapeConverter converter(headEntity);
     btCollisionShape *mHeadShape = converter.createSphere();
 
 
-    btScalar mass = 20;
+    btScalar mass = 2;
     btVector3 inertia;
     mHeadShape->calculateLocalInertia(mass, inertia);
 
@@ -33,8 +34,8 @@ RaceVehicle::RaceVehicle(){
     
     //Create the Body.
     rigidBody = new btRigidBody(mass, headState, mHeadShape, inertia);
-    rigidBody->setGravity(btVector3(0,-10000,0));
-    rigidBody->setRestitution(1000);
+    rigidBody->setGravity(btVector3(0,-100,0));
+    rigidBody->setRestitution(10000);
     BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->addRigidBody(rigidBody);
 }
 

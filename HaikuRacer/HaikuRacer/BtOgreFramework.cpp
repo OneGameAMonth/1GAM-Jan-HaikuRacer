@@ -80,6 +80,7 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
 	m_pCamera->setPosition(Vector3(0, 8, -15));
 	m_pCamera->lookAt(Vector3(0, 0, 20));
 	m_pCamera->setNearClipDistance(1);
+    m_pCamera->setFarClipDistance(200);
     
 	m_pViewport = m_pRenderWnd->addViewport(m_pCamera);
 	//m_pViewport->setBackgroundColour(ColourValue(0.9,0.9,0.9,1.0));//ColourValue(0.8f, 0.7f, 0.6f, 1.0f));
@@ -146,7 +147,7 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
     m_pTrayMgr->showFrameStats(OgreBites::TL_BOTTOMLEFT);
     m_pTrayMgr->showLogo(OgreBites::TL_BOTTOMRIGHT);
     m_pTrayMgr->hideCursor();
-    
+    m_pTrayMgr->hideAll();
 	m_pRenderWnd->setActive(true);
     
     
@@ -160,7 +161,9 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
     
     dbgdraw = new BtOgre::DebugDrawer(m_pSceneMgr->getRootSceneNode(), m_pPhysicsWorld);
     dbgdraw->setDebugMode(1);
-    
+    m_pSceneMgr->setShadowTechnique(SHADOWTYPE_STENCIL_MODULATIVE);
+    m_pSceneMgr->setShadowCasterRenderBackFaces(false);
+
 	return true;
 }
 
@@ -233,8 +236,8 @@ bool BtOgreFramework::keyReleased(const OIS::KeyEvent &keyEventRef)
 
 bool BtOgreFramework::mouseMoved(const OIS::MouseEvent &evt)
 {
-	m_pCamera->yaw(Degree(evt.state.X.rel * -0.1f));
-	m_pCamera->pitch(Degree(evt.state.Y.rel * -0.1f));
+	//m_pCamera->yaw(Degree(evt.state.X.rel * -0.1f));
+	//m_pCamera->pitch(Degree(evt.state.Y.rel * -0.1f));
 	
 	return true;
 }
@@ -282,7 +285,7 @@ void BtOgreFramework::moveCamera()
 void BtOgreFramework::getInput()
 {
 #if !defined(OGRE_IS_IOS)
-	if(m_pKeyboard->isKeyDown(OIS::KC_A))
+	/*if(m_pKeyboard->isKeyDown(OIS::KC_A))
 		m_TranslateVector.x = -m_MoveScale;
 	
 	if(m_pKeyboard->isKeyDown(OIS::KC_D))
@@ -292,6 +295,6 @@ void BtOgreFramework::getInput()
 		m_TranslateVector.z = -m_MoveScale;
 	
 	if(m_pKeyboard->isKeyDown(OIS::KC_S))
-		m_TranslateVector.z = m_MoveScale;
+		m_TranslateVector.z = m_MoveScale;*/
 #endif
 }

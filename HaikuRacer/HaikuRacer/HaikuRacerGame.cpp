@@ -40,10 +40,9 @@ void HaikuRacerGame::setupGameScene()
     vehicle->rigidBody->activate();
     track = new RaceTrack();
 
+    BtOgreFramework::getSingletonPtr()->m_pCamera->setAutoTracking(true,vehicle->node);
     
-	//BtOgreFramework::getSingletonPtr()->m_pSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox");
-    
-	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,75,75);
+	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,275,75);
 }
 
 //|||||||||||||||||||||||||||||||||||||||||||||||
@@ -90,14 +89,17 @@ bool HaikuRacerGame::keyReleased(const OIS::KeyEvent &keyEventRef)
 }
 
 
+
 struct CollisionOccurred : public btCollisionWorld::ContactResultCallback
 {
     btCollisionObject *user;
-    std::vector<TrackSegment> t;
+    std::vector<TrackSegment> *t;
+    TrackSegment *currentPanel;
     
-    CollisionOccurred(btCollisionObject *vehicle, std::vector<TrackSegment> track){
+    CollisionOccurred(btCollisionObject *vehicle, std::vector<TrackSegment> *track, TrackSegment *curPanelPointer){
         user = vehicle;
         t = track;
+        curPanelPointer = currentPanel;
     }
     
 	virtual	btScalar	addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap,int partId0,int index0,const btCollisionObjectWrapper* colObj1Wrap,int partId1,int index1)
@@ -107,17 +109,31 @@ struct CollisionOccurred : public btCollisionWorld::ContactResultCallback
         const btCollisionObject *b = colObj1Wrap->getCollisionObject();
         
         if (a == user){
-            for (int i = 0; i < t.size(); i++){
-                TrackSegment seg = t[i];
-                if ( b == seg.rigidBody) seg.startGlow();
+            for (int i = 0; i < t->size(); i++){
+                TrackSegment *seg = &t->at(i);
+                if ( b == seg->rigidBody && seg->glowing==false){
+                    seg->startGlow();
+                    AudioResource u = AudioResourceManager::getInstance().getResourceForEvent("next_panel");
+                    BasicAudioSystem::getInstance().playSound(u);
+                    currentPanel = seg;
+
+                    
+                }
             }
         }
         else if (b == user){
-            for (int i = 0; i < t.size(); i++){
-                TrackSegment seg = t[i];
-                if ( a == seg.rigidBody) seg.startGlow();
+            for (int i = 0; i < t->size(); i++){
+                TrackSegment *seg = &t->at(i);
+                if ( a == seg->rigidBody && seg->glowing == false){
+                    seg->startGlow();
+                    AudioResource u = AudioResourceManager::getInstance().getResourceForEvent("next_panel");
+                    BasicAudioSystem::getInstance().playSound(u);
+                    currentPanel = seg;
+                }
             }
         }
+        
+        
         
         return 0;
 	}
@@ -126,26 +142,56 @@ struct CollisionOccurred : public btCollisionWorld::ContactResultCallback
 void HaikuRacerGame::updateGame(){
     vehicle->rigidBody->activate();
     btVector3 vehicleVelocity = vehicle->rigidBody->getLinearVelocity();
+    
     Vector3 ogVelocity = Vector3(vehicleVelocity.x(), vehicleVelocity.y(), vehicleVelocity.z());
-    ogVelocity = ogVelocity.normalisedCopy();
-    BtOgreFramework::getSingletonPtr()->m_pCamera->setPosition(vehicle->node->getPosition()+Vector3(0,30,0));
-   // BtOgreFramework::getSingletonPtr()->m_pCamera->lookAt(vehicle->node->getPosition());
+    Vector2 og2D = Vector2(ogVelocity.x, ogVelocity.z);
+    og2D = og2D.normalisedCopy();
+    
+    Vector3 pos = Vector3(vehicle->node->getPosition()-Vector3(og2D.x*9, -25, og2D.y*9));
+    
+    lookVectors.push_back(pos);
+    
+    while (lookVectors.size() > 25){
+        lookVectors.pop_front();
+    }
+    pos = Vector3(0,0,0);
+    for (int i = 0; i < lookVectors.size(); i++){
+        pos += lookVectors[i];
+    }
+    
+    pos = pos/lookVectors.size();
+    
+   
+
+
+    BtOgreFramework::getSingletonPtr()->m_pCamera->setPosition(pos);
+    btVector3 forward = btVector3(vehicle->rigidBody->getLinearVelocity().x(), 0, vehicle->rigidBody->getLinearVelocity().z());
+    btVector3 right = (forward.rotate(btVector3(0,1,0), -90));
+
+   // BtOgreFramework::getSingletonPtr()->m_pCamera->lookAt(vehicle->node->getPosition()+Vector3(forward.x(), forward.y()-2, forward.z()));
+
     Vector3 trackVel = Vector3(ogVelocity.x, 0, ogVelocity.z);
     
-   // BtOgreFramework::getSingletonPtr()->m_pCamera->lookAt(vehicle->node->getPosition());
-    
-    if (BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_D)){
-        vehicle->rigidBody->activate();
-        vehicle->rigidBody->applyCentralForce(btVector3(-150,0,0));
-    }
+      if (BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_D)){
+          vehicle->rigidBody->activate();
+          
+          forward = forward.normalize();
+          
+          //vehicle->rigidBody->setLinearVelocity(vehicle->rigidBody->getLinearVelocity().rotate(up, forward.length()*0.01f));
+          vehicle->rigidBody->applyCentralForce(right*forward.length()*3);
+      }
     
     if (BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_A)){
         vehicle->rigidBody->activate();
-       // vehicle->rigidBody->applyCentralImpulse(btVector3(10, 0, 0));
-        vehicle->rigidBody->applyCentralForce(btVector3(150,0,0));
+        forward = forward.normalize();
+
+        vehicle->rigidBody->applyCentralForce(-right*forward.length()*3);
+        //vehicle->rigidBody->applyCentralForce(right*150);
     }
-    if (vehicleVelocity.length() > 10) vehicle->rigidBody->setLinearVelocity(vehicleVelocity.normalized()*10);
-    CollisionOccurred handler(vehicle->rigidBody, track->track);
+    
+    
+    if (vehicleVelocity.length() > 15) vehicle->rigidBody->setLinearVelocity(vehicleVelocity.normalized()*15);
+    CollisionOccurred handler(vehicle->rigidBody, &track->track, currentPanel);
     BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->contactTest(vehicle->rigidBody, handler);
     
 }

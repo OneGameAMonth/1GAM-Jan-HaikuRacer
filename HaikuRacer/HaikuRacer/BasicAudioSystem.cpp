@@ -207,7 +207,8 @@ void BasicAudioSystem::playSound(AudioResource unit){
     alSourcePlay(unit.sourceHandle);
     
     if ( curBuffer > NUM_BUFFERS){
-        // alDeleteBuffers(NUM_BUFFERS, buffer);
+        alDeleteBuffers(NUM_BUFFERS, buffer);
+        alGenBuffers(NUM_BUFFERS, buffer);
         curBuffer = 0;
     }
     // Exit
