@@ -24,6 +24,9 @@ public:
     SceneNode *node;
     std::vector<TrackSegment> track;
     
+    TrackSegment *endSegment;
+    
+    float getLowestY();
     RaceTrack();
     ~RaceTrack();
 

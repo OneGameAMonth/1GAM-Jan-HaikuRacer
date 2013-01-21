@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A16E34D216ACF56B007A7869 /* Gorilla.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A16E34D016ACF56B007A7869 /* Gorilla.cpp */; };
 		A1797F8816A365E8004D6F72 /* GameMaterials.material in Resources */ = {isa = PBXBuildFile; fileRef = A1797F8716A365E8004D6F72 /* GameMaterials.material */; };
 		A19965A2169D24B800390AF2 /* RaceTrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A19965A0169D24B800390AF2 /* RaceTrack.cpp */; };
 		A19965A6169D2DE200390AF2 /* TrackSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A19965A4169D2DE200390AF2 /* TrackSegment.cpp */; };
@@ -41,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A16E34D016ACF56B007A7869 /* Gorilla.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gorilla.cpp; sourceTree = "<group>"; };
+		A16E34D116ACF56B007A7869 /* Gorilla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gorilla.h; sourceTree = "<group>"; };
 		A1797F8716A365E8004D6F72 /* GameMaterials.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameMaterials.material; sourceTree = "<group>"; };
 		A19965A0169D24B800390AF2 /* RaceTrack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RaceTrack.cpp; sourceTree = "<group>"; };
 		A19965A1169D24B800390AF2 /* RaceTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceTrack.h; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 		A1FB77C71693697D003F1DB4 /* HaikuRacer */ = {
 			isa = PBXGroup;
 			children = (
+				A16E34D016ACF56B007A7869 /* Gorilla.cpp */,
+				A16E34D116ACF56B007A7869 /* Gorilla.h */,
 				A1E6B9FD169A0A0F00BE2E14 /* RapidXML */,
 				A1FB782C1693E8C6003F1DB4 /* Game Objects */,
 				A1FB77D21693697D003F1DB4 /* HaikuRacerGame.cpp */,
@@ -416,6 +421,7 @@
 				A1E6BA07169A0BA600BE2E14 /* AudioResourceManager.cpp in Sources */,
 				A19965A2169D24B800390AF2 /* RaceTrack.cpp in Sources */,
 				A19965A6169D2DE200390AF2 /* TrackSegment.cpp in Sources */,
+				A16E34D216ACF56B007A7869 /* Gorilla.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

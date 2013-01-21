@@ -80,7 +80,7 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
 	m_pCamera->setPosition(Vector3(0, 8, -15));
 	m_pCamera->lookAt(Vector3(0, 0, 20));
 	m_pCamera->setNearClipDistance(1);
-    m_pCamera->setFarClipDistance(200);
+    m_pCamera->setFarClipDistance(200000);
     
 	m_pViewport = m_pRenderWnd->addViewport(m_pCamera);
 	//m_pViewport->setBackgroundColour(ColourValue(0.9,0.9,0.9,1.0));//ColourValue(0.8f, 0.7f, 0.6f, 1.0f));
@@ -88,7 +88,7 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
 	m_pCamera->setAspectRatio(Real(m_pViewport->getActualWidth()) / Real(m_pViewport->getActualHeight()));
 	
 	m_pViewport->setCamera(m_pCamera);
-    m_pViewport->setBackgroundColour(ColourValue(0.278, 0.0, 0.14,1.0));
+    m_pViewport->setBackgroundColour(ColourValue(0.578, 0.0, 0.14,1.0));
 	unsigned long hWnd = 0;
     OIS::ParamList paramList;
     m_pRenderWnd->getCustomAttribute("WINDOW", &hWnd);

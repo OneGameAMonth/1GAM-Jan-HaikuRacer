@@ -31,3 +31,17 @@ material ground/on
         }
     }
 }
+
+material ground/end
+{
+    technique
+    {
+        pass
+        {
+            ambient 0.5 0.3 0.3
+            diffuse 0.5 0.3 0.3
+            emissive 1.0 0.5 0.0 1.0
+        }
+    }
+}
+

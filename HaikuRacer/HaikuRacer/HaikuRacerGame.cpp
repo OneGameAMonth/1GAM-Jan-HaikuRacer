@@ -22,13 +22,13 @@ void HaikuRacerGame::startGame()
     AudioResource music = AudioResourceManager::getInstance().getResourceForEvent("music");
     BasicAudioSystem::getInstance().playSound(music);
 
-
 	if(!BtOgreFramework::getSingletonPtr()->initOgre("One Game a Month January - HaikuRoller", this, 0))
 		return;
     
 	m_bShutdown = false;
 	BtOgreFramework::getSingletonPtr()->m_pLog->logMessage("Demo initialized!");
-	
+    BtOgreFramework::getSingletonPtr()->m_pTimer->reset();
+
 	setupGameScene();
 #if !((OGRE_PLATFORM == OGRE_PLATFORM_APPLE) && __LP64__)
 	runGame();
@@ -40,10 +40,10 @@ void HaikuRacerGame::startGame()
 void HaikuRacerGame::setupGameScene()
 {
     vehicle = new RaceVehicle();
-    vehicle->translate(Vector3(0,2,0));
+    vehicle->translate(Vector3(0,1.5,0));
     vehicle->rigidBody->activate();
     track = new RaceTrack();
-currentPanel = &track->track[0];
+    currentPanel = &track->track[0];
     BtOgreFramework::getSingletonPtr()->m_pCamera->setAutoTracking(true,vehicle->node);
     
 	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,275,75);
@@ -69,13 +69,6 @@ bool HaikuRacerGame::keyPressed(const OIS::KeyEvent &keyEventRef)
 {
 	BtOgreFramework::getSingletonPtr()->keyPressed(keyEventRef);
 	
-	if(BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_Q))
-	{
-
-        vehicle->rigidBody->activate();
-        vehicle->rigidBody->setLinearVelocity(btVector3(0, 0, -10));
-    }
-    
 	return true;
 }
 
@@ -83,11 +76,6 @@ bool HaikuRacerGame::keyPressed(const OIS::KeyEvent &keyEventRef)
 bool HaikuRacerGame::keyReleased(const OIS::KeyEvent &keyEventRef)
 {
 	BtOgreFramework::getSingletonPtr()->keyReleased(keyEventRef);
-    
-    if(!BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_Q))
-	{
-      //  vehicle->rigidBody->setLinearVelocity(btVector3(0, 0, 0));
-    }
 
 	return true;
 }
@@ -153,7 +141,7 @@ void HaikuRacerGame::updateGame(){
     else{
         vehicle->rigidBody->activate();
         btVector3 vehicleVelocity = vehicle->rigidBody->getLinearVelocity();
-        
+        vehicle->rigidBody->setLinearVelocity(vehicle->rigidBody->getLinearVelocity().normalized()*+(BtOgreFramework::getSingletonPtr()->m_pTimer->getMilliseconds()/1000));
         Vector3 ogVelocity = Vector3(vehicleVelocity.x(), vehicleVelocity.y(), vehicleVelocity.z());
         Vector2 og2D = Vector2(ogVelocity.x, ogVelocity.z);
         og2D = og2D.normalisedCopy();
@@ -181,6 +169,7 @@ void HaikuRacerGame::updateGame(){
 
         Vector3 trackVel = Vector3(ogVelocity.x, 0, ogVelocity.z);
         
+        if ( vehicleVelocity.length() > 0.1f){
           if (BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_D)){
               vehicle->rigidBody->activate();
               
@@ -195,9 +184,10 @@ void HaikuRacerGame::updateGame(){
 
             vehicle->rigidBody->applyCentralForce(-right*forward.length()*3);
         }
+        }
         
         
-        if (vehicleVelocity.length() > 15) vehicle->rigidBody->setLinearVelocity(vehicleVelocity.normalized()*15);
+        if (vehicleVelocity.length() > 15+(BtOgreFramework::getSingletonPtr()->m_pTimer->getMilliseconds()/1000)) vehicle->rigidBody->setLinearVelocity(vehicleVelocity.normalized()*15);
         
         CollisionOccurred handler(vehicle->rigidBody, &track->track, &currentPanel);
         BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->contactTest(vehicle->rigidBody, handler);
@@ -208,7 +198,7 @@ bool HaikuRacerGame::detectGameOver(){
     if ( currentPanel == NULL){
         return false;
     }
-    return vehicle->node->getPosition().y < currentPanel->floorNode->getPosition().y - 4;
+    return vehicle->node->getPosition().y < track->getLowestY() - 20;
 }
 
 
