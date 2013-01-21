@@ -18,18 +18,23 @@ using namespace Ogre;
 
 class RaceVehicle{
     
-private:
+public:
     SceneNode *headNode;
-    
+    Vector3 *forward;
 public:
     SceneNode *node;
     btRigidBody *rigidBody;
     RaceVehicle();
+    Light *light;
     ~RaceVehicle(){}
     void attachToSceneNode(SceneNode *attachTo);
     void attachSceneNode(SceneNode *attaching);
-    
+    void translate(Ogre::Vector3 t);
+Vector3 getForwardVector();
+
 };
+
+
 
 #endif /* defined(__OgreTest2__BasicTree__) */
 
