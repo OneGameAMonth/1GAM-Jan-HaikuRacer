@@ -3,7 +3,9 @@
 
 #include "BtOgreFramework.h"
 #include "RaceVehicle.h"
-
+#include "RaceTrack.h"
+#include <vector>
+#include <deque>
 class HaikuRacerGame : public OIS::KeyListener
 {
 public:
@@ -11,9 +13,11 @@ public:
 	~HaikuRacerGame();
     
 	void startGame();
+    void updateGame();
 	
 	bool keyPressed(const OIS::KeyEvent &keyEventRef);
 	bool keyReleased(const OIS::KeyEvent &keyEventRef);
+    bool detectGameOver();
     
 private:
     void setupGameScene();
@@ -23,8 +27,10 @@ private:
 	Ogre::Entity*				m_pCubeEntity;
     
 	bool					m_bShutdown;
-    
+    std::deque<Vector3> lookVectors;
     RaceVehicle *vehicle;
+    TrackSegment *currentPanel;
+    RaceTrack *track;
 };
 
 

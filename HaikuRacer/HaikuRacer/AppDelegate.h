@@ -89,7 +89,7 @@ static id mAppDelegate;
         std::cerr << "An exception has occurred: " <<
         e.getFullDescription().c_str() << std::endl;
     }
-    
+
     mTimer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)(1.0f / 60.0f) * mLastFrameTime
                                               target:self
                                             selector:@selector(renderOneFrame:)
@@ -105,9 +105,9 @@ static id mAppDelegate;
     
     [self go];
 }
-
 - (void)renderOneFrame:(id)sender
 {
+
     if(!BtOgreFramework::getSingletonPtr()->isOgreToBeShutDown() &&
        Ogre::Root::getSingletonPtr() && Ogre::Root::getSingleton().isInitialised())
     {
@@ -120,6 +120,8 @@ static id mAppDelegate;
             
 			BtOgreFramework::getSingletonPtr()->updateOgre(mLastFrameTime);
 			BtOgreFramework::getSingletonPtr()->m_pRoot->renderOneFrame();
+            
+            game.updateGame();
             
 			mLastFrameTime = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU() - mStartTime;
 		}

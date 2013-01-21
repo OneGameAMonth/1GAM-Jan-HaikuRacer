@@ -15,5 +15,7 @@ For meaningless points.<br>
 * Ogre3D 1.81
 * Bullet 2.81
 
-Much of the core mechanic inspired by Wipeout Pure's Zone Mode
+Core inspiration,<br>
+Taken from Wipeout Pure,<br>
+The lovely Zone Mode.<br>
 ![My image](http://i277.photobucket.com/albums/kk61/mangaroot/2-2.jpg)
