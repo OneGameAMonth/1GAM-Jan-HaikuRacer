@@ -65,18 +65,12 @@ TrackSegment::TrackSegment(TrackSegment *previous){
 
     }
     
-    
-    
     BtOgre::StaticMeshToShapeConverter converter(floorEntity);
     btCollisionShape *mFloorShape = converter.createBox();
-    
     
     btScalar mass = 0;
     btVector3 inertia;
     mFloorShape->calculateLocalInertia(mass, inertia);
-    
-    
-
     
     BtOgre::RigidBodyState *floorState = new BtOgre::RigidBodyState(floorNode);
 
@@ -91,5 +85,6 @@ TrackSegment::TrackSegment(TrackSegment *previous){
 }
 
 void TrackSegment::startGlow(){
+    glowing = true;
     ent->setMaterialName("ground/on");
 }

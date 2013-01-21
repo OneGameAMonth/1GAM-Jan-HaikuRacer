@@ -25,6 +25,7 @@ public:
     SceneNode *node;
     btRigidBody *rigidBody;
     RaceVehicle();
+    Light *light;
     ~RaceVehicle(){}
     void attachToSceneNode(SceneNode *attachTo);
     void attachSceneNode(SceneNode *attaching);

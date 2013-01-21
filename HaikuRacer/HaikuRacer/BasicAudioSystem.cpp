@@ -152,8 +152,7 @@ BasicAudioSystem::BasicAudioSystem()
     }
    
     alGetError(); // clear error code
-    alGenBuffers(NUM_BUFFERS, buffer);
-    
+        
 }
 
 static int curBuffer = 0;
@@ -174,27 +173,28 @@ void BasicAudioSystem::playSound(AudioResource unit){
     Ogre::String path = Ogre::macBundlePath() + "/Contents/Resources/media/audio/"+unit.filename;
     LoadWAVFile(path.data(), &format, &data, &size, &freq, &duration);
     ALenum error;
+    
+    
+    if ( unit.bufferHandle == NULL) alGenBuffers(1, &unit.bufferHandle);
+
     if ((error = alGetError()) != AL_NO_ERROR)
     {
-        alDeleteBuffers(NUM_BUFFERS, buffer);
+        alDeleteBuffers(NUM_BUFFERS, &unit.bufferHandle);
         return 1;
     }
     
     // Copy test.wav data into AL Buffer 0
-    alBufferData(buffer[curBuffer], format, data, size, freq);
+    alBufferData(unit.bufferHandle, format, data, size, freq);
     if ((error = alGetError()) != AL_NO_ERROR)
     {
-        alDeleteBuffers(NUM_BUFFERS, buffer);
+        alDeleteBuffers(NUM_BUFFERS, &unit.bufferHandle);
         return 1;
     }
-    
-    alGenSources(1, &unit.sourceHandle);
-    if ((error = alGetError()) != AL_NO_ERROR)
-    {
-        return 1;
-    }
+    if ( unit.sourceHandle == NULL )alGenSources(1, &unit.sourceHandle);
     // Attach buffer 0 to source
-    alSourcei(unit.sourceHandle, AL_BUFFER, buffer[curBuffer++]);
+    
+    alSourcei(unit.sourceHandle, AL_BUFFER, unit.bufferHandle);
+    
     if ((error = alGetError()) != AL_NO_ERROR)
     {
     }
@@ -206,11 +206,8 @@ void BasicAudioSystem::playSound(AudioResource unit){
     
     alSourcePlay(unit.sourceHandle);
     
-    if ( curBuffer > NUM_BUFFERS){
-        alDeleteBuffers(NUM_BUFFERS, buffer);
-        alGenBuffers(NUM_BUFFERS, buffer);
-        curBuffer = 0;
-    }
-    // Exit
+
+    
+       // Exit
 
 }

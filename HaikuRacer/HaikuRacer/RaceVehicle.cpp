@@ -23,7 +23,8 @@ RaceVehicle::RaceVehicle(){
     BtOgre::StaticMeshToShapeConverter converter(headEntity);
     btCollisionShape *mHeadShape = converter.createSphere();
 
-
+    
+    
     btScalar mass = 2;
     btVector3 inertia;
     mHeadShape->calculateLocalInertia(mass, inertia);
@@ -54,6 +55,5 @@ void RaceVehicle::attachSceneNode(Ogre::SceneNode *attaching){
 }
 
 Vector3 RaceVehicle::getForwardVector(){
-    
     return node->getOrientation().zAxis();
 }

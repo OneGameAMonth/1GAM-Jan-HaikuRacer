@@ -17,6 +17,7 @@ public:
 	
 	bool keyPressed(const OIS::KeyEvent &keyEventRef);
 	bool keyReleased(const OIS::KeyEvent &keyEventRef);
+    bool detectGameOver();
     
 private:
     void setupGameScene();

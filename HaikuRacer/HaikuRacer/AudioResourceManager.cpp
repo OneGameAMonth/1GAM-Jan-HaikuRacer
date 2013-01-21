@@ -41,6 +41,7 @@ void AudioResourceManager::initialize()
     {
         xml_node<>* unitIter = eventIter->first_node()->next_sibling();
         std::string eventName = eventIter->first_node()->value();
+       
         while (unitIter != NULL) {
             AudioResource unit;
             
@@ -49,7 +50,7 @@ void AudioResourceManager::initialize()
             unit.pitch = atof(unitIter->first_node("pitch")->value());
             unit.looping = atoi(unitIter->first_node("looping")->value());
             unit.gain = atof(unitIter->first_node("gain")->value());
-            unit.sourceHandle = currentHandle++;
+            alGenSources(1, &unit.sourceHandle);
             resources[eventName].push_back(unit);
             
             unitIter = unitIter->next_sibling();

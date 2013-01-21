@@ -19,8 +19,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include "AudioResourceManager.h"
-#define NUM_BUFFERS 3
-#define NUM_SOURCES 1
+#define NUM_BUFFERS 10
+#define NUM_SOURCES 3
 #define BUFFER_SIZE 4096
 
 class BasicAudioSystem
@@ -29,10 +29,7 @@ class BasicAudioSystem
     ALCdevice *dev;
     ALCcontext *ctx;
     struct stat statbuf;
-    
-    ALuint buffer[NUM_BUFFERS];
-    ALuint source[NUM_SOURCES];
-    
+        
     ALsizei size, freq;
     ALenum format;
     ALvoid *data;

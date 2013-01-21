@@ -23,7 +23,7 @@ typedef struct{
     float gain;
     bool looping;
     unsigned int sourceHandle;
-    
+    unsigned int bufferHandle;
 }AudioResource;
 
 class AudioResourceManager
