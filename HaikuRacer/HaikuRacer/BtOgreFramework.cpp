@@ -89,6 +89,7 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
 	
 	m_pViewport->setCamera(m_pCamera);
     m_pViewport->setBackgroundColour(ColourValue(0.578, 0.0, 0.14,1.0));
+    //m_pViewport->setBackgroundColour(ColourValue(0., 0.0, 0.,1.0));
 	unsigned long hWnd = 0;
     OIS::ParamList paramList;
     m_pRenderWnd->getCustomAttribute("WINDOW", &hWnd);

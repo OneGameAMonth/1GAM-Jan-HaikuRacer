@@ -15,7 +15,8 @@
 #include <vector>
 #include <OpenAL/al.h>
 #include <OpenAL/alc.h>
-#include "rapidxml.hpp"
+#include "tinyxml2.h"
+
 typedef struct{
     std::string filename;
     float pitch;
@@ -40,7 +41,7 @@ public:
         return instance;
     }
     
-    void initialize();
+    bool initialize();
     AudioResource getResourceForEvent(std::string eventName);
 };
 

@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <audio>
 	<event>
 		<name>ambient</name>
 		<eventUnit>
-			<filename>test.wav</filename>
+			<filename>les.wav</filename>
 			<gain>0.0</gain>
 			<panning>1.0</panning>
 			<looping>1.0</looping>
 			<pitch>1.5</pitch>
 		</eventUnit>
         <eventUnit>
-			<filename>test.wav</filename>
+			<filename>lest.wav</filename>
 			<gain>0.0</gain>
 			<panning>1.0</panning>
 			<looping>1.0</looping>
@@ -21,8 +20,8 @@
     <event>
 		<name>music</name>
 		<eventUnit>
-			<filename>test.wav</filename>
-			<gain>0.0</gain>
+			<filename>lest.wav</filename>
+			<gain>0.3</gain>
 			<panning>1.0</panning>
 			<looping>1.0</looping>
 			<pitch>1.0</pitch>
@@ -32,8 +31,8 @@
     <event>
 		<name>fall_off</name>
 		<eventUnit>
-			<filename>test.wav</filename>
-			<gain>0.0</gain>
+			<filename>lest.wav</filename>
+			<gain>1.0</gain>
 			<panning>1.0</panning>
 			<looping>1.0</looping>
 			<pitch>0.1</pitch>
@@ -42,8 +41,8 @@
     <event>
 		<name>apply_force_left</name>
 		<eventUnit>
-			<filename>test.wav</filename>
-			<gain>0.0</gain>
+			<filename>lest2.wav</filename>
+			<gain>1.0</gain>
 			<panning>1.0</panning>
 			<looping>1.0</looping>
 			<pitch>1.0</pitch>
@@ -52,7 +51,7 @@
     <event>
 		<name>apply_force_right</name>
 		<eventUnit>
-			<filename>test.wav</filename>
+			<filename>lest.wav</filename>
 			<gain>0.0</gain>
 			<panning>1.0</panning>
 			<looping>1.0</looping>
@@ -62,7 +61,7 @@
     <event>
 		<name>ball_rolling</name>
 		<eventUnit>
-			<filename>test.wav</filename>
+			<filename>lest.wav</filename>
 			<gain>0.0</gain>
 			<panning>1.0</panning>
 			<looping>1.0</looping>
@@ -73,11 +72,10 @@
 		<name>next_panel</name>
 		<eventUnit>
 			<filename>test.wav</filename>
-			<gain>0.0</gain>
+			<gain>1.0</gain>
 			<panning>1.0</panning>
 			<looping>0.0</looping>
 			<pitch>1.0</pitch>
 		</eventUnit>
     </event>
-    
 </audio>

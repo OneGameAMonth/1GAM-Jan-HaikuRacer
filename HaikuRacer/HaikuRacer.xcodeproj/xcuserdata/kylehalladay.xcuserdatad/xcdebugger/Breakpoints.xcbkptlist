@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HaikuRacer/HaikuRacerGame.cpp"
-         timestampString = "380430695.292072"
+         timestampString = "380607325.100232"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "69"
-         endingLineNumber = "69"
+         startingLineNumber = "70"
+         endingLineNumber = "70"
          landmarkName = "HaikuRacerGame::keyPressed(const OIS::KeyEvent &amp;keyEventRef)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HaikuRacer/HaikuRacerGame.cpp"
-         timestampString = "380432140.096028"
+         timestampString = "380607325.100232"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "112"
-         endingLineNumber = "112"
+         startingLineNumber = "113"
+         endingLineNumber = "113"
          landmarkName = "addSingleResult(btManifoldPoint&amp; cp, const btCollisionObjectWrapper* colObj0Wrap,int partId0,int index0,const btCollisionObjectWrapper* colObj1Wrap,int partId1,int index1)"
          landmarkType = "7">
       </FileBreakpoint>
@@ -34,7 +34,46 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HaikuRacer/HaikuRacerGame.cpp"
-         timestampString = "380432140.096028"
+         timestampString = "380607325.100232"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "123"
+         endingLineNumber = "123"
+         landmarkName = "addSingleResult(btManifoldPoint&amp; cp, const btCollisionObjectWrapper* colObj0Wrap,int partId0,int index0,const btCollisionObjectWrapper* colObj1Wrap,int partId1,int index1)"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "HaikuRacer/HaikuRacerGame.cpp"
+         timestampString = "380607325.100232"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "128"
+         endingLineNumber = "128"
+         landmarkName = "addSingleResult(btManifoldPoint&amp; cp, const btCollisionObjectWrapper* colObj0Wrap,int partId0,int index0,const btCollisionObjectWrapper* colObj1Wrap,int partId1,int index1)"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "HaikuRacer/HaikuRacerGame.cpp"
+         timestampString = "380607325.100232"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "143"
+         endingLineNumber = "143"
+         landmarkName = "HaikuRacerGame::updateGame()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "HaikuRacer/HaikuRacerGame.cpp"
+         timestampString = "380607325.100232"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "122"
@@ -47,50 +86,85 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HaikuRacer/HaikuRacerGame.cpp"
-         timestampString = "380432140.096028"
+         timestampString = "380607325.100232"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "127"
-         endingLineNumber = "127"
-         landmarkName = "addSingleResult(btManifoldPoint&amp; cp, const btCollisionObjectWrapper* colObj0Wrap,int partId0,int index0,const btCollisionObjectWrapper* colObj1Wrap,int partId1,int index1)"
-         landmarkType = "7">
+         startingLineNumber = "132"
+         endingLineNumber = "132">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "HaikuRacer/HaikuRacerGame.cpp"
-         timestampString = "380432140.096028"
+         filePath = "HaikuRacer/AudioResourceManager.cpp"
+         timestampString = "380607488.885907"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "142"
-         endingLineNumber = "142"
-         landmarkName = "HaikuRacerGame::updateGame()"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
+         landmarkName = "AudioResourceManager::initialize()"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "HaikuRacer/HaikuRacerGame.cpp"
-         timestampString = "380432140.096028"
+         filePath = "HaikuRacer/AudioResourceManager.cpp"
+         timestampString = "380607488.885907"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "121"
-         endingLineNumber = "121"
-         landmarkName = "addSingleResult(btManifoldPoint&amp; cp, const btCollisionObjectWrapper* colObj0Wrap,int partId0,int index0,const btCollisionObjectWrapper* colObj1Wrap,int partId1,int index1)"
-         landmarkType = "7">
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "AudioResourceManager::initialize()"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "HaikuRacer/HaikuRacerGame.cpp"
-         timestampString = "380432140.096028"
+         filePath = "HaikuRacer/AudioResourceManager.cpp"
+         timestampString = "380607488.885907"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "131"
-         endingLineNumber = "131">
+         startingLineNumber = "49"
+         endingLineNumber = "49"
+         landmarkName = "AudioResourceManager::initialize()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "HaikuRacer/AudioResourceManager.cpp"
+         timestampString = "380607488.885907"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "62"
+         endingLineNumber = "62"
+         landmarkName = "AudioResourceManager::initialize()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "HaikuRacer/AudioResourceManager.cpp"
+         timestampString = "380607494.391478"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
+         landmarkName = "AudioResourceManager::initialize()"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
+   <ExceptionBreakpoints>
+      <ExceptionBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         scope = "0"
+         stopOnStyle = "0">
+      </ExceptionBreakpoint>
+   </ExceptionBreakpoints>
 </Bucket>

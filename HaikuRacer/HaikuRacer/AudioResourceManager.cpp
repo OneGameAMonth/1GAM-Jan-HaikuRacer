@@ -10,12 +10,12 @@
 #include "macUtils.h"
 
 using namespace rapidxml;
-
-void AudioResourceManager::initialize()
+using namespace tinyxml2;
+bool AudioResourceManager::initialize()
 {
     srand(time(NULL));
     Ogre::String path = Ogre::macBundlePath() + "/Contents/Resources/media/config/audio_events.xml";
-    xml_document<> doc;    // character type defaults to char
+    //xml_document<> doc;    // character type defaults to char
     FILE *audioConfigFile = fopen(path.data(), "r");
     
     std::vector<char> buffer;
@@ -29,35 +29,37 @@ void AudioResourceManager::initialize()
     for (int i = 0; i < buffer.size(); i++){
         buf[i] = buffer[i];
     }
+    XMLDocument doc;
+    doc.Parse(buf);
+
+    XMLElement *eventIter = doc.FirstChildElement()->FirstChildElement();
     
-    doc.parse<0>(buf); // 0 means default parse flags
-
-    //get the first event
-    xml_node<>* eventIter = doc.first_node()->first_node();
-
+    
     unsigned int currentHandle = 0;
     
     while (eventIter != NULL)
     {
-        xml_node<>* unitIter = eventIter->first_node()->next_sibling();
-        std::string eventName = eventIter->first_node()->value();
-       
+        XMLNode *unitIter = eventIter->FirstChildElement()->NextSiblingElement();
+        std::string eventName = eventIter->FirstChildElement()->GetText();
+        
         while (unitIter != NULL) {
             AudioResource unit;
             
-            unit.filename = unitIter->first_node("filename")->value();
-            unit.panning = atof(unitIter->first_node("panning")->value());
-            unit.pitch = atof(unitIter->first_node("pitch")->value());
-            unit.looping = atoi(unitIter->first_node("looping")->value());
-            unit.gain = atof(unitIter->first_node("gain")->value());
+            unit.filename = unitIter->FirstChildElement("filename")->GetText();// first_node("filename")->value();
+            printf("filename: %s\n", unit.filename.c_str());
+            unit.panning = atof(unitIter->FirstChildElement("panning")->GetText());
+            unit.pitch = atof(unitIter->FirstChildElement("pitch")->GetText());
+            unit.looping = atoi(unitIter->FirstChildElement("looping")->GetText());
+            unit.gain = atof(unitIter->FirstChildElement("gain")->GetText());
             alGenSources(1, &unit.sourceHandle);
             resources[eventName].push_back(unit);
             
-            unitIter = unitIter->next_sibling();
+            unitIter = unitIter->NextSibling();
         }
         
-        eventIter = eventIter->next_sibling();
+        eventIter = eventIter->NextSiblingElement();
     }
+    return true;
 }
 
 AudioResource AudioResourceManager::getResourceForEvent(std::string eventName){

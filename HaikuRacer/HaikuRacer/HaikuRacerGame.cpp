@@ -14,13 +14,14 @@ HaikuRacerGame::~HaikuRacerGame()
 void HaikuRacerGame::startGame()
 {
 	new BtOgreFramework();
-    AudioResourceManager::getInstance().initialize();
+    if (AudioResourceManager::getInstance().initialize()){
 
     AudioResource u = AudioResourceManager::getInstance().getResourceForEvent("ambient");
     BasicAudioSystem::getInstance().playSound(u);
     
     AudioResource music = AudioResourceManager::getInstance().getResourceForEvent("music");
     BasicAudioSystem::getInstance().playSound(music);
+    }
 
 	if(!BtOgreFramework::getSingletonPtr()->initOgre("One Game a Month January - HaikuRoller", this, 0))
 		return;
