@@ -9,7 +9,7 @@
 #include "AudioResourceManager.h"
 #include "macUtils.h"
 
-using namespace rapidxml;
+
 using namespace tinyxml2;
 bool AudioResourceManager::initialize()
 {
@@ -51,6 +51,10 @@ bool AudioResourceManager::initialize()
             unit.pitch = atof(unitIter->FirstChildElement("pitch")->GetText());
             unit.looping = atoi(unitIter->FirstChildElement("looping")->GetText());
             unit.gain = atof(unitIter->FirstChildElement("gain")->GetText());
+            unit.bufferHandle = -1;
+            unit.sourceHandle = -1;
+            if ( eventName == "apply_force_left" || eventName == "apply_force_right") unit.canStop = false;
+            else unit.canStop = true;
             alGenSources(1, &unit.sourceHandle);
             resources[eventName].push_back(unit);
             

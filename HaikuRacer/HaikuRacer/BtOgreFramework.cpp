@@ -15,7 +15,7 @@ BtOgreFramework::BtOgreFramework()
     
 	m_bShutDownOgre     = false;
 	m_iNumScreenShots   = 0;
-    
+    m_UpdatePhysics     = false;
 	m_pRoot				= 0;
 	m_pSceneMgr			= 0;
 	m_pRenderWnd        = 0;
@@ -150,7 +150,7 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
     m_pTrayMgr->hideCursor();
     m_pTrayMgr->hideAll();
 	m_pRenderWnd->setActive(true);
-    
+    m_pCamera->setAutoAspectRatio(true);
     
     mBroadphase = new btAxisSweep3(btVector3(-10000,-10000,-10000), btVector3(10000,10000,10000), 1024);
     mCollisionConfig = new btDefaultCollisionConfiguration();
@@ -261,9 +261,9 @@ void BtOgreFramework::updateOgre(double timeSinceLastFrame)
 #if OGRE_VERSION >= 0x10800
     m_pSceneMgr->setSkyBoxEnabled(true);
 #endif
-    m_pPhysicsWorld->stepSimulation(timeSinceLastFrame);
-    m_pPhysicsWorld->debugDrawWorld();
-    dbgdraw->step();
+    if (m_UpdatePhysics){
+        m_pPhysicsWorld->stepSimulation(timeSinceLastFrame);
+    }
 	m_TranslateVector = Vector3::ZERO;
     
 	getInput();

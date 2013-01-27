@@ -13,7 +13,10 @@ HaikuRacerGame::~HaikuRacerGame()
 
 void HaikuRacerGame::startGame()
 {
+    
 	new BtOgreFramework();
+    BasicAudioSystem::getInstance();
+
     if (AudioResourceManager::getInstance().initialize()){
 
     AudioResource u = AudioResourceManager::getInstance().getResourceForEvent("ambient");
@@ -22,9 +25,15 @@ void HaikuRacerGame::startGame()
     AudioResource music = AudioResourceManager::getInstance().getResourceForEvent("music");
     BasicAudioSystem::getInstance().playSound(music);
     }
+    
+    
 
 	if(!BtOgreFramework::getSingletonPtr()->initOgre("One Game a Month January - HaikuRoller", this, 0))
 		return;
+    
+    buttonGUI::textScheme myTextScheme("myFont",20, 0,1,0,1);
+    btnManager = new buttonGUI::buttonManager("GUI/bgMaterial", myTextScheme, BtOgreFramework::getSingletonPtr()->m_pSceneMgr, "Camera");
+    btnManager->createButton("title", "GUI/bgMaterial", buttonGUI::buttonPosition(buttonGUI::CENTER, 0,0), 1024,768);
     
 	m_bShutdown = false;
 	BtOgreFramework::getSingletonPtr()->m_pLog->logMessage("Demo initialized!");
@@ -58,7 +67,6 @@ void HaikuRacerGame::runGame()
 	
 	double timeSinceLastFrame = 0;
 	double startTime = 0;
-    
     BtOgreFramework::getSingletonPtr()->m_pRenderWnd->resetStatistics();
 
 	BtOgreFramework::getSingletonPtr()->m_pLog->logMessage("Main loop quit");
@@ -69,15 +77,25 @@ void HaikuRacerGame::runGame()
 bool HaikuRacerGame::keyPressed(const OIS::KeyEvent &keyEventRef)
 {
 	BtOgreFramework::getSingletonPtr()->keyPressed(keyEventRef);
-	
-	return true;
+     if (BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_SPACE) ){
+        BtOgreFramework::getSingletonPtr()->m_UpdatePhysics = true;
+        btnManager->getButton("title")->hide(false);
+     }
+    return true;
 }
 
 
 bool HaikuRacerGame::keyReleased(const OIS::KeyEvent &keyEventRef)
 {
 	BtOgreFramework::getSingletonPtr()->keyReleased(keyEventRef);
-
+    if (!BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_D) ){
+        AudioResource u = AudioResourceManager::getInstance().getResourceForEvent("apply_force_right");
+        BasicAudioSystem::getInstance().stopSound(u);
+    }
+    if (!BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_A) ){
+        AudioResource u = AudioResourceManager::getInstance().getResourceForEvent("apply_force_left");
+        BasicAudioSystem::getInstance().stopSound(u);
+    }
 	return true;
 }
 
@@ -134,7 +152,7 @@ void HaikuRacerGame::updateGame(){
     if ( detectGameOver() ){
         AudioResource u = AudioResourceManager::getInstance().getResourceForEvent("fall_off");
         BasicAudioSystem::getInstance().playSound(u);
-        
+        printf("OVER");
         vehicle->node->setPosition(0,2,0);
         vehicle->rigidBody->setGravity(btVector3(0,-99,0));
     }
@@ -148,7 +166,7 @@ void HaikuRacerGame::updateGame(){
         og2D = og2D.normalisedCopy();
         
         Vector3 pos = Vector3(vehicle->node->getPosition()-Vector3(og2D.x*9, -25, og2D.y*9));
-        
+
         lookVectors.push_back(pos);
         
         while (lookVectors.size() > 25){
@@ -173,20 +191,22 @@ void HaikuRacerGame::updateGame(){
         if ( vehicleVelocity.length() > 0.1f){
           if (BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_D)){
               vehicle->rigidBody->activate();
-              
+             
               forward = forward.normalize();
-              
+              AudioResource u = AudioResourceManager::getInstance().getResourceForEvent("apply_force_right");
+              BasicAudioSystem::getInstance().playSound(u);
               vehicle->rigidBody->applyCentralForce(right*forward.length()*3);
           }
         
-        if (BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_A)){
-            vehicle->rigidBody->activate();
-            forward = forward.normalize();
-
-            vehicle->rigidBody->applyCentralForce(-right*forward.length()*3);
+            if (BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_A)){
+                vehicle->rigidBody->activate();
+                forward = forward.normalize();
+                AudioResource u = AudioResourceManager::getInstance().getResourceForEvent("apply_force_left");
+                BasicAudioSystem::getInstance().playSound(u);
+                vehicle->rigidBody->applyCentralForce(-right*forward.length()*3);
+            }
         }
-        }
-        
+    
         
         if (vehicleVelocity.length() > 15+(BtOgreFramework::getSingletonPtr()->m_pTimer->getMilliseconds()/1000)) vehicle->rigidBody->setLinearVelocity(vehicleVelocity.normalized()*15);
         

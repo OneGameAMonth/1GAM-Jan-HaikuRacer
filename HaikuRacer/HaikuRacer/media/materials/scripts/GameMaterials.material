@@ -45,3 +45,17 @@ material ground/end
     }
 }
 
+material GUI/bgMaterial
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+			{
+				texture GUI_titleScreen.png
+			}
+        }
+    }
+}
+

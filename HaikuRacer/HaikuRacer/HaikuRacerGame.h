@@ -4,8 +4,12 @@
 #include "BtOgreFramework.h"
 #include "RaceVehicle.h"
 #include "RaceTrack.h"
+#include "buttonGUI.h"
 #include <vector>
 #include <deque>
+#define Vector3 Ogre::Vector3
+
+using namespace Ogre;
 class HaikuRacerGame : public OIS::KeyListener
 {
 public:
@@ -22,7 +26,7 @@ public:
 private:
     void setupGameScene();
 	void runGame();
-
+    bool leftDown, rightDown;
 	Ogre::SceneNode*			m_pCubeNode;
 	Ogre::Entity*				m_pCubeEntity;
     
@@ -31,6 +35,8 @@ private:
     RaceVehicle *vehicle;
     TrackSegment *currentPanel;
     RaceTrack *track;
+    
+    buttonGUI::buttonManager *btnManager;
 };
 
 

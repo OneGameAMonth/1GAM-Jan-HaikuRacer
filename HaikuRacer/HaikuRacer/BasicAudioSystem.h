@@ -43,6 +43,7 @@ public:
     }
     
     void playSound(AudioResource unit);
+    void stopSound(AudioResource unit);
     
 private:
     BasicAudioSystem();

@@ -23,6 +23,7 @@ typedef struct{
     float panning;
     float gain;
     bool looping;
+    bool canStop;
     unsigned int sourceHandle;
     unsigned int bufferHandle;
 }AudioResource;

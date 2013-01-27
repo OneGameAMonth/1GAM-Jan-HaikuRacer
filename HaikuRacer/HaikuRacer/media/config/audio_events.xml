@@ -2,7 +2,7 @@
 	<event>
 		<name>ambient</name>
 		<eventUnit>
-			<filename>les.wav</filename>
+			<filename>lest.wav</filename>
 			<gain>0.0</gain>
 			<panning>1.0</panning>
 			<looping>1.0</looping>
@@ -41,10 +41,10 @@
     <event>
 		<name>apply_force_left</name>
 		<eventUnit>
-			<filename>lest2.wav</filename>
+			<filename>lest.wav</filename>
 			<gain>1.0</gain>
 			<panning>1.0</panning>
-			<looping>1.0</looping>
+			<looping>0.0</looping>
 			<pitch>1.0</pitch>
 		</eventUnit>
     </event>
@@ -52,7 +52,7 @@
 		<name>apply_force_right</name>
 		<eventUnit>
 			<filename>lest.wav</filename>
-			<gain>0.0</gain>
+			<gain>1.0</gain>
 			<panning>1.0</panning>
 			<looping>1.0</looping>
 			<pitch>1.0</pitch>

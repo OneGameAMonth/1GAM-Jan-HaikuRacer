@@ -9,6 +9,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+
 // All this does is suppress some messages in the run log.  NSApplication does not
 // implement buttonPressed and apps without a NIB have no target for the action.
 @implementation NSApplication (_suppressUnimplementedActionWarning)
@@ -27,7 +28,7 @@
 {
     NSTimer *mTimer;
     HaikuRacerGame game;
-    
+    bool once;
     NSDate *mDate;
     double mLastFrameTime;
     double mStartTime;
@@ -77,7 +78,7 @@ static id mAppDelegate;
     mLastFrameTime = 1;
     mStartTime = 0;
     mTimer = nil;
-    
+    once = false;
     try {
         game.startGame();
         
@@ -113,18 +114,27 @@ static id mAppDelegate;
     {
 		if(BtOgreFramework::getSingletonPtr()->m_pRenderWnd->isActive())
 		{
-			mStartTime = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU();
-            
-			BtOgreFramework::getSingletonPtr()->m_pKeyboard->capture();
+			            
+            BtOgreFramework::getSingletonPtr()->m_pKeyboard->capture();
 			BtOgreFramework::getSingletonPtr()->m_pMouse->capture();
+
+            if( BtOgreFramework::getSingletonPtr()->m_UpdatePhysics){
+                if ( !once ){
+                    mStartTime = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU();
+                    once = true;
+                }
+                else{
+                    mStartTime = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU();
+    
+                BtOgreFramework::getSingletonPtr()->updateOgre(mLastFrameTime);
+                BtOgreFramework::getSingletonPtr()->m_pRoot->renderOneFrame();
+                game.updateGame();
+                    mLastFrameTime = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU() - mStartTime;
+
+                }
+            }
             
-			BtOgreFramework::getSingletonPtr()->updateOgre(mLastFrameTime);
-			BtOgreFramework::getSingletonPtr()->m_pRoot->renderOneFrame();
-            
-            game.updateGame();
-            
-			mLastFrameTime = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU() - mStartTime;
-		}
+            }
     }
     else
     {

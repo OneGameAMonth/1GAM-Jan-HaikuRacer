@@ -35,9 +35,10 @@ RaceVehicle::RaceVehicle(){
     
     //Create the Body.
     rigidBody = new btRigidBody(mass, headState, mHeadShape, inertia);
-    rigidBody->setGravity(btVector3(0,-100,0));
     rigidBody->setRestitution(10000);
     BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->addRigidBody(rigidBody);
+    rigidBody->setGravity(btVector3(0,-15,0));
+
 }
 
 
