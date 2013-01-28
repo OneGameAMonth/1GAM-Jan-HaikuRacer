@@ -7,6 +7,7 @@
 #include "buttonGUI.h"
 #include <vector>
 #include <deque>
+#include <stdlib.h>
 #define Vector3 Ogre::Vector3
 
 using namespace Ogre;
@@ -30,12 +31,14 @@ private:
 	Ogre::SceneNode*			m_pCubeNode;
 	Ogre::Entity*				m_pCubeEntity;
     
+    int scoreVal;
+    UTFString scoreString;
 	bool					m_bShutdown;
     std::deque<Vector3> lookVectors;
     RaceVehicle *vehicle;
     TrackSegment *currentPanel;
     RaceTrack *track;
-    
+    buttonGUI::button *score;
     buttonGUI::buttonManager *btnManager;
 };
 

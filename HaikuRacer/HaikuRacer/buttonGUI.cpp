@@ -46,7 +46,7 @@ cOnRelease (buttonTextColor(r,g,b,a)),
 mFont(font),
 mFontSize(size)
 {
-	//Ogre::FontManager::getSingletonPtr()->load( font, ResourceGroupManager::AUTODETECT_RESOURCE_GROUP_NAME );
+	Ogre::FontManager::getSingletonPtr()->load( font, ResourceGroupManager::AUTODETECT_RESOURCE_GROUP_NAME );
 }
 textScheme::~textScheme(void)
 {}

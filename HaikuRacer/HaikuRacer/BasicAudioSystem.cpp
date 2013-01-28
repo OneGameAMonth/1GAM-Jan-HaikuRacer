@@ -201,8 +201,6 @@ void BasicAudioSystem::playSound(AudioResource unit){
         alDeleteBuffers(NUM_BUFFERS, &unit.bufferHandle);
         return 1;
     }
-   // if ( unit.sourceHandle == -1 )alGenSources(1, &unit.sourceHandle);
-    // Attach buffer 0 to source
     
     alSourcei(unit.sourceHandle, AL_BUFFER, unit.bufferHandle);
     

@@ -10,6 +10,8 @@
 		A1797F8816A365E8004D6F72 /* GameMaterials.material in Resources */ = {isa = PBXBuildFile; fileRef = A1797F8716A365E8004D6F72 /* GameMaterials.material */; };
 		A181466016B58FF000A00451 /* buttonGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A181465E16B58FF000A00451 /* buttonGUI.cpp */; };
 		A181466216B5B7ED00A00451 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A181466116B5B7ED00A00451 /* OpenAL.framework */; };
+		A181466516B5ECF700A00451 /* RosesareFF0000.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A181466416B5ECF700A00451 /* RosesareFF0000.ttf */; };
+		A181466716B5ED0900A00451 /* RosesAreFF0000.fontdef in Resources */ = {isa = PBXBuildFile; fileRef = A181466616B5ED0900A00451 /* RosesAreFF0000.fontdef */; };
 		A19965A2169D24B800390AF2 /* RaceTrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A19965A0169D24B800390AF2 /* RaceTrack.cpp */; };
 		A19965A6169D2DE200390AF2 /* TrackSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A19965A4169D2DE200390AF2 /* TrackSegment.cpp */; };
 		A1CA803016AF85BD004EDCE4 /* lest.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1CA802F16AF85BD004EDCE4 /* lest.wav */; };
@@ -48,6 +50,8 @@
 		A181465E16B58FF000A00451 /* buttonGUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buttonGUI.cpp; sourceTree = "<group>"; };
 		A181465F16B58FF000A00451 /* buttonGUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buttonGUI.h; sourceTree = "<group>"; };
 		A181466116B5B7ED00A00451 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		A181466416B5ECF700A00451 /* RosesareFF0000.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RosesareFF0000.ttf; sourceTree = "<group>"; };
+		A181466616B5ED0900A00451 /* RosesAreFF0000.fontdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RosesAreFF0000.fontdef; sourceTree = "<group>"; };
 		A19965A0169D24B800390AF2 /* RaceTrack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RaceTrack.cpp; sourceTree = "<group>"; };
 		A19965A1169D24B800390AF2 /* RaceTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceTrack.h; sourceTree = "<group>"; };
 		A19965A4169D2DE200390AF2 /* TrackSegment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrackSegment.cpp; sourceTree = "<group>"; };
@@ -126,6 +130,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A181466316B5ECF700A00451 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A181466416B5ECF700A00451 /* RosesareFF0000.ttf */,
+				A181466616B5ED0900A00451 /* RosesAreFF0000.fontdef */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		A1CA803616AF9723004EDCE4 /* TinyXML */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +265,7 @@
 		A1FB77D91693697D003F1DB4 /* media */ = {
 			isa = PBXGroup;
 			children = (
+				A181466316B5ECF700A00451 /* fonts */,
 				A1E6BA08169A0E4900BE2E14 /* config */,
 				A1E6B9FA1699F18E00BE2E14 /* audio */,
 				A1FB77DA1693697D003F1DB4 /* materials */,
@@ -387,6 +401,8 @@
 				A1E6BA0A169A0E4900BE2E14 /* audio_events.xml in Resources */,
 				A1797F8816A365E8004D6F72 /* GameMaterials.material in Resources */,
 				A1CA803016AF85BD004EDCE4 /* lest.wav in Resources */,
+				A181466516B5ECF700A00451 /* RosesareFF0000.ttf in Resources */,
+				A181466716B5ED0900A00451 /* RosesAreFF0000.fontdef in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +483,7 @@
 					"\"/bullet-2.81/2.81/src\"",
 					"\"/ogre_src_v1-8-1/Dependencies/lib/Release\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-lOIS";
 				SDKROOT = macosx10.8;
 				VALID_ARCHS = x86_64;
@@ -500,7 +516,7 @@
 					"\"/bullet-2.81/2.81/src\"",
 					"\"/ogre_src_v1-8-1/Dependencies/lib/Release\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-lOIS";
 				SDKROOT = macosx10.8;
 				VALID_ARCHS = x86_64;

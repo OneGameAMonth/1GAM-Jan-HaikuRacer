@@ -120,15 +120,17 @@ static id mAppDelegate;
 
             if( BtOgreFramework::getSingletonPtr()->m_UpdatePhysics){
                 if ( !once ){
+                    BtOgreFramework::getSingletonPtr()->m_pTimer->reset();
                     mStartTime = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU();
+
                     once = true;
                 }
                 else{
                     mStartTime = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU();
     
-                BtOgreFramework::getSingletonPtr()->updateOgre(mLastFrameTime);
-                BtOgreFramework::getSingletonPtr()->m_pRoot->renderOneFrame();
-                game.updateGame();
+                    BtOgreFramework::getSingletonPtr()->updateOgre(mLastFrameTime);
+                    BtOgreFramework::getSingletonPtr()->m_pRoot->renderOneFrame();
+                    game.updateGame();
                     mLastFrameTime = BtOgreFramework::getSingletonPtr()->m_pTimer->getMillisecondsCPU() - mStartTime;
 
                 }

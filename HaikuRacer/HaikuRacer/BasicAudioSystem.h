@@ -21,7 +21,7 @@
 #include "AudioResourceManager.h"
 #define NUM_BUFFERS 10
 #define NUM_SOURCES 3
-#define BUFFER_SIZE 4096
+#define BUFFER_SIZE 2048
 
 class BasicAudioSystem
 {

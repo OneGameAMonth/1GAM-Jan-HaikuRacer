@@ -59,3 +59,31 @@ material GUI/bgMaterial
     }
 }
 
+material GUI/none
+{
+    technique
+    {
+        pass
+        {
+            ambient 0 0 0 0
+            diffuse 0 0 0 0
+            specular 0 0 0 0
+            emissize 0 0 0 0
+        }
+    }
+}
+
+material GUI/endScreen
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+			{
+				texture GUI_endScreen.png
+			}
+        }
+    }
+}
+

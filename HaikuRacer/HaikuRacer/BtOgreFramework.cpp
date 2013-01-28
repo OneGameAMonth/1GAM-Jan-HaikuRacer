@@ -80,7 +80,7 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
 	m_pCamera->setPosition(Vector3(0, 8, -15));
 	m_pCamera->lookAt(Vector3(0, 0, 20));
 	m_pCamera->setNearClipDistance(1);
-    m_pCamera->setFarClipDistance(200000);
+    m_pCamera->setFarClipDistance(200);
     
 	m_pViewport = m_pRenderWnd->addViewport(m_pCamera);
 	//m_pViewport->setBackgroundColour(ColourValue(0.9,0.9,0.9,1.0));//ColourValue(0.8f, 0.7f, 0.6f, 1.0f));
@@ -138,7 +138,7 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
             Ogre::ResourceGroupManager::getSingleton().addResourceLocation(archName, typeName, secName);
         }
     }
-	Ogre::TextureManager::getSingleton().setDefaultNumMipmaps(5);
+	Ogre::TextureManager::getSingleton().setDefaultNumMipmaps(1);
 	Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
     
 	m_pTimer = OGRE_NEW Ogre::Timer();
@@ -152,7 +152,7 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
 	m_pRenderWnd->setActive(true);
     m_pCamera->setAutoAspectRatio(true);
     
-    mBroadphase = new btAxisSweep3(btVector3(-10000,-10000,-10000), btVector3(10000,10000,10000), 1024);
+    mBroadphase = new btAxisSweep3(btVector3(-200,-200,-200), btVector3(200,200,200), 512);
     mCollisionConfig = new btDefaultCollisionConfiguration();
     mDispatcher = new btCollisionDispatcher(mCollisionConfig);
     mSolver = new btSequentialImpulseConstraintSolver();
@@ -160,8 +160,7 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
     m_pPhysicsWorld = new btDiscreteDynamicsWorld(mDispatcher, mBroadphase, mSolver, mCollisionConfig);
     m_pPhysicsWorld->setGravity(btVector3(0,-9.8,0));
     
-    dbgdraw = new BtOgre::DebugDrawer(m_pSceneMgr->getRootSceneNode(), m_pPhysicsWorld);
-    dbgdraw->setDebugMode(1);
+
     m_pSceneMgr->setShadowTechnique(SHADOWTYPE_STENCIL_MODULATIVE);
     m_pSceneMgr->setShadowCasterRenderBackFaces(false);
 
@@ -266,8 +265,8 @@ void BtOgreFramework::updateOgre(double timeSinceLastFrame)
     }
 	m_TranslateVector = Vector3::ZERO;
     
-	getInput();
-	moveCamera();
+	//getInput();
+	//moveCamera();
     
 	m_FrameEvent.timeSinceLastFrame = timeSinceLastFrame;
     m_pTrayMgr->frameRenderingQueued(m_FrameEvent);
