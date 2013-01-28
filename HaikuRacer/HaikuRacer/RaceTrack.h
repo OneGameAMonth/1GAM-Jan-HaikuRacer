@@ -27,6 +27,7 @@ public:
     TrackSegment *endSegment;
     
     float getLowestY();
+    void clear();
     RaceTrack();
     ~RaceTrack();
 

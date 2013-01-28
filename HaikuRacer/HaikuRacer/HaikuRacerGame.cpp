@@ -14,7 +14,7 @@ HaikuRacerGame::~HaikuRacerGame()
 
 void HaikuRacerGame::startGame()
 {
-    
+    over =false;
 	new BtOgreFramework();
     BasicAudioSystem::getInstance();
 
@@ -39,13 +39,13 @@ void HaikuRacerGame::startGame()
     buttonGUI::button *scoreRoot = btnManager->createButton("gameplay", "GUI/none", buttonGUI::buttonPosition(buttonGUI::TOP_LEFT, 0,0), 0,0);
     score = scoreRoot->addTextArea("score", Ogre::UTFString("Score:"), 80, 50);
     score->hide(false);
-    btnManager->createButton("end", "GUI/endScreen", buttonGUI::buttonPosition(buttonGUI::CENTER, 0,0), 1024,768);
-    btnManager->getButton("title")->setTextVisibility("klsdfjs", true);
+    end = btnManager->createButton("end", "GUI/endScreen", buttonGUI::buttonPosition(buttonGUI::CENTER, 0,0), 1024,768);
+
     btnManager->getButton("end")->hide(false);
 	m_bShutdown = false;
 	BtOgreFramework::getSingletonPtr()->m_pLog->logMessage("Demo initialized!");
     BtOgreFramework::getSingletonPtr()->m_pTimer->reset();
-
+	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,275,75);
 	setupGameScene();
 #if !((OGRE_PLATFORM == OGRE_PLATFORM_APPLE) && __LP64__)
 	runGame();
@@ -63,7 +63,7 @@ void HaikuRacerGame::setupGameScene()
     currentPanel = &track->track[0];
     BtOgreFramework::getSingletonPtr()->m_pCamera->setAutoTracking(true,vehicle->node);
     
-	BtOgreFramework::getSingletonPtr()->m_pSceneMgr->createLight("Light")->setPosition(75,275,75);
+
 }
 
 //|||||||||||||||||||||||||||||||||||||||||||||||
@@ -85,10 +85,25 @@ bool HaikuRacerGame::keyPressed(const OIS::KeyEvent &keyEventRef)
 {
 	BtOgreFramework::getSingletonPtr()->keyPressed(keyEventRef);
      if (BtOgreFramework::getSingletonPtr()->m_pKeyboard->isKeyDown(OIS::KC_SPACE) ){
-        BtOgreFramework::getSingletonPtr()->m_UpdatePhysics = true;
-        btnManager->getButton("title")->hide(false);
-         score->show(false);
+         if (!over){
+             BtOgreFramework::getSingletonPtr()->m_UpdatePhysics = true;
+             btnManager->getButton("title")->hide(false);
+             score->show(false);
+         }
+         else{
+             AudioResource u = AudioResourceManager::getInstance().getResourceForEvent("fall_off");
+             BasicAudioSystem::getInstance().stopSound(u);
+             currentPanel = NULL;
+             scoreVal = 1;
+             over = false;
+             end->hide(false);
+             track->clear();
+             score->show(false);
+             setupGameScene();
+             BtOgreFramework::getSingletonPtr()->m_pTimer->reset();
+             BtOgreFramework::getSingletonPtr()->m_UpdatePhysics = true;
 
+         }
      }
     return true;
 }
@@ -164,12 +179,15 @@ void HaikuRacerGame::updateGame(){
     if ( detectGameOver() ){
         AudioResource u = AudioResourceManager::getInstance().getResourceForEvent("fall_off");
         BasicAudioSystem::getInstance().playSound(u);
+        
+        Vector3 sub = ( vehicle->headNode->getPosition() - BtOgreFramework::getSingletonPtr()->m_pCamera->getPosition() );
+        end->show(false);
+
+        score->hide(false);
         vehicle->node->setPosition(0,2,0);
         vehicle->rigidBody->setGravity(btVector3(0,-99,0));
-        score->hide(false);
-        Vector3 sub = ( vehicle->headNode->getPosition() - BtOgreFramework::getSingletonPtr()->m_pCamera->getPosition() );
-        if (sub.length() > 500) btnManager->getButton("end")->show(false);
-
+        end->show(false);
+        over = true;
     }
     
     else{
@@ -239,7 +257,7 @@ bool HaikuRacerGame::detectGameOver(){
     if ( currentPanel == NULL){
         return false;
     }
-    bool end = vehicle->node->getPosition().y < track->getLowestY() - 20;
+    bool end = vehicle->node->getPosition().y < track->getLowestY() - 15;
     
     return end;
 }

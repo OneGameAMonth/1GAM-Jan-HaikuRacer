@@ -31,6 +31,7 @@ private:
 	Ogre::SceneNode*			m_pCubeNode;
 	Ogre::Entity*				m_pCubeEntity;
     
+    bool over;
     int scoreVal;
     UTFString scoreString;
 	bool					m_bShutdown;
@@ -39,6 +40,7 @@ private:
     TrackSegment *currentPanel;
     RaceTrack *track;
     buttonGUI::button *score;
+    buttonGUI::button *end;
     buttonGUI::buttonManager *btnManager;
 };
 

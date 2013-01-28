@@ -29,4 +29,13 @@ float RaceTrack::getLowestY(){
     return seg->floorNode->getPosition().y;
 }
 
-RaceTrack::~RaceTrack(){}
+void RaceTrack::clear(){
+    TrackSegment *seg;
+    for(int i = 0; i < NUM_SEGMENTS; i++)
+    {
+        seg = &track[i];
+        BtOgreFramework::getSingletonPtr()->m_pSceneMgr->destroySceneNode(seg->floorNode);
+        BtOgreFramework::getSingletonPtr()->m_pSceneMgr->destroySceneNode(seg->node);
+    }
+    track.clear();
+}

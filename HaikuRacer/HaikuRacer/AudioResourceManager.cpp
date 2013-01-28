@@ -53,7 +53,7 @@ bool AudioResourceManager::initialize()
             unit.gain = atof(unitIter->FirstChildElement("gain")->GetText());
             unit.bufferHandle = -1;
             unit.sourceHandle = -1;
-            if ( eventName == "apply_force_left" || eventName == "apply_force_right") unit.canStop = false;
+            if ( eventName == "apply_force_left" || eventName == "apply_force_right" || eventName=="fall_off") unit.canStop = false;
             else unit.canStop = true;
             alGenSources(1, &unit.sourceHandle);
             resources[eventName].push_back(unit);
