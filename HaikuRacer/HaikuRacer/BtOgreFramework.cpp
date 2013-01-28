@@ -15,7 +15,7 @@ BtOgreFramework::BtOgreFramework()
     
 	m_bShutDownOgre     = false;
 	m_iNumScreenShots   = 0;
-    
+    m_UpdatePhysics     = false;
 	m_pRoot				= 0;
 	m_pSceneMgr			= 0;
 	m_pRenderWnd        = 0;
@@ -88,7 +88,8 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
 	m_pCamera->setAspectRatio(Real(m_pViewport->getActualWidth()) / Real(m_pViewport->getActualHeight()));
 	
 	m_pViewport->setCamera(m_pCamera);
-    m_pViewport->setBackgroundColour(ColourValue(0.278, 0.0, 0.14,1.0));
+    m_pViewport->setBackgroundColour(ColourValue(0.578, 0.0, 0.14,1.0));
+    //m_pViewport->setBackgroundColour(ColourValue(0., 0.0, 0.,1.0));
 	unsigned long hWnd = 0;
     OIS::ParamList paramList;
     m_pRenderWnd->getCustomAttribute("WINDOW", &hWnd);
@@ -137,7 +138,7 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
             Ogre::ResourceGroupManager::getSingleton().addResourceLocation(archName, typeName, secName);
         }
     }
-	Ogre::TextureManager::getSingleton().setDefaultNumMipmaps(5);
+	Ogre::TextureManager::getSingleton().setDefaultNumMipmaps(1);
 	Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
     
 	m_pTimer = OGRE_NEW Ogre::Timer();
@@ -149,9 +150,9 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
     m_pTrayMgr->hideCursor();
     m_pTrayMgr->hideAll();
 	m_pRenderWnd->setActive(true);
+    m_pCamera->setAutoAspectRatio(true);
     
-    
-    mBroadphase = new btAxisSweep3(btVector3(-10000,-10000,-10000), btVector3(10000,10000,10000), 1024);
+    mBroadphase = new btAxisSweep3(btVector3(-200,-200,-200), btVector3(200,200,200), 512);
     mCollisionConfig = new btDefaultCollisionConfiguration();
     mDispatcher = new btCollisionDispatcher(mCollisionConfig);
     mSolver = new btSequentialImpulseConstraintSolver();
@@ -159,8 +160,7 @@ bool BtOgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyList
     m_pPhysicsWorld = new btDiscreteDynamicsWorld(mDispatcher, mBroadphase, mSolver, mCollisionConfig);
     m_pPhysicsWorld->setGravity(btVector3(0,-9.8,0));
     
-    dbgdraw = new BtOgre::DebugDrawer(m_pSceneMgr->getRootSceneNode(), m_pPhysicsWorld);
-    dbgdraw->setDebugMode(1);
+
     m_pSceneMgr->setShadowTechnique(SHADOWTYPE_STENCIL_MODULATIVE);
     m_pSceneMgr->setShadowCasterRenderBackFaces(false);
 
@@ -260,13 +260,13 @@ void BtOgreFramework::updateOgre(double timeSinceLastFrame)
 #if OGRE_VERSION >= 0x10800
     m_pSceneMgr->setSkyBoxEnabled(true);
 #endif
-    m_pPhysicsWorld->stepSimulation(timeSinceLastFrame);
-    m_pPhysicsWorld->debugDrawWorld();
-    dbgdraw->step();
+    if (m_UpdatePhysics){
+        m_pPhysicsWorld->stepSimulation(timeSinceLastFrame);
+    }
 	m_TranslateVector = Vector3::ZERO;
     
-	getInput();
-	moveCamera();
+	//getInput();
+	//moveCamera();
     
 	m_FrameEvent.timeSinceLastFrame = timeSinceLastFrame;
     m_pTrayMgr->frameRenderingQueued(m_FrameEvent);

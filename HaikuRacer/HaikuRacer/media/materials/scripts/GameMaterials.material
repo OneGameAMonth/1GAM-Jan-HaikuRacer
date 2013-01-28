@@ -31,3 +31,59 @@ material ground/on
         }
     }
 }
+
+material ground/end
+{
+    technique
+    {
+        pass
+        {
+            ambient 0.5 0.3 0.3
+            diffuse 0.5 0.3 0.3
+            emissive 1.0 0.5 0.0 1.0
+        }
+    }
+}
+
+material GUI/bgMaterial
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+			{
+				texture GUI_titleScreen.png
+			}
+        }
+    }
+}
+
+material GUI/none
+{
+    technique
+    {
+        pass
+        {
+            ambient 0 0 0 0
+            diffuse 0 0 0 0
+            specular 0 0 0 0
+            emissize 0 0 0 0
+        }
+    }
+}
+
+material GUI/endScreen
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+			{
+				texture GUI_endScreen.png
+			}
+        }
+    }
+}
+

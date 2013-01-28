@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A1797F8816A365E8004D6F72 /* GameMaterials.material in Resources */ = {isa = PBXBuildFile; fileRef = A1797F8716A365E8004D6F72 /* GameMaterials.material */; };
+		A181466016B58FF000A00451 /* buttonGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A181465E16B58FF000A00451 /* buttonGUI.cpp */; };
+		A181466216B5B7ED00A00451 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A181466116B5B7ED00A00451 /* OpenAL.framework */; };
+		A181466516B5ECF700A00451 /* RosesareFF0000.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A181466416B5ECF700A00451 /* RosesareFF0000.ttf */; };
+		A181466716B5ED0900A00451 /* RosesAreFF0000.fontdef in Resources */ = {isa = PBXBuildFile; fileRef = A181466616B5ED0900A00451 /* RosesAreFF0000.fontdef */; };
 		A19965A2169D24B800390AF2 /* RaceTrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A19965A0169D24B800390AF2 /* RaceTrack.cpp */; };
 		A19965A6169D2DE200390AF2 /* TrackSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A19965A4169D2DE200390AF2 /* TrackSegment.cpp */; };
+		A1CA803016AF85BD004EDCE4 /* lest.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1CA802F16AF85BD004EDCE4 /* lest.wav */; };
+		A1CA803916AF972E004EDCE4 /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1CA803716AF972E004EDCE4 /* tinyxml2.cpp */; };
 		A1E6B9FC1699F18E00BE2E14 /* test.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1E6B9FB1699F18E00BE2E14 /* test.wav */; };
 		A1E6BA07169A0BA600BE2E14 /* AudioResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1E6BA05169A0BA600BE2E14 /* AudioResourceManager.cpp */; };
 		A1E6BA0A169A0E4900BE2E14 /* audio_events.xml in Resources */ = {isa = PBXBuildFile; fileRef = A1E6BA09169A0E4900BE2E14 /* audio_events.xml */; };
@@ -31,7 +37,6 @@
 		A1FB782716939627003F1DB4 /* RaceVehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB782516939627003F1DB4 /* RaceVehicle.cpp */; };
 		A1FB78291693BDAD003F1DB4 /* Environment.material in Resources */ = {isa = PBXBuildFile; fileRef = A1FB78281693BDAD003F1DB4 /* Environment.material */; };
 		A1FB782B1693BDE7003F1DB4 /* trackTile_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = A1FB782A1693BDE7003F1DB4 /* trackTile_flat.png */; };
-		A1FB782E169532B8003F1DB4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB782D169532B7003F1DB4 /* OpenAL.framework */; };
 		A1FB78421695418B003F1DB4 /* BasicAudioSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1FB78401695418B003F1DB4 /* BasicAudioSystem.cpp */; };
 		A1FB7860169548F2003F1DB4 /* Ogre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB785F169548F2003F1DB4 /* Ogre.framework */; };
 		A1FB786216954904003F1DB4 /* Cg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FB786116954904003F1DB4 /* Cg.framework */; };
@@ -42,15 +47,19 @@
 
 /* Begin PBXFileReference section */
 		A1797F8716A365E8004D6F72 /* GameMaterials.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GameMaterials.material; sourceTree = "<group>"; };
+		A181465E16B58FF000A00451 /* buttonGUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = buttonGUI.cpp; sourceTree = "<group>"; };
+		A181465F16B58FF000A00451 /* buttonGUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buttonGUI.h; sourceTree = "<group>"; };
+		A181466116B5B7ED00A00451 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		A181466416B5ECF700A00451 /* RosesareFF0000.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RosesareFF0000.ttf; sourceTree = "<group>"; };
+		A181466616B5ED0900A00451 /* RosesAreFF0000.fontdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RosesAreFF0000.fontdef; sourceTree = "<group>"; };
 		A19965A0169D24B800390AF2 /* RaceTrack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RaceTrack.cpp; sourceTree = "<group>"; };
 		A19965A1169D24B800390AF2 /* RaceTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceTrack.h; sourceTree = "<group>"; };
 		A19965A4169D2DE200390AF2 /* TrackSegment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrackSegment.cpp; sourceTree = "<group>"; };
 		A19965A5169D2DE200390AF2 /* TrackSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackSegment.h; sourceTree = "<group>"; };
+		A1CA802F16AF85BD004EDCE4 /* lest.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lest.wav; sourceTree = "<group>"; };
+		A1CA803716AF972E004EDCE4 /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml2.cpp; sourceTree = "<group>"; };
+		A1CA803816AF972E004EDCE4 /* tinyxml2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml2.h; sourceTree = "<group>"; };
 		A1E6B9FB1699F18E00BE2E14 /* test.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = test.wav; path = "../../../../../../../../Documents/Development/Projects/Mac OS X/1GAM-Jan/1GAM-Jan-HaikuRacer/HaikuRacer/HaikuRacer/media/audio/test.wav"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1E6B9FE169A0A1700BE2E14 /* rapidxml_iterators.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rapidxml_iterators.hpp; sourceTree = "<group>"; };
-		A1E6B9FF169A0A1700BE2E14 /* rapidxml_print.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rapidxml_print.hpp; sourceTree = "<group>"; };
-		A1E6BA00169A0A1700BE2E14 /* rapidxml_utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rapidxml_utils.hpp; sourceTree = "<group>"; };
-		A1E6BA01169A0A1700BE2E14 /* rapidxml.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rapidxml.hpp; sourceTree = "<group>"; };
 		A1E6BA05169A0BA600BE2E14 /* AudioResourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioResourceManager.cpp; sourceTree = "<group>"; };
 		A1E6BA06169A0BA600BE2E14 /* AudioResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioResourceManager.h; sourceTree = "<group>"; };
 		A1E6BA09169A0E4900BE2E14 /* audio_events.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = audio_events.xml; sourceTree = "<group>"; };
@@ -89,7 +98,6 @@
 		A1FB782616939627003F1DB4 /* RaceVehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceVehicle.h; sourceTree = "<group>"; };
 		A1FB78281693BDAD003F1DB4 /* Environment.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Environment.material; sourceTree = "<group>"; };
 		A1FB782A1693BDE7003F1DB4 /* trackTile_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackTile_flat.png; sourceTree = "<group>"; };
-		A1FB782D169532B7003F1DB4 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		A1FB78401695418B003F1DB4 /* BasicAudioSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BasicAudioSystem.cpp; path = HaikuRacer/BasicAudioSystem.cpp; sourceTree = SOURCE_ROOT; };
 		A1FB78411695418B003F1DB4 /* BasicAudioSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicAudioSystem.h; sourceTree = "<group>"; };
 		A1FB785F169548F2003F1DB4 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = Frameworks/Ogre.framework; sourceTree = "<group>"; };
@@ -104,10 +112,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A181466216B5B7ED00A00451 /* OpenAL.framework in Frameworks */,
 				A1E6BA10169A1E8E00BE2E14 /* CoreFoundation.framework in Frameworks */,
 				A1E6BA0E169A1E8800BE2E14 /* CoreAudio.framework in Frameworks */,
 				A1E6BA0C169A1E8500BE2E14 /* AudioToolbox.framework in Frameworks */,
-				A1FB782E169532B8003F1DB4 /* OpenAL.framework in Frameworks */,
 				A1FB77BC1693697D003F1DB4 /* Carbon.framework in Frameworks */,
 				A1FB77BE1693697D003F1DB4 /* Cocoa.framework in Frameworks */,
 				A1FB77C01693697D003F1DB4 /* IOKit.framework in Frameworks */,
@@ -122,23 +130,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A181466316B5ECF700A00451 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A181466416B5ECF700A00451 /* RosesareFF0000.ttf */,
+				A181466616B5ED0900A00451 /* RosesAreFF0000.fontdef */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		A1CA803616AF9723004EDCE4 /* TinyXML */ = {
+			isa = PBXGroup;
+			children = (
+				A1CA803716AF972E004EDCE4 /* tinyxml2.cpp */,
+				A1CA803816AF972E004EDCE4 /* tinyxml2.h */,
+			);
+			name = TinyXML;
+			sourceTree = "<group>";
+		};
 		A1E6B9FA1699F18E00BE2E14 /* audio */ = {
 			isa = PBXGroup;
 			children = (
+				A1CA802F16AF85BD004EDCE4 /* lest.wav */,
 				A1E6B9FB1699F18E00BE2E14 /* test.wav */,
 			);
 			path = audio;
-			sourceTree = "<group>";
-		};
-		A1E6B9FD169A0A0F00BE2E14 /* RapidXML */ = {
-			isa = PBXGroup;
-			children = (
-				A1E6B9FE169A0A1700BE2E14 /* rapidxml_iterators.hpp */,
-				A1E6B9FF169A0A1700BE2E14 /* rapidxml_print.hpp */,
-				A1E6BA00169A0A1700BE2E14 /* rapidxml_utils.hpp */,
-				A1E6BA01169A0A1700BE2E14 /* rapidxml.hpp */,
-			);
-			name = RapidXML;
 			sourceTree = "<group>";
 		};
 		A1E6BA08169A0E4900BE2E14 /* config */ = {
@@ -163,10 +179,10 @@
 		A1FB77AB1693697D003F1DB4 = {
 			isa = PBXGroup;
 			children = (
+				A181466116B5B7ED00A00451 /* OpenAL.framework */,
 				A1E6BA0F169A1E8E00BE2E14 /* CoreFoundation.framework */,
 				A1E6BA0D169A1E8800BE2E14 /* CoreAudio.framework */,
 				A1E6BA0B169A1E8500BE2E14 /* AudioToolbox.framework */,
-				A1FB782D169532B7003F1DB4 /* OpenAL.framework */,
 				A1FB77C71693697D003F1DB4 /* HaikuRacer */,
 				A1FB77BA1693697D003F1DB4 /* Frameworks */,
 				A1FB77B81693697D003F1DB4 /* Products */,
@@ -199,7 +215,9 @@
 		A1FB77C71693697D003F1DB4 /* HaikuRacer */ = {
 			isa = PBXGroup;
 			children = (
-				A1E6B9FD169A0A0F00BE2E14 /* RapidXML */,
+				A1CA803616AF9723004EDCE4 /* TinyXML */,
+				A181465E16B58FF000A00451 /* buttonGUI.cpp */,
+				A181465F16B58FF000A00451 /* buttonGUI.h */,
 				A1FB782C1693E8C6003F1DB4 /* Game Objects */,
 				A1FB77D21693697D003F1DB4 /* HaikuRacerGame.cpp */,
 				A1FB77D41693697D003F1DB4 /* HaikuRacerGame.h */,
@@ -247,6 +265,7 @@
 		A1FB77D91693697D003F1DB4 /* media */ = {
 			isa = PBXGroup;
 			children = (
+				A181466316B5ECF700A00451 /* fonts */,
 				A1E6BA08169A0E4900BE2E14 /* config */,
 				A1E6B9FA1699F18E00BE2E14 /* audio */,
 				A1FB77DA1693697D003F1DB4 /* materials */,
@@ -381,6 +400,9 @@
 				A1E6B9FC1699F18E00BE2E14 /* test.wav in Resources */,
 				A1E6BA0A169A0E4900BE2E14 /* audio_events.xml in Resources */,
 				A1797F8816A365E8004D6F72 /* GameMaterials.material in Resources */,
+				A1CA803016AF85BD004EDCE4 /* lest.wav in Resources */,
+				A181466516B5ECF700A00451 /* RosesareFF0000.ttf in Resources */,
+				A181466716B5ED0900A00451 /* RosesAreFF0000.fontdef in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +438,8 @@
 				A1E6BA07169A0BA600BE2E14 /* AudioResourceManager.cpp in Sources */,
 				A19965A2169D24B800390AF2 /* RaceTrack.cpp in Sources */,
 				A19965A6169D2DE200390AF2 /* TrackSegment.cpp in Sources */,
+				A1CA803916AF972E004EDCE4 /* tinyxml2.cpp in Sources */,
+				A181466016B58FF000A00451 /* buttonGUI.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,7 +483,7 @@
 					"\"/bullet-2.81/2.81/src\"",
 					"\"/ogre_src_v1-8-1/Dependencies/lib/Release\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-lOIS";
 				SDKROOT = macosx10.8;
 				VALID_ARCHS = x86_64;
@@ -492,7 +516,7 @@
 					"\"/bullet-2.81/2.81/src\"",
 					"\"/ogre_src_v1-8-1/Dependencies/lib/Release\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-lOIS";
 				SDKROOT = macosx10.8;
 				VALID_ARCHS = x86_64;
@@ -508,6 +532,7 @@
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Frameworks\"",
+					"\"$(SRCROOT)/HaikuRacer\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HaikuRacer/HaikuRacer-Prefix.pch";
@@ -532,6 +557,7 @@
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Frameworks\"",
+					"\"$(SRCROOT)/HaikuRacer\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HaikuRacer/HaikuRacer-Prefix.pch";

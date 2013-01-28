@@ -16,7 +16,7 @@
 #include <string>
 #include "TrackSegment.h"
 
-#define NUM_SEGMENTS 400
+#define NUM_SEGMENTS 250
 using namespace Ogre;
 
 class RaceTrack{
@@ -24,6 +24,10 @@ public:
     SceneNode *node;
     std::vector<TrackSegment> track;
     
+    TrackSegment *endSegment;
+    
+    float getLowestY();
+    void clear();
     RaceTrack();
     ~RaceTrack();
 
