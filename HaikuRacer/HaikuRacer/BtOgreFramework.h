@@ -114,6 +114,8 @@ public:
 	OIS::Keyboard*				m_pKeyboard;
 
 	OIS::Mouse*					m_pMouse;
+    
+    bool                        m_UpdatePhysics;
 
 protected:
    // Added for Mac compatibility

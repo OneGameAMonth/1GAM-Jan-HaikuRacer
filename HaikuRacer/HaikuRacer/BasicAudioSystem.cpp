@@ -157,6 +157,10 @@ BasicAudioSystem::BasicAudioSystem()
 
 static int curBuffer = 0;
 
+void BasicAudioSystem::stopSound(AudioResource unit){
+    alSourceStop(unit.sourceHandle);
+}
+
 void BasicAudioSystem::playSound(AudioResource unit){
     char*     alBuffer;             //data for the buffer
     ALenum alFormatBuffer;    //buffer format
@@ -174,8 +178,15 @@ void BasicAudioSystem::playSound(AudioResource unit){
     LoadWAVFile(path.data(), &format, &data, &size, &freq, &duration);
     ALenum error;
     
-    
-    if ( unit.bufferHandle == NULL) alGenBuffers(1, &unit.bufferHandle);
+    if ( unit.canStop == false){
+        ALenum state;
+        alGetSourcei(unit.sourceHandle, AL_SOURCE_STATE, &state);
+        if (state == AL_PLAYING) return;
+    }
+    else{
+        alGenSources(1, &unit.sourceHandle);
+    }
+    if ( unit.bufferHandle == -1) alGenBuffers(1, &unit.bufferHandle);
 
     if ((error = alGetError()) != AL_NO_ERROR)
     {
@@ -190,10 +201,9 @@ void BasicAudioSystem::playSound(AudioResource unit){
         alDeleteBuffers(NUM_BUFFERS, &unit.bufferHandle);
         return 1;
     }
-    if ( unit.sourceHandle == NULL )alGenSources(1, &unit.sourceHandle);
-    // Attach buffer 0 to source
     
     alSourcei(unit.sourceHandle, AL_BUFFER, unit.bufferHandle);
+    
     
     if ((error = alGetError()) != AL_NO_ERROR)
     {
@@ -205,7 +215,7 @@ void BasicAudioSystem::playSound(AudioResource unit){
     alSourcef(unit.sourceHandle, AL_GAIN, unit.gain);
     
     alSourcePlay(unit.sourceHandle);
-    
+
 
     
        // Exit

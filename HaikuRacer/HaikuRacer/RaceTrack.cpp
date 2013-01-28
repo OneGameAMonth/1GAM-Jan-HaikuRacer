@@ -11,12 +11,31 @@
 RaceTrack::RaceTrack(){
     node = BtOgreFramework::getSingletonPtr()->m_pSceneMgr->getRootSceneNode()->createChildSceneNode();
 
-
+    TrackSegment *seg;
     for(int i = 0; i < NUM_SEGMENTS; i++)
     {
-        TrackSegment *seg = new TrackSegment((i>0)?track[i-1]:NULL);
+        seg = new TrackSegment((i>0)?track[i-1]:NULL);
         track.push_back(seg);
     }
+    
+    endSegment = &track[NUM_SEGMENTS-1];
+    endSegment->ent->setMaterialName("ground/end");
+
 }
 
-RaceTrack::~RaceTrack(){}
+float RaceTrack::getLowestY(){
+    TrackSegment *seg;
+    seg = &track[NUM_SEGMENTS-1];
+    return seg->floorNode->getPosition().y;
+}
+
+void RaceTrack::clear(){
+    TrackSegment *seg;
+    for(int i = 0; i < NUM_SEGMENTS; i++)
+    {
+        seg = &track[i];
+        BtOgreFramework::getSingletonPtr()->m_pSceneMgr->destroySceneNode(seg->floorNode);
+        BtOgreFramework::getSingletonPtr()->m_pSceneMgr->destroySceneNode(seg->node);
+    }
+    track.clear();
+}

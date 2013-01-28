@@ -82,7 +82,10 @@ TrackSegment::TrackSegment(TrackSegment *previous){
     
     BtOgreFramework::getSingletonPtr()->m_pPhysicsWorld->addRigidBody(rigidBody);
     gContactProcessedCallback = (ContactProcessedCallback)HandleContacts;
+    
+    if ( previous == NULL )startGlow();
 }
+
 
 void TrackSegment::startGlow(){
     glowing = true;
