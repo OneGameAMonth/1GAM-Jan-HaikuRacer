@@ -2,26 +2,19 @@
 	<event>
 		<name>ambient</name>
 		<eventUnit>
-			<filename>lest.wav</filename>
-			<gain>0.0</gain>
+			<filename>ambient1.wav</filename>
+			<gain>1.0</gain>
 			<panning>1.0</panning>
 			<looping>1.0</looping>
-			<pitch>1.5</pitch>
-		</eventUnit>
-        <eventUnit>
-			<filename>lest.wav</filename>
-			<gain>0.0</gain>
-			<panning>1.0</panning>
-			<looping>1.0</looping>
-			<pitch>0.8</pitch>
+			<pitch>1.0</pitch>
 		</eventUnit>
 	</event>
    
     <event>
 		<name>music</name>
 		<eventUnit>
-			<filename>lest.wav</filename>
-			<gain>0.3</gain>
+			<filename>music01.wav</filename>
+			<gain>1.0</gain>
 			<panning>1.0</panning>
 			<looping>1.0</looping>
 			<pitch>1.0</pitch>
@@ -32,7 +25,7 @@
 		<name>fall_off</name>
 		<eventUnit>
 			<filename>lest.wav</filename>
-			<gain>1.0</gain>
+			<gain>0.0</gain>
 			<panning>1.0</panning>
 			<looping>1.0</looping>
 			<pitch>0.1</pitch>
@@ -41,19 +34,19 @@
     <event>
 		<name>apply_force_left</name>
 		<eventUnit>
-			<filename>lest.wav</filename>
-			<gain>1.0</gain>
-			<panning>1.0</panning>
-			<looping>0.0</looping>
+			<filename>force1.wav</filename>
+			<gain>0.3</gain>
+			<panning>0.5</panning>
+			<looping>1.0</looping>
 			<pitch>1.0</pitch>
 		</eventUnit>
     </event>
     <event>
 		<name>apply_force_right</name>
 		<eventUnit>
-			<filename>lest.wav</filename>
-			<gain>1.0</gain>
-			<panning>1.0</panning>
+			<filename>force1.wav</filename>
+			<gain>0.3</gain>
+			<panning>1.5</panning>
 			<looping>1.0</looping>
 			<pitch>1.0</pitch>
 		</eventUnit>
@@ -71,11 +64,46 @@
     <event>
 		<name>next_panel</name>
 		<eventUnit>
-			<filename>test.wav</filename>
-			<gain>1.0</gain>
+			<filename>landing1.wav</filename>
+			<gain>0.2</gain>
 			<panning>1.0</panning>
 			<looping>0.0</looping>
 			<pitch>1.0</pitch>
+		</eventUnit>
+		<eventUnit>
+			<filename>landing2.wav</filename>
+			<gain>0.2</gain>
+			<panning>1.0</panning>
+			<looping>0.0</looping>
+			<pitch>1.0</pitch>
+		</eventUnit>
+		<eventUnit>
+			<filename>landing3.wav</filename>
+			<gain>0.2</gain>
+			<panning>1.0</panning>
+			<looping>0.0</looping>
+			<pitch>0.5</pitch>
+		</eventUnit>
+				<eventUnit>
+			<filename>landing1.wav</filename>
+			<gain>0.2</gain>
+			<panning>1.0</panning>
+			<looping>0.0</looping>
+			<pitch>0.6</pitch>
+		</eventUnit>
+		<eventUnit>
+			<filename>landing2.wav</filename>
+			<gain>0.2</gain>
+			<panning>1.0</panning>
+			<looping>0.0</looping>
+			<pitch>1.1</pitch>
+		</eventUnit>
+		<eventUnit>
+			<filename>landing3.wav</filename>
+			<gain>0.2</gain>
+			<panning>1.0</panning>
+			<looping>0.0</looping>
+			<pitch>0.3</pitch>
 		</eventUnit>
     </event>
 </audio>
